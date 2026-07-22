@@ -1,0 +1,19 @@
+[
+  {
+    "name": "claude-opus-4-8",
+    "provider": "anthropic",
+    "model_id": "claude-opus-4-8"
+  },
+  {
+    "name": "claude-haiku-4-5",
+    "provider": "anthropic",
+    "model_id": "claude-haiku-4-5"
+  },
+  {
+    "name": "llama3.1-8b-local",
+    "provider": "openai_compatible",
+    "model_id": "llama3.1",
+    "base_url": "http://localhost:11434/v1",
+    "api_key_env": "OLLAMA_API_KEY"
+  }
+]
