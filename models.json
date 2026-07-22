@@ -10,10 +10,10 @@
     "model_id": "claude-haiku-4-5"
   },
   {
-    "name": "llama3.1-8b-local",
-    "provider": "openai_compatible",
-    "model_id": "llama3.1",
-    "base_url": "http://localhost:11434/v1",
-    "api_key_env": "OLLAMA_API_KEY"
+    "name": "qwen3.5-35b-local",
+    "provider": "ollama_native",
+    "model_id": "qwen3.5:35b",
+    "base_url": "http://localhost:11434",
+    "params": {"think": false}
   }
 ]
