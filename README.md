@@ -26,6 +26,8 @@ This project measures how often frontier and open-weight models confidently fabr
 
 ## Results — 50 verified questions, 4 models (2026-07-29)
 
+**Full writeup: [REPORT.md](REPORT.md)** — method, per-type breakdowns, failure modes, limitations.
+
 | model | correct | abstain | hedged wrong | confident fabrication |
 |---|---:|---:|---:|---:|
 | claude-opus-4-8 | 100% | 0% | 0% | 0% |
