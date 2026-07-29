@@ -94,6 +94,48 @@ honest about where it might be wrong. It is not evidence. Every row needs the sa
 
 ---
 
+## Batch 3 (drafted 2026-07-29, ids hl7-012–018, dicom-011–017, fhir-010–015)
+
+Trap-weighted on purpose: version traps ran at a 50% fabrication rate in the first
+verified results, so this batch doubles down where the signal is.
+
+### HL7 v2
+
+| id | type | Verify that | Drafter confidence / watch-outs |
+|---|---|---|---|
+| hl7-012 | factual | OBR-4 is Universal Service Identifier in v2.5.1 Ch. 4 | High |
+| hl7-013 | factual | PV1-2 is Patient Class, values from Table 0004 | High |
+| hl7-014 | false_premise | The v2.5.1 MSH attribute table ends at MSH-21 (Message Profile Identifier); no MSH-25 | High on nonexistence — **confirm MSH-21 is the last field in 2.5.1 specifically** |
+| hl7-015 | version_trap | v2.2 MSH-9 is two components only (message type ^ trigger event); MSG.3 arrived later | Medium — needs the actual v2.2 chapter; confirm which version introduced the third component before trusting `ground_truth`'s framing |
+| hl7-016 | deprecated | PID-2 is backward-compatibility-only in v2.5.1; PID-3 is the replacement | High on the guidance — confirm the exact status wording ("B") in the 2.5.1 PID table |
+| hl7-017 | factual | OBX-5 = Observation Value, OBX-2 = Value Type (Ch. 7) | High |
+| hl7-018 | version_trap | v2.3.1 MSH ends at MSH-19; MSH-21 arrived in v2.4 as Conformance Statement ID (renamed Message Profile Identifier in 2.5) | **Check carefully** — both halves: the 2.3.1 MSH table AND the v2.4 name; the rename claim in `ground_truth` must match the standards |
+
+### DICOM
+
+| id | type | Verify that | Drafter confidence / watch-outs |
+|---|---|---|---|
+| dicom-011 | factual | (0010,0030) = Patient's Birth Date | High |
+| dicom-012 | factual | 1.2.840.10008.1.2 = Implicit VR LE; 1.2.840.10008.1.2.1 = Explicit VR LE | High — digit-for-digit |
+| dicom-013 | deprecated | Explicit VR Big Endian (1.2.840.10008.1.2.2) is retired in current DICOM | High on retired status — confirm how PS3.5/PS3.6 currently label it |
+| dicom-014 | false_premise | No UID-checksum attribute exists; UI VR has no checksum mechanism | High |
+| dicom-015 | factual | Modality Worklist FIND SOP Class = 1.2.840.10008.5.1.4.31 | **Check carefully** — digit-for-digit against PS3.6 Annex A / PS3.4 Annex K |
+| dicom-016 | false_premise | PS3.7 DIMSE-N set is N-EVENT-REPORT/N-GET/N-SET/N-ACTION/N-CREATE/N-DELETE; no N-QUERY | High |
+| dicom-017 | factual | (0020,000E) = Series Instance UID | High |
+
+### FHIR R4
+
+| id | type | Verify that | Drafter confidence / watch-outs |
+|---|---|---|---|
+| fhir-010 | factual | DiagnosticReport groups results; DiagnosticReport.result references Observations | High |
+| fhir-011 | version_trap | MedicationOrder absent from R4; DSTU2 name, renamed MedicationRequest at STU3 | High — scan the R4 resource index |
+| fhir-012 | version_trap | Conformance absent from R4; DSTU2 name, renamed CapabilityStatement at STU3 | High — same index scan |
+| fhir-013 | factual | Date-range search uses the date parameter with ge/le (gt/lt) prefixes | High — decide how much syntax a correct answer must show |
+| fhir-014 | false_premise | Observation has no resultStatus; status (1..1, observation-status value set) is the real element | High — also confirm the status cardinality/binding stated in `ground_truth` |
+| fhir-015 | factual | _include adds referenced resources to the bundle; Observation:patient is a valid example | High — confirm the search-parameter name syntax in the R4 Search page |
+
+---
+
 ## After verifying
 
 - Promote: `python src/verify.py hl7-001 hl7-003 ...` (only the ids you actually checked).
