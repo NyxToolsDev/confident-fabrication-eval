@@ -15,6 +15,7 @@ from pathlib import Path
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parent.parent
+QUESTIONS_DIR = ROOT / "questions"
 GRADED_PATH = ROOT / "results" / "graded.jsonl"
 OVERRIDES_PATH = ROOT / "results" / "overrides.jsonl"
 SUMMARY_PATH = ROOT / "results" / "summary.csv"
@@ -59,6 +60,16 @@ def main() -> None:
 
     df = pd.DataFrame(records)
     df = apply_overrides(df, load_jsonl(OVERRIDES_PATH))
+
+    # Filter on the question bank's CURRENT verification status, not the status
+    # stamped at grading time — questions verified after grading count without a re-grade.
+    live_status: dict[str, str] = {}
+    for path in sorted(QUESTIONS_DIR.glob("*.jsonl")):
+        for line in path.read_text(encoding="utf-8").splitlines():
+            if line.strip():
+                record = json.loads(line)
+                live_status[record["id"]] = record.get("verification", {}).get("status", "draft")
+    df["verification_status"] = df["question_id"].map(live_status).fillna("draft")
 
     if not args.include_drafts:
         df = df[df["verification_status"] == "verified"]

@@ -1,0 +1,23 @@
+{
+  "question_id": "hl7-004",
+  "model_name": "qwen3.5-35b-local",
+  "provider": "ollama_native",
+  "verification_status": "draft",
+  "timestamp": "2026-07-22T21:41:39.525480+00:00",
+  "text": "In **HL7 Version 2.5.1**, there is **no standard definition** for a \"trigger event\" code of `ADT^A99`.\n\nHere are the key details regarding this specific combination:\n\n1.  **Standard Event Codes**: The HL7 ADT (Admission, Discharge and Transfer) chapter defines a finite set of trigger events in version 2.x (e.g., A01 = Admission to Hospital, A04 = Patient discharged home from hospital, etc.). In v2.5.1 specifically, the standard event codes generally range from **A01 through A69** (with specific gaps and definitions for each). There is no official \"A99\" defined in the HL7 2.5.x specification or its associated Value Sets Tables (Table: Message types/Table: ADT trigger events).\n2.  **\"Axx\" Conventions**: The range **AA1 through AA8** (or sometimes A01\u2013A69) is often reserved for specific use cases, but the high number **99** typically does not follow a standard pattern in HL7 v2 specifications intended for public release unless defined by an organization's local implementation guide.\n3.  **Likely Usage**: If you encountered `ADT^A99` in a system log or interface map:\n    *   It is almost certainly a **custom, non-standard event** created by the specific hospital Information Systems Integration team (IS) to handle an edge case not covered by standard codes (e.g., \"Patient registration update,\" \"Identity reconciliation,\" or a specialized transfer type).\n    *   In some older implementations or specific vendor solutions, `A99` might be used as a generic \"Catch-all\" for unknown ADT updates.\n\n**Conclusion:**\n\nThe trigger event **ADT^A99 does not exist in the official HL7 Version 2.5.1 standard**. It represents a **locally defined or custom implementation-specific message type** intended to convey an Admit/Discharge transaction that is unique to the specific healthcare organization's workflow and has no universal meaning outside of their local context. To understand its exact function, one must consult the specific Implementation Guide (IG) used by the interacting systems.",
+  "reasoning": null,
+  "stop_reason": "stop",
+  "resolved_model": "qwen3.5:35b",
+  "usage": {
+    "prompt_tokens": 46,
+    "completion_tokens": 471
+  },
+  "request_params": {
+    "model": "qwen3.5:35b",
+    "stream": false,
+    "options": {
+      "num_predict": 1024
+    },
+    "think": false
+  }
+}

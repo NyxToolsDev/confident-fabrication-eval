@@ -1,0 +1,23 @@
+{
+  "question_id": "fhir-003",
+  "model_name": "qwen3.5-35b-local",
+  "provider": "ollama_native",
+  "verification_status": "draft",
+  "timestamp": "2026-07-22T21:40:52.238724+00:00",
+  "text": "To search for a **Patient** resource in FHIR R4 based on their Medical Record Number (MRN) via the REST API, you utilize the standard `GET` method with specific query parameters against the `Patient` endpoint.\n\nThe MRN is typically represented by an identifier where the system type corresponds to \"Hospital\" or a local organization code defined within the FHIR profile being used. The correct search parameter name for identifiers in FHIR R4 is **`identifier`**. You must append this as a query string using the `value` sub-parameter logic directly after the base name, formatted as `<parameter_name>_<sub_parameter>=<search_value>`.\n\nThe standard REST API call looks like this:\n\n```http\nGET [Base URL]/Patient?identifier=http://example.org/hospital-id|MRN-123456\n```\n\nHere is a breakdown of the components in that request:\n*   **`[Base URL]`**: The root address of your FHIR server (e.g., `https://hapi.fhir.org/baseR4`).\n*   **`/Patient`**: The resource type being searched.\n*   **`identifier=`**: This tells the search engine to look at the \"Identifier\" data element within each Patient record.\n*   **`http://example.org/hospital-id|MRN-123456`**:\n    *   **System (`.../hospital-id`)**: The URL or OID defining where this ID comes from (e.g., your specific hospital's identifier system). If you are searching by a \"local\" MRN without a strict URI, some systems allow just the value with `identifier=value=MRN-123456`, but using `<system>|<value>` is the most robust and standard way to avoid ambiguity between different organizations' IDs.\n    *   **`|` (Pipe)**: The delimiter separating the System from the Value.\n    *   **Value**: The actual Medical Record Number string (e.g., `MRN-123456`).\n\n**Note on \"System\" usage:**\nIf your environment defines a standard system for MRNs, you should use that exact URL in place of `http://example.org/hospital-id`. If the specific system is unknown or if your server accepts value-only searches for identifiers (less common but possible), the syntax simplifies to:\n\n```http\nGET [Base URL]/Patient?identifier=MRN-123456\n```\n\nHowever, using the `<system>|<value>` format is recommended by HL7 FHIR specifications to ensure uniqueness across different healthcare systems.",
+  "reasoning": null,
+  "stop_reason": "stop",
+  "resolved_model": "qwen3.5:35b",
+  "usage": {
+    "prompt_tokens": 45,
+    "completion_tokens": 553
+  },
+  "request_params": {
+    "model": "qwen3.5:35b",
+    "stream": false,
+    "options": {
+      "num_predict": 1024
+    },
+    "think": false
+  }
+}

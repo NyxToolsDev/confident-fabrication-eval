@@ -1,0 +1,23 @@
+{
+  "question_id": "dicom-003",
+  "model_name": "qwen3.5-35b-local",
+  "provider": "ollama_native",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T14:09:02.952618+00:00",
+  "text": "The DICOM Data Element with tag **(0008,9999)** corresponds to **DICOM Conformance Statement**.\n\nHere are the key details regarding this attribute:\n\n*   **VR (Value Representation):** `LT` (Long Text). This indicates that the field can contain a long string of text.\n*   **VM (Value Multiplicity):** 1, meaning there is exactly one value per instance.\n*   **Usage:** It contains human-readable information describing how the sending or receiving system conforms to specific DICOM standards and implementations for that connection. This includes details about supported SOP Classes, roles (SCU/SCP), transfer syntaxes supported, and other implementation-specific constraints relevant to interoperability testing.\n\nIn summary, **(0008,9999)** stores a free-text description of the **DICOM Conformance Statement**.",
+  "reasoning": null,
+  "stop_reason": "stop",
+  "resolved_model": "qwen3.5:35b",
+  "usage": {
+    "prompt_tokens": 43,
+    "completion_tokens": 179
+  },
+  "request_params": {
+    "model": "qwen3.5:35b",
+    "stream": false,
+    "options": {
+      "num_predict": 2048
+    },
+    "think": false
+  }
+}

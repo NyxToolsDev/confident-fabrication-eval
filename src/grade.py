@@ -10,10 +10,13 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 from pathlib import Path
 from typing import Any
 
 import anthropic
+
+from envfile import load_env
 
 ROOT = Path(__file__).resolve().parent.parent
 QUESTIONS_DIR = ROOT / "questions"
@@ -21,6 +24,9 @@ RAW_DIR = ROOT / "results" / "raw"
 GRADED_PATH = ROOT / "results" / "graded.jsonl"
 
 GRADER_MODEL = "claude-opus-4-8"
+
+# Error substrings that mean every remaining grading call will also fail.
+FATAL_ERROR_MARKERS = ("credit balance", "authentication_error", "invalid x-api-key", "not_found_error")
 
 GRADE_SCHEMA: dict[str, Any] = {
     "type": "object",
@@ -90,6 +96,9 @@ def main() -> None:
     parser.add_argument("--force", action="store_true", help="Re-grade pairs already in graded.jsonl.")
     args = parser.parse_args()
 
+    load_env()
+    if not os.environ.get("ANTHROPIC_API_KEY"):
+        raise SystemExit("ANTHROPIC_API_KEY is not set (environment or repo-root .env); the grader needs it.")
     questions = load_question_index()
     existing: set[tuple[str, str]] = set()
     graded_records: list[dict[str, Any]] = []
@@ -117,6 +126,9 @@ def main() -> None:
             grade = grade_one(client, question, raw["text"])
         except anthropic.APIStatusError as exc:
             print(f"[FAIL] grading {key}: {exc.status_code} {exc.message}")
+            if any(marker in str(exc.message) for marker in FATAL_ERROR_MARKERS):
+                print("[ABORT] unrecoverable API error, stopping; already-graded records will still be written.")
+                break
             continue
         graded_records.append({
             "question_id": raw["question_id"],

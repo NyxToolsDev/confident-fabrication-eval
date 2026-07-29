@@ -1,0 +1,23 @@
+{
+  "question_id": "hl7-002",
+  "model_name": "qwen3.5-35b-local",
+  "provider": "ollama_native",
+  "verification_status": "draft",
+  "timestamp": "2026-07-22T21:41:21.642737+00:00",
+  "text": "Based on the **HL7 Version 2.5.1** standard (specifically within Chapter A of the *Interface Guide*), **PID segment Field 60 (PID-60)** is defined as follows:\n\n### Data Element Name\n**Patient Primary Language Code List**\n\n### Definition and Content\nThis field contains a list of codes representing the primary languages spoken by the patient. It allows for multiple language codes to be specified if the patient speaks more than one language or has specific communication requirements beyond just English. The data type is **CE/CNE** (Coded Element / Coded Non-Element), meaning it can include an identifier, text, and alternative coding system identifiers.\n\n*   **Format**: It typically takes the format `value^text^^system`.\n*   **Values**: These are generally sourced from standard code sets such as ISO 639 (e.g., \"eng\" for English, \"spa\" for Spanish) or HL7 Table 0285 (**Language**), depending on the specific implementation guide.\n\n### Context in Version 2.x Development\nIn versions prior to 2.5.1, there was limited capacity to specify language preferences beyond PID-9 (Native Language). By version 2.5 and maintained through 2.6/2.7, **PID-60** provides a structured way to capture this critical demographic data for interoperability purposes, ensuring that communication needs are clearly identified across different healthcare systems.\n\n### Summary\nIn HL7 v2.5.1:\n*   **Field ID**: PID-60\n*   **Name**: Patient Primary Language Code List\n*   **Data Type**: CE (Coded Element) / CV/CNE variant depending on binding.",
+  "reasoning": null,
+  "stop_reason": "stop",
+  "resolved_model": "qwen3.5:35b",
+  "usage": {
+    "prompt_tokens": 43,
+    "completion_tokens": 362
+  },
+  "request_params": {
+    "model": "qwen3.5:35b",
+    "stream": false,
+    "options": {
+      "num_predict": 1024
+    },
+    "think": false
+  }
+}

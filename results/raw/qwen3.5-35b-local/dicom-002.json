@@ -1,0 +1,23 @@
+{
+  "question_id": "dicom-002",
+  "model_name": "qwen3.5-35b-local",
+  "provider": "ollama_native",
+  "verification_status": "draft",
+  "timestamp": "2026-07-22T21:39:15.976669+00:00",
+  "text": "The DICOM tag for **Study Instance UID** consists of group `0x0020` and element `0x000E`.\n\nIn standard notation, this is written as **(0020, 000E)**. It is an Attribute Type A (Single Value) VR of UI (UID).",
+  "reasoning": null,
+  "stop_reason": "stop",
+  "resolved_model": "qwen3.5:35b",
+  "usage": {
+    "prompt_tokens": 39,
+    "completion_tokens": 69
+  },
+  "request_params": {
+    "model": "qwen3.5:35b",
+    "stream": false,
+    "options": {
+      "num_predict": 1024
+    },
+    "think": false
+  }
+}

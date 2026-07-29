@@ -1,0 +1,23 @@
+{
+  "question_id": "fhir-002",
+  "model_name": "qwen3.5-35b-local",
+  "provider": "ollama_native",
+  "verification_status": "draft",
+  "timestamp": "2026-07-22T21:40:39.416230+00:00",
+  "text": "First, it is important to clarify a key distinction in the structure of HL7 FHIR Release 4 (R4). There is **no** standalone resource named `PatientContact`. Instead, contact information for a patient (such as an emergency contact or next of kin) is defined directly within the core **`Patient`** resource.\n\nIn previous versions like R3, there was indeed a separate structure called \"contact\" nested inside Patient, but in FHIR R4, this remains a list of extensions to the `Patient` resource rather than a distinct top-level resource you query for (like `/PatientContact`).\n\nIf your question refers to **what elements make up the contact information block within the `Patient` resource** (specifically the `contact[0]`, `contact[1]`, etc. array), here are the defined sub-elements according to the FHIR R4 specification:\n\n### Elements of the Contact Block in FHIR R4 (`Patient.contact`)\n\nThis is an optional, repeating element that represents a party with some kind of relationship to the patient who can assist or be contacted regarding the patient's care. The available elements include:\n\n1.  **`id`**: A local identifier for this specific contact instance within the bundle/resource.\n2.  **`extension`**: Additional data represented as extensions (often used to add custom fields required by specific implementations).\n3.  **`relationship`** (`CodeableConcept`, Required): The nature of the relationship between the patient and the party listed.\n    *   Examples: `emergency-contact`, `next-of-kin`, `organ-donor`.\n4.  **`name`** (`HumanName, Optional): Full name of the contact person (e.g., John Doe).\n5.  **`telecom`** (`ContactPoint, Repeating, Optional): Contact details for this party.\n    *   Types: Phone numbers (home/work), fax numbers, email addresses, etc.\n6.  **`address`** (`Address, Optional): Mailing address of the contact person.\n7.  **`period`** (`Period, Optional): The duration of time during which this relationship is valid or effective.\n\n### Summary Conclusion\n\nIn FHIR R4, you do not query a `PatientContact` resource. Instead, patient contacts are managed as sub-elements within the **`Patient`** resource using the repeating element path:\n`Patient.contact`.\n\nIf you need to define emergency contact details in an API request or data exchange for FHIR R4, you populate the following structure inside the `Patient` object:\n*   `relationship`: The type of connection (e.g., \"Emergency Contact\").\n*   `name`: The person's name.\n*   `telecom`: Phone number and/or email.\n*   `address`: Where they live or work.\n\n*(Note: If you are actually looking for the R4 **`ContactDetail`** resource, that does not exist as a standalone entity either; it is also internal to other resources like Patient, PractitionerRole, etc., though sometimes people confuse this with older FHIR versions or specific implementation guides where `Person` might be used.)*",
+  "reasoning": null,
+  "stop_reason": "stop",
+  "resolved_model": "qwen3.5:35b",
+  "usage": {
+    "prompt_tokens": 39,
+    "completion_tokens": 664
+  },
+  "request_params": {
+    "model": "qwen3.5:35b",
+    "stream": false,
+    "options": {
+      "num_predict": 1024
+    },
+    "think": false
+  }
+}

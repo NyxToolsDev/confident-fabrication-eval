@@ -1,0 +1,23 @@
+{
+  "question_id": "fhir-001",
+  "model_name": "qwen3.5-35b-local",
+  "provider": "ollama_native",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T14:09:38.759619+00:00",
+  "text": "In FHIR Release 4 (R4), the resource that specifically represents the metadata for a diagnostic imaging study\u2014including its series and individual image instances\u2014is **`ImagingStudy`**.\n\nHere is how it functions within the context of your question:\n\n*   **Metadata Container**: The `ImagingStudy` resource acts as the \"study\" level object. It aggregates information about the entire examination performed on a patient (e.g., date, time, modality like CT or MRI).\n*   **Hierarchy**: Within an `ImagingStudy`, you will find nested elements:\n    *   **Series**: Represented by the **`ImagingStudy.series`** element. This group contains images acquired during a specific part of the exam (e.g., \"Arterial Phase\").\n    *   **Instances**: While individual DICOM instances are often referenced via URLs or linked resources, the `ImagingStudy` resource lists these as **`Instance`** objects within each series, providing metadata for each specific image file.\n\nWhile other resources like `ServiceRequest` (the order) or `Observation` (lab results) relate to imaging, `ImagingStudy` is the canonical resource defined in FHIR R4 specifically for describing the structure of an acquired study and its components according to DICOM standards.\n\n**Answer:** **`ImagingStudy`**",
+  "reasoning": null,
+  "stop_reason": "stop",
+  "resolved_model": "qwen3.5:35b",
+  "usage": {
+    "prompt_tokens": 47,
+    "completion_tokens": 281
+  },
+  "request_params": {
+    "model": "qwen3.5:35b",
+    "stream": false,
+    "options": {
+      "num_predict": 2048
+    },
+    "think": false
+  }
+}

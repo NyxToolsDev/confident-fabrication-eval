@@ -1,0 +1,23 @@
+{
+  "question_id": "hl7-006",
+  "model_name": "qwen3.5-35b-local",
+  "provider": "ollama_native",
+  "verification_status": "draft",
+  "timestamp": "2026-07-22T21:41:56.970397+00:00",
+  "text": "In an HL7 v2.x message that uses the **default** set of delimiter and enclosure characters, fields are structured hierarchically using specific ASCII delimiters to separate segments, fields, components (sub-fields), sub-components, and surrogates.\n\nThe hierarchy is defined as follows:\n*   Segment separator: `^` (Carriage Return or Line Feed depending on the channel)\n*   Field terminator: `|` (Pipe character `\\x7C`) \u2014 *Separates one field from another.*\n*   **Component delimiter**: `~` (Tilde `\\x7E`) \u2014 *Separates components within a single field.*\n*   Sub-component delimiter: `/` (Forward slash)\n*   Component surrogation characters: `%`\n\nTherefore, the character that separates components within a field is the **tilde (`~`)**.\n\n**Example:**\nIn the segment `PID|1||508794^^^ID 123|||||`, if a component were expanded (e.g., patient name), it would look like this:\n`PID|Patient Name Last~First Middle~Suffix|^123...`\n\nHere, the tilde (`~`) separates \"Last\", \"First\", and \"Middle\" within that single field.",
+  "reasoning": null,
+  "stop_reason": "stop",
+  "resolved_model": "qwen3.5:35b",
+  "usage": {
+    "prompt_tokens": 44,
+    "completion_tokens": 269
+  },
+  "request_params": {
+    "model": "qwen3.5:35b",
+    "stream": false,
+    "options": {
+      "num_predict": 1024
+    },
+    "think": false
+  }
+}

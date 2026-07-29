@@ -7,11 +7,14 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
 import anthropic
+
+from envfile import load_env
 
 ROOT = Path(__file__).resolve().parent.parent
 QUESTIONS_DIR = ROOT / "questions"
@@ -20,7 +23,11 @@ RAW_DIR = ROOT / "results" / "raw"
 PROMPT_TEMPLATE = (
     "Answer the following question about healthcare interoperability standards.\n\n{question}"
 )
-MAX_TOKENS = 1024
+MAX_TOKENS = 2048
+
+# Error substrings that mean every remaining call to this model will also fail
+# (billing, bad key, bad model id) — abort the model instead of burning the bank.
+FATAL_ERROR_MARKERS = ("credit balance", "authentication_error", "invalid x-api-key", "not_found_error")
 
 
 def load_questions(include_drafts: bool) -> list[dict[str, Any]]:
@@ -157,6 +164,8 @@ def main() -> None:
                         help="Re-run question/model pairs that already have a result file.")
     parser.add_argument("--only", type=str, default=None,
                         help="Run only the model with this name from models.json.")
+    parser.add_argument("--questions", type=str, default=None,
+                        help="Comma-separated question ids to run (e.g. hl7-001,dicom-003).")
     args = parser.parse_args()
 
     models = json.loads(args.models.read_text(encoding="utf-8"))
@@ -164,7 +173,19 @@ def main() -> None:
         models = [m for m in models if m["name"] == args.only]
         if not models:
             parser.error(f"no model named {args.only!r} in {args.models}")
+    load_env()
+    if any(m["provider"] == "anthropic" for m in models) and not os.environ.get("ANTHROPIC_API_KEY"):
+        raise SystemExit(
+            "ANTHROPIC_API_KEY is not set (environment or repo-root .env). "
+            "Anthropic models cannot run; set it or use --only for a local model."
+        )
     questions = load_questions(include_drafts=args.include_drafts)
+    if args.questions:
+        wanted = {q.strip() for q in args.questions.split(",")}
+        unknown = wanted - {q["id"] for q in questions}
+        if unknown:
+            parser.error(f"unknown question ids: {', '.join(sorted(unknown))}")
+        questions = [q for q in questions if q["id"] in wanted]
     if not questions:
         print("No questions to run. Verified questions: 0. "
               "Use --include-drafts to run the draft bank for pipeline testing.")
@@ -178,13 +199,19 @@ def main() -> None:
         for question in questions:
             out_path = out_dir / f"{question['id']}.json"
             if out_path.exists() and not args.force:
-                skipped += 1
-                continue
+                # Error files are retries, not results — only skip clean runs.
+                existing = json.loads(out_path.read_text(encoding="utf-8"))
+                if "error" not in existing:
+                    skipped += 1
+                    continue
             record = run_one(anthropic_client, model, question)
             out_path.write_text(json.dumps(record, indent=2), encoding="utf-8")
             if "error" in record:
                 failed += 1
                 print(f"[FAIL] {model['name']} / {question['id']}: {record['error']}")
+                if any(marker in record["error"] for marker in FATAL_ERROR_MARKERS):
+                    print(f"[ABORT] {model['name']}: unrecoverable error, skipping its remaining questions.")
+                    break
             else:
                 ran += 1
                 print(f"[ok]   {model['name']} / {question['id']}")

@@ -1,0 +1,23 @@
+{
+  "question_id": "dicom-005",
+  "model_name": "qwen3.5-35b-local",
+  "provider": "ollama_native",
+  "verification_status": "draft",
+  "timestamp": "2026-07-22T21:39:46.001641+00:00",
+  "text": "The DICOM tag **(0008, 0010)** corresponds to **Specialized Service Class** or, more commonly known as **Requesting Entity ID**. However, it is important to clarify a common misconception: there was never a \"Service Class\" tag at (0008, 0010). The correct and standard definition for **(0008, 0010)** in DICOM PS3.6 *Content Mapping Resources* has evolved significantly over time.\n\nHere is the detailed breakdown of its usage and current status:\n\n### Original Purpose (Historical Context)\nIn earlier versions of the DICOM Standard (prior to Release 2004), tag **(0008, 0010)** was defined as **Requesting Entity ID**. It was intended to identify the specific entity within an organization that originated a request. For example, it might contain a code identifying which hospital department or specific workstation initiated a study ordering process (e.g., \"Radiology-Workstation-A\").\n\nHowever, in practice and in many older systems, this tag saw very limited use because:\n1.  The **Requesting Entity** information is often implicitly handled by the Source Application Entropy ID (SAID) or specific Work Item IDs (0x04xx tags).\n2.  There was significant ambiguity about whether it referred to a person, an application, or a device.\n\n### Current Status in DICOM Standard\nIn modern versions of the DICOM standard (specifically from Release 3.x and consolidated in PS3-6), **(0008, 0010)** is **deprecated** for general use regarding entity identification in favor of more specific tags.\n\n*   **Current Value**: The tag exists but is listed as **\"Deprecated\"** or has been superseded by the definition of **Requesting Entity ID** being handled elsewhere (often within Query/Retrieve service classes using Search keys, though even then it is not a primary key).\n*   **More Accurate Modern Equivalents**: If an application needs to identify *who* or *what* requested a study, modern implementations use:\n    *   **(0018, 9325)** Requesting Application Entropy ID (for the software/app entity).\n    *   Or specific identifiers within the **Work Item** context.\n\nHowever, looking strictly at the most common confusion surrounding this tag number: Many users confuse it with **\"Requesting Entity's Address\"** or simply misuse it as a generic identifier.\n\n**Correction/Clarification on \"Specialized Service Class\":**\nIt is crucial to note that there was **never** a DICOM Tag (0008, 0010) called \"Specialized Service Class.\" That specific terminology likely stems from a conflation with:\n*   **(0002, 0003)** Media Storage SOP UID class.\n*   The concept of **\"Service Classes\"** which is architectural, not a single tag in the patient data set (0008 group).\n\n**The most distinct and likely intended answer regarding its *current status***:\nIn DICOM Release R24 (and subsequent versions), **(0008, 0010)** is technically defined as **Requesting Entity ID**. However, it has been effectively **deprecated for new implementations**. The standard now recommends using the **\"Source Application Entropy ID\"** or specific Work Item IDs to track the requesting entity more precisely.\n\n### Final Conclusion\n\n*   **What was it used for?**\n    Tag **(0008, 0010)** was defined as the **Requesting Entity ID**. It was intended to identify the logical entity (application, workstation, or department) that initiated a request within the DICOM workflow.\n\n*   **What is its current status?**\n    The tag is currently considered **Deprecated** in modern DICOM implementations. While it remains part of the official vocabulary for backward compatibility with older archives, new applications are instructed to avoid using (0008, 0010) and instead use more specific identifiers such as **(0018, 9325)** or other work-item-specific tags to ensure unambiguous identification in complex healthcare networks.",
+  "reasoning": null,
+  "stop_reason": "stop",
+  "resolved_model": "qwen3.5:35b",
+  "usage": {
+    "prompt_tokens": 52,
+    "completion_tokens": 891
+  },
+  "request_params": {
+    "model": "qwen3.5:35b",
+    "stream": false,
+    "options": {
+      "num_predict": 1024
+    },
+    "think": false
+  }
+}

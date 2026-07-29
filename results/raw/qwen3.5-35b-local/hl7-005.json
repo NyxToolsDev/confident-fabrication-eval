@@ -1,0 +1,23 @@
+{
+  "question_id": "hl7-005",
+  "model_name": "qwen3.5-35b-local",
+  "provider": "ollama_native",
+  "verification_status": "draft",
+  "timestamp": "2026-07-22T21:41:49.361150+00:00",
+  "text": "In an **HL7 v2** `ORU^R01` (Observation Result) message, the specific segments used to carry individual observation results are:\n\n*   **OBR (Order Observation Request)**: This segment defines the \"container\" for a set of observations or tests. It acts as a header for an order and groups the associated result data together.\n*   **OBX (Observation/Result)**: This is the core segment that carries the actual observation results. Each `OBX` segment contains one specific observation, including its identifier value (`OBX-5`, Observation Value), units of measure (`OBX-6`), and observed attribute ID (`OBX-2`).\n\n**Logic and Structure:**\nThe relationship between these segments follows a repeating pattern where the data is organized by test instance:\n1.  The `OBR` segment establishes that an observation order has been placed or completed.\n2.  One or more `OBX` segments immediately follow to provide the detailed results for each specific parameter of that order.\n\nWhile older versions sometimes used a distinct grouping logic, in standard practice, **multiple OBX segments** are required within a single ORU^R01 message if multiple individual observations (e.g., Glucose, Sodium, Potassium) were part of one test container defined by an OBR segment.\n\n### Conclusion\nThe segment that carries the specific observation results is the **OBX** segment. These result segments must always be preceded or grouped within a transaction by at least one **OBR** segment to define the order context.",
+  "reasoning": null,
+  "stop_reason": "stop",
+  "resolved_model": "qwen3.5:35b",
+  "usage": {
+    "prompt_tokens": 45,
+    "completion_tokens": 329
+  },
+  "request_params": {
+    "model": "qwen3.5:35b",
+    "stream": false,
+    "options": {
+      "num_predict": 1024
+    },
+    "think": false
+  }
+}

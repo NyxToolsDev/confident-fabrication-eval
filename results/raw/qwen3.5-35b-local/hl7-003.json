@@ -1,0 +1,23 @@
+{
+  "question_id": "hl7-003",
+  "model_name": "qwen3.5-35b-local",
+  "provider": "ollama_native",
+  "verification_status": "draft",
+  "timestamp": "2026-07-22T21:41:29.796495+00:00",
+  "text": "To identify the correct HL7 v2 message for notifying systems of an inpatient admission, we look at the standard set defined by Health Level Seven International (HL7) version 2.x. This specific use case falls under patient administration and registration workflows.\n\nThe primary document used to communicate a new admission is the **ADT** (Admission/Discharge/Transfer) message type. Within this category, there are several trigger events (such as A01 for discharge, A04 for transfer, etc.). The specific event designed to report that a patient has been admitted and assigned an inpatient bed or room number is the **A04** event code.\n\nIt is worth noting that while older implementations sometimes used A03 for admission followed by later updates, HL7 v2 best practices standardized on **A01** (admit/admission) as the primary trigger to signal a new patient registration and inpatient status simultaneously in modern workflows, though strictly speaking:\n*   In many legacy systems or specific interpretations of early standards, **ADT^A03** (\"Admitted\") was historically used.\n*   However, according to HL7 v2.x definitions (specifically 2.4 through current versions like 2.8), the standard trigger event for a patient becoming an inpatient is **ADT^A01**.\n\nThe most accurate and widely accepted answer for modern interoperability standards involves:\n\n**Message Type:** `ADT`\n**Trigger Event:** `A01` (Admit/Visit Notification)\n\n*(Note: In some contexts, specifically older versions or specific implementations of \"Inpatient Admission\" distinct from registration, **A03** was sometimes cited as the \"Admitted\" event. However, current HL7 v2 standards define A04 as Transfer and A01 as Admit. If a system sends an ADT^A01, it conveys that the patient is being admitted to inpatient status.)*\n\n**Final Answer:**\nThe standard used is **HL7 v2**, specifically:\n*   **Message Type**: `ADT` (Admission/Discharge/Transfer)\n*   **Trigger Event**: `A01` (Admit/Visit Notification)",
+  "reasoning": null,
+  "stop_reason": "stop",
+  "resolved_model": "qwen3.5:35b",
+  "usage": {
+    "prompt_tokens": 44,
+    "completion_tokens": 466
+  },
+  "request_params": {
+    "model": "qwen3.5:35b",
+    "stream": false,
+    "options": {
+      "num_predict": 1024
+    },
+    "think": false
+  }
+}

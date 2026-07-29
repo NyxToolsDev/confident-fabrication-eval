@@ -41,7 +41,8 @@ docs/            question-writing guide
 python -m venv venv && venv\Scripts\activate   # Windows
 pip install -r requirements.txt
 
-# ANTHROPIC_API_KEY must be set in the environment.
+# ANTHROPIC_API_KEY must be set — either in the environment or in a
+# repo-root .env file (gitignored) containing: ANTHROPIC_API_KEY=sk-ant-...
 python src/run_eval.py --models models.json
 python src/grade.py
 python src/analyze.py

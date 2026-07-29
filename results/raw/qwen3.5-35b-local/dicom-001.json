@@ -1,0 +1,23 @@
+{
+  "question_id": "dicom-001",
+  "model_name": "qwen3.5-35b-local",
+  "provider": "ollama_native",
+  "verification_status": "draft",
+  "timestamp": "2026-07-22T21:39:11.320605+00:00",
+  "text": "The DICOM attribute **Accession Number** identifies a specific study instance and is used to correlate that study with worklist data or RIS information. In the DCMTK/ISO standard numbering system for DICOM tags:\n\n*   The Group Element number in hexadecimal format is **(0020, 0054)**.\n    *   **Group**: `0020` (Patient Study Module)\n    *   **Element**: `0054`\n\nTherefore, the full tag identifier is **(0020,0054)** and its VR (Value Representation) is SH (Short String).",
+  "reasoning": null,
+  "stop_reason": "stop",
+  "resolved_model": "qwen3.5:35b",
+  "usage": {
+    "prompt_tokens": 39,
+    "completion_tokens": 131
+  },
+  "request_params": {
+    "model": "qwen3.5:35b",
+    "stream": false,
+    "options": {
+      "num_predict": 1024
+    },
+    "think": false
+  }
+}

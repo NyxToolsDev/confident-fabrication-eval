@@ -1,0 +1,23 @@
+{
+  "question_id": "dicom-004",
+  "model_name": "qwen3.5-35b-local",
+  "provider": "ollama_native",
+  "verification_status": "draft",
+  "timestamp": "2026-07-22T21:39:38.038702+00:00",
+  "text": "To perform Query/Retrieve operations in DICOM, specifically moving from the \"Query\" phase (finding studies) to the \"Retrieve\" phase (downloading data), two distinct **DIMSE** (DICOM Message Service Element) services are used. These operate over the DIMSC (Data Storage Class) and DUCS (Query/Retrieve Class).\n\nThe process works as follows:\n1.  **C-FIND**: The workstation initiates a query to the PACS using the **C-FIND** service operation request/message. This asks for specific study, series, or instance information based on search keys. The PACS responds with a status and matching attributes (or an error if no matches are found).\n2.  **C-MOVE**: Once results from the C-FIND are reviewed, the workstation typically uses the **C-MOVE** service to tell the PACS \"Move these specific instances to me.\" This prompts the PACS to transmit the actual image data back to the requesting station (or a third party if configured).\n\n*Note: While **C-GET** can also be used for retrieval, where the workstation retrieves the data from its own location after receiving identifiers via C-FIND/STORE, **C-MOVE** is the most common standard implementation for \"pulling\" images directly to a specific destination during Query/Retrieve workflows.*\n\n### Conclusion\nThe DIMSE services that implement DICOM Query/Retrieve between a workstation and a PACS are:\n\n*   **C-FIND**: Used for searching and retrieving metadata (identifying what data exists).\n*   **C-MOVE** (or alternatively **C-GET**): Used for transferring the actual image data based on the identifiers found.",
+  "reasoning": null,
+  "stop_reason": "stop",
+  "resolved_model": "qwen3.5:35b",
+  "usage": {
+    "prompt_tokens": 41,
+    "completion_tokens": 353
+  },
+  "request_params": {
+    "model": "qwen3.5:35b",
+    "stream": false,
+    "options": {
+      "num_predict": 1024
+    },
+    "think": false
+  }
+}

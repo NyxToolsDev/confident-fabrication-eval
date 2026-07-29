@@ -1,0 +1,23 @@
+{
+  "question_id": "dicom-006",
+  "model_name": "qwen3.5-35b-local",
+  "provider": "ollama_native",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T14:09:33.774612+00:00",
+  "text": "The DICOM tag for **Modality** is **(0008, 0060)**.\n\nHere are the details:\n*   **Group**: `0008`\n*   **Element**: `0060`\n*   **Keyword**: Modality (often written as `<Modality>` in DICOM dictionaries)\n*   **Value Representation (VR)**: CS (Code String, 16 characters max)\n\nThis tag is used to identify the type of imaging modality that produced an image or dataset. Examples include values like `CR` (Computed Radiography), `CT`, `MR`, `US` (Ultrasound), etc., which are standardized in DICOM Part 3 Code Value Tables for Modality.",
+  "reasoning": null,
+  "stop_reason": "stop",
+  "resolved_model": "qwen3.5:35b",
+  "usage": {
+    "prompt_tokens": 38,
+    "completion_tokens": 158
+  },
+  "request_params": {
+    "model": "qwen3.5:35b",
+    "stream": false,
+    "options": {
+      "num_predict": 2048
+    },
+    "think": false
+  }
+}

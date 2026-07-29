@@ -1,0 +1,23 @@
+{
+  "question_id": "hl7-001",
+  "model_name": "qwen3.5-35b-local",
+  "provider": "ollama_native",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T14:09:45.755997+00:00",
+  "text": "In the **HL7 v2.5.1** standard, within the **PID (Patient Identification)** segment, the patient's date and time of birth is contained in **Field 6**.\n\nHere are the specific details for that field:\n*   **Component ID**: `PID-6`\n*   **Data Type**: `DTM` (Date/Time)\n*   **Format**: Usually represented as `[YYYYMMDDHHMMSS.SS]` or variations depending on the precision required by the interface.\n\nWhile some older versions of HL7 v2 used just a Date (`DT`) for this field, version 2.x generally supports and utilizes `DTM` to capture both date and time information if available from the source system.",
+  "reasoning": null,
+  "stop_reason": "stop",
+  "resolved_model": "qwen3.5:35b",
+  "usage": {
+    "prompt_tokens": 49,
+    "completion_tokens": 157
+  },
+  "request_params": {
+    "model": "qwen3.5:35b",
+    "stream": false,
+    "options": {
+      "num_predict": 2048
+    },
+    "think": false
+  }
+}
