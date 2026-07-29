@@ -60,6 +60,40 @@ honest about where it might be wrong. It is not evidence. Every row needs the sa
 
 ---
 
+## Batch 2 (drafted 2026-07-29, ids hl7-007–011, dicom-007–010, fhir-004–009)
+
+### HL7 v2
+
+| id | type | Verify that | Drafter confidence / watch-outs |
+|---|---|---|---|
+| hl7-007 | factual | PID-18 is Patient Account Number in v2.5.1 | High |
+| hl7-008 | factual | MSH-9 components are Message Code ^ Trigger Event ^ Message Structure (MSG data type) | High |
+| hl7-009 | factual | MSA-1 carries the ack code; AA/AE/AR are the original-mode values | High. Watch-out: enhanced mode adds CA/CE/CR — a model listing those too is still correct; consider noting that in `acceptable_answers` |
+| hl7-010 | version_trap | PID ends at PID-30 in v2.3.1, and PID-32 (Identity Reliability Code) arrived in v2.4 | **Check carefully** — both halves of the claim need the 2.3.1 chapter and the 2.4 change history |
+| hl7-011 | false_premise | The v2.5.1 standard defines no ZPD segment; Z-segments are site-defined by convention | High |
+
+### DICOM
+
+| id | type | Verify that | Drafter confidence / watch-outs |
+|---|---|---|---|
+| dicom-007 | factual | (0008,0018) = SOP Instance UID | High |
+| dicom-008 | factual | C-ECHO / Verification SOP Class, UID 1.2.840.10008.1.1 | High — confirm the UID digit-for-digit |
+| dicom-009 | factual | (0010,0020) = Patient ID | High |
+| dicom-010 | false_premise | PS3.7 defines no C-UPDATE; DIMSE-C set is C-ECHO/C-STORE/C-FIND/C-GET/C-MOVE | High |
+
+### FHIR R4
+
+| id | type | Verify that | Drafter confidence / watch-outs |
+|---|---|---|---|
+| fhir-004 | factual | Observation is the R4 resource for individual results/measurements | High |
+| fhir-005 | factual | ServiceRequest is the R4 resource for imaging/lab orders | High |
+| fhir-006 | version_trap | DiagnosticOrder is absent from R4; lineage DSTU2 DiagnosticOrder → STU3 ProcedureRequest → R4 ServiceRequest | Medium — **confirm the lineage**, it's stated in `ground_truth` and must be exactly right |
+| fhir-007 | factual | PUT [base]/Patient/[id] is the update interaction | High |
+| fhir-008 | false_premise | Patient has no mrn element; MRN lives in Patient.identifier | High |
+| fhir-009 | factual | Coding is the datatype pairing code + system + display; CodeableConcept wraps Codings | High — check the question can't be fairly read as asking for CodeableConcept |
+
+---
+
 ## After verifying
 
 - Promote: `python src/verify.py hl7-001 hl7-003 ...` (only the ids you actually checked).
