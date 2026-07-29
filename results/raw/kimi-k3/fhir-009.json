@@ -1,0 +1,28 @@
+{
+  "question_id": "fhir-009",
+  "model_name": "kimi-k3",
+  "provider": "openai_compatible",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T17:30:37.953761+00:00",
+  "text": "The **Coding** datatype. It represents a single code with fields such as:\n\n- `system` \u2014 the code system URI\n- `code` \u2014 the coded value\n- `display` \u2014 a human-readable representation\n\nThis differs from **CodeableConcept**, which may contain multiple `Coding` values and/or plain text.",
+  "reasoning": "We need answer Coding likely. Question wording single coded value system display = Coding datatype. CodeableConcept can multiple codings/text.",
+  "stop_reason": "stop",
+  "resolved_model": "kimi-k3",
+  "usage": {
+    "completion_tokens": 108,
+    "prompt_tokens": 121,
+    "total_tokens": 229,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 27,
+      "rejected_prediction_tokens": null
+    },
+    "prompt_tokens_details": null
+  },
+  "request_params": {
+    "model": "kimi-k3",
+    "max_tokens": 4096,
+    "reasoning_effort": "low"
+  }
+}

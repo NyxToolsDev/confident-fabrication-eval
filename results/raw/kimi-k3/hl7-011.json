@@ -1,0 +1,28 @@
+{
+  "question_id": "hl7-011",
+  "model_name": "kimi-k3",
+  "provider": "openai_compatible",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T17:33:05.185403+00:00",
+  "text": "In the HL7 v2.5.1 base standard, **ZPD has no standardized, normative contents**. Segments beginning with **\u201cZ\u201d** are **locally defined/vendor-specific extensions**.\n\nA particular implementation may define **ZPD** to contain additional patient-demographic information, but its fields, meanings, and data types must be obtained from that implementation\u2019s HL7 interface specification.",
+  "reasoning": "We need need answer. ZPD custom Z segment? HL7 2.5.1 standard likely not defined. Need distinguish vendor-specific. Search memory: ZPD patient demographics? In IHE? ZPD segment contains patient demographics additional data, perhaps HL7 UK? Question asks \"In HL7 v2.5.1, what does ZPD segment contain?\" Standard HL7 segments starting Z are locally defined and not standard. Thus no normative contents. It can be implementation-specific. Need explain Z-prefixed user-defined. Maybe some profiles define ZPD as \"Patient Demographics\" but not base standard.\n\nAnswer concise.",
+  "stop_reason": "stop",
+  "resolved_model": "kimi-k3",
+  "usage": {
+    "completion_tokens": 225,
+    "prompt_tokens": 114,
+    "total_tokens": 339,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 130,
+      "rejected_prediction_tokens": null
+    },
+    "prompt_tokens_details": null
+  },
+  "request_params": {
+    "model": "kimi-k3",
+    "max_tokens": 4096,
+    "reasoning_effort": "low"
+  }
+}

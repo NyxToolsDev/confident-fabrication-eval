@@ -1,0 +1,28 @@
+{
+  "question_id": "dicom-002",
+  "model_name": "kimi-k3",
+  "provider": "openai_compatible",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T17:27:28.248309+00:00",
+  "text": "**Study Instance UID** has the DICOM tag **(0020,000D)**.\n\n- **Group:** 0020 (Study group)\n- **Element:** 000D\n- **Value Representation (VR):** UI (Unique Identifier)\n\nThis tag is part of the General Study Module and uniquely identifies a study. It's one of the key identifiers in DICOM's information hierarchy: Patient \u2192 Study (Study Instance UID) \u2192 Series (Series Instance UID, 0020,000E) \u2192 Instance (SOP Instance UID, 0008,0018).",
+  "reasoning": "DICOM Study Instance UID is (0020,000D).",
+  "stop_reason": "stop",
+  "resolved_model": "kimi-k3",
+  "usage": {
+    "completion_tokens": 145,
+    "prompt_tokens": 111,
+    "total_tokens": 256,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 14,
+      "rejected_prediction_tokens": null
+    },
+    "prompt_tokens_details": null
+  },
+  "request_params": {
+    "model": "kimi-k3",
+    "max_tokens": 4096,
+    "reasoning_effort": "low"
+  }
+}

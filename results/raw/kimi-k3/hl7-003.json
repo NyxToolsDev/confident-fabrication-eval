@@ -1,0 +1,28 @@
+{
+  "question_id": "hl7-003",
+  "model_name": "kimi-k3",
+  "provider": "openai_compatible",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T17:31:28.134431+00:00",
+  "text": "# Inpatient Admission Notification in HL7 v2\n\n**Message Type:** ADT (Admit, Discharge, Transfer)\n**Trigger Event:** A01 (Admit/Visit Notification)\n\nThe **ADT^A01** message is sent when a patient is admitted as an inpatient. It notifies other systems (such as lab, radiology, pharmacy, and billing systems) that the patient has begun a stay at the facility.\n\n## Key Details\n\n- **Purpose:** Communicates that a patient has been admitted and assigned to a bed/location\n- **Typical sender:** The hospital's Admission/Registration system (often part of the EHR or an ADT system)\n- **Key segments include:**\n  - **MSH** \u2013 Message header\n  - **EVN** \u2013 Event type (A01) and timestamp\n  - **PID** \u2013 Patient identification and demographics\n  - **PV1** \u2013 Patient visit information (admission date, location, attending physician, patient class = \"I\" for inpatient)\n\n## Related ADT Trigger Events\n\n| Event | Description |\n|-------|-------------|\n| A01 | Admit/visit notification (inpatient admission) |\n| A02 | Transfer a patient |\n| A03 | Discharge/end visit |\n| A04 | Register a patient (outpatient/ER) |\n| A08 | Update patient information |\n| A40 | Merge patient records |\n\nThe A01 event is distinct from **A04** (registration), which is typically used for outpatient, emergency, or recurring visits where the patient is not formally admitted as an inpatient.",
+  "reasoning": "HL7 v2 ADT message, A01 admit/visit notification.",
+  "stop_reason": "stop",
+  "resolved_model": "kimi-k3",
+  "usage": {
+    "completion_tokens": 355,
+    "prompt_tokens": 115,
+    "total_tokens": 470,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 16,
+      "rejected_prediction_tokens": null
+    },
+    "prompt_tokens_details": null
+  },
+  "request_params": {
+    "model": "kimi-k3",
+    "max_tokens": 4096,
+    "reasoning_effort": "low"
+  }
+}

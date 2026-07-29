@@ -1,0 +1,28 @@
+{
+  "question_id": "hl7-009",
+  "model_name": "kimi-k3",
+  "provider": "openai_compatible",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T17:32:33.112843+00:00",
+  "text": "# Acknowledgment Code in HL7 v2 ACK Messages\n\nThe acknowledgment code is carried in **MSA-1 (Acknowledgment Code)**, the first field of the **MSA (Message Acknowledgment)** segment.\n\n## Common Values\n\n**Original mode acknowledgments:**\n| Code | Meaning |\n|------|---------|\n| **AA** | Application Accept \u2013 the message was received and processed successfully |\n| **AE** | Application Error \u2013 the message was received, but an error occurred during processing |\n| **AR** | Application Reject \u2013 the message was rejected (e.g., failed validation, unsupported message type) |\n\n**Enhanced mode acknowledgments** (used with accept-level acknowledgments, e.g., \"commit ACKs\"):\n| Code | Meaning |\n|------|---------|\n| **CA** | Commit Accept |\n| **CE** | Commit Error |\n| **CR** | Commit Reject |\n\n## Example\n\n```\nMSH|^~\\&|RECEIVER|FAC|SENDER|FAC|20240101120000||ACK^A01|MSG002|P|2.5\nMSA|AA|MSG001\n```\n\nHere, `MSA-1 = AA` indicates successful processing of the original message (whose control ID, `MSG001`, appears in **MSA-2**).\n\n**Note:** In HL7 v2.8 and later, additional detail about errors is often conveyed in the **ERR** segment rather than relying solely on the MSA-1 code.",
+  "reasoning": "HL7 v2 ACK: MSA-1 acknowledgment code. Values AA, AE, AR (v2.x also CA, CE, CR in enhanced mode).",
+  "stop_reason": "stop",
+  "resolved_model": "kimi-k3",
+  "usage": {
+    "completion_tokens": 353,
+    "prompt_tokens": 121,
+    "total_tokens": 474,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 34,
+      "rejected_prediction_tokens": null
+    },
+    "prompt_tokens_details": null
+  },
+  "request_params": {
+    "model": "kimi-k3",
+    "max_tokens": 4096,
+    "reasoning_effort": "low"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "question_id": "fhir-008",
+  "model_name": "kimi-k3",
+  "provider": "openai_compatible",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T17:30:26.719273+00:00",
+  "text": "There is no element called `Patient.mrn` in FHIR R4.\n\nInstead, a medical record number is carried in `Patient.identifier`, which is a list of `Identifier` datatypes. A typical MRN representation looks like:\n\n```json\n{\n  \"resourceType\": \"Patient\",\n  \"identifier\": [\n    {\n      \"type\": {\n        \"coding\": [\n          {\n            \"system\": \"http://terminology.hl7.org/CodeSystem/v2-0203\",\n            \"code\": \"MR\",\n            \"display\": \"Medical Record Number\"\n          }\n        ]\n      },\n      \"system\": \"http://hospital.example.org/mrn\",\n      \"value\": \"123456789\",\n      \"assigner\": { \"display\": \"Example Hospital\" }\n    }\n  ]\n}\n```\n\nKey points:\n- `identifier.type` uses the code `MR` from the HL7 v2-0203 code system to indicate it's a medical record number.\n- `identifier.system` is a URI (or OID) naming the assigning organization's namespace, which makes the MRN globally unambiguous.\n- `identifier.value` holds the MRN string itself.\n\nSome implementation guides may use a profile with a sliced identifier to mandate this pattern, but the core FHIR R4 Patient resource has no dedicated MRN field.",
+  "reasoning": "FHIR R4 Patient has no \"mrn\" element; MRN is represented in Patient.identifier with Identifier.type coding MR.",
+  "stop_reason": "stop",
+  "resolved_model": "kimi-k3",
+  "usage": {
+    "completion_tokens": 310,
+    "prompt_tokens": 110,
+    "total_tokens": 420,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 27,
+      "rejected_prediction_tokens": null
+    },
+    "prompt_tokens_details": null
+  },
+  "request_params": {
+    "model": "kimi-k3",
+    "max_tokens": 4096,
+    "reasoning_effort": "low"
+  }
+}

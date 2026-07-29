@@ -1,0 +1,28 @@
+{
+  "question_id": "dicom-004",
+  "model_name": "kimi-k3",
+  "provider": "openai_compatible",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T17:27:49.483187+00:00",
+  "text": "DICOM Query/Retrieve uses these **DIMSE-C services**:\n\n- **C-FIND** \u2014 queries the PACS for matching patients, studies, series, or instances.\n- **C-MOVE** \u2014 requests the PACS to send matching objects to a specified destination, typically using **C-STORE** on a separate association.\n- **C-GET** \u2014 retrieves matching objects directly over the same association, with the PACS sending **C-STORE** sub-operations back to the workstation.\n\nTypically, the workstation acts as the **Query/Retrieve SCU**, while the PACS acts as the **Query/Retrieve SCP**. **C-MOVE** is the most common PACS retrieval mechanism; **C-GET** is supported less often.",
+  "reasoning": "We need need answer likely C-FIND, C-MOVE, C-GET. DIMSE services. Explain roles. Maybe C-ECHO not QR. Workstation SCU PACS SCP. C-FIND query, C-MOVE/retrieve. C-GET less common. Include C-STORE sub-operation for move/get delivery. Need precise.",
+  "stop_reason": "stop",
+  "resolved_model": "kimi-k3",
+  "usage": {
+    "completion_tokens": 239,
+    "prompt_tokens": 113,
+    "total_tokens": 352,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 71,
+      "rejected_prediction_tokens": null
+    },
+    "prompt_tokens_details": null
+  },
+  "request_params": {
+    "model": "kimi-k3",
+    "max_tokens": 4096,
+    "reasoning_effort": "low"
+  }
+}

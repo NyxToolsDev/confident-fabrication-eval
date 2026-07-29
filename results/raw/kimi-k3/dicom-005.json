@@ -1,0 +1,28 @@
+{
+  "question_id": "dicom-005",
+  "model_name": "kimi-k3",
+  "provider": "openai_compatible",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T17:27:59.151461+00:00",
+  "text": "DICOM tag **(0008,0010)** was called **Recognition Code**. It was a legacy ACR-NEMA identifier used to help recognize/identify the format or protocol in older datasets.\n\nIts status is now **retired** in the DICOM standard. It has no current defined use and should not be included in newly created DICOM objects; it may only appear in legacy data for backward compatibility.",
+  "reasoning": "We need need precise. DICOM tag 0008,0010 likely Recognition Code? Let's recall data dictionary. (0008,0010) Recognition Code? DICOM tags: 0008,0005 Specific Character Set, 0008,0008 Image Type, 0008,0012 Instance Creation Date, 0016 SOP Class UID, 0018 SOP Instance UID, 0020 Study Date. 0008,0010 was Recognition Code, retired. What used for? \"Recognition Code\" likely ACR-NEMA? Need know definition. DICOM data dictionary entry: Recognition Code (0008,0010) RET VR SH VM 1. Maybe \"Code identifying device that recognized image\"? Search from memory. In old ACR-NEMA, group 0008: Recognition Code, Image Type. DICOM PS3.6 says retired: \"Recognition Code (0008,0010) was previously used to identify the type of recognition code? This Attribute was retired.\" Need phrase. Maybe tag formerly \"Recognition Code\" and currently retired (not to be used). Could say superseded? Let's investigate memory via known DICOM tag listings: (0008,0010) Recognition Code, SH, 1, DICOM. Definition perhaps \"An identifying string used by the sending equipment to identify the message.\" Hmm.\n\nACR-NEMA 300-1988 message elements: group 0000 command; group 0008 identifying: length, recognition code, SOP class UID? Recognition code maybe identifies \"ACR-NEMA message\" via string \"ACR-NEMA 2.0\"? I recall DICOM preamble starts DICM. ACR-NEMA protocol had recognition code value \"ACR-NEMA\" perhaps. Search latent memory: DCMTK data dictionary entries include:\n{ 0x0008, 0x0010, \"RecognitionCode\", \"RecognitionCode\", DcmVR_SH, 1, 1, ... DcmItemRange_Undefined }\nNo definition.\n\nMight be a code indicating \"ACR-NEMA message is a command or data set\"? Question wording \"What was ... used for\" likely sourced from standard current status. Answer straightforward: was Recognition Code in ACR-NEMA, retained compatibility, no longer has defined semantics, retired.\n\nCan mention may be present in old data, should not be used in new instances; receivers ignore.",
+  "stop_reason": "stop",
+  "resolved_model": "kimi-k3",
+  "usage": {
+    "completion_tokens": 605,
+    "prompt_tokens": 120,
+    "total_tokens": 725,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 505,
+      "rejected_prediction_tokens": null
+    },
+    "prompt_tokens_details": null
+  },
+  "request_params": {
+    "model": "kimi-k3",
+    "max_tokens": 4096,
+    "reasoning_effort": "low"
+  }
+}

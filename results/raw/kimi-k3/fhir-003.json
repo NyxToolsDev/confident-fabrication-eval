@@ -1,0 +1,28 @@
+{
+  "question_id": "fhir-003",
+  "model_name": "kimi-k3",
+  "provider": "openai_compatible",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T17:29:29.788615+00:00",
+  "text": "# Searching for a Patient by MRN in FHIR R4\n\nUse the `identifier` search parameter on the Patient resource with **token** syntax:\n\n```\nGET [base]/Patient?identifier=[system]|[value]\n```\n\n## Example\n\n```\nGET https://fhir.example.com/R4/Patient?identifier=http://hospital.example.org/mrn|12345\n```\n\n## How it works\n\n- `identifier` is a **token**-type search parameter, formatted as `system|code`\n- **system**: the URI namespace that identifies the identifier type (e.g., your organization's MRN system URL)\n- **value**: the actual medical record number\n\n## Variations\n\n**Search by value only** (system omitted \u2014 matches across all identifier systems, less precise):\n\n```\nGET [base]/Patient?identifier=12345\n```\n\n**Search by system only** (find all patients with an identifier from that system):\n\n```\nGET [base]/Patient?identifier=http://hospital.example.org/mrn|\n```\n\n## Notes\n\n- The pipe character `|` separates system and value; it must be URL-encoded (`%7C`) in some clients\n- The MRN is typically carried in `Patient.identifier` with a type coding such as `http://terminology.hl7.org/CodeSystem/v2-0203|MR`\n- The response is a **searchset Bundle**, which may contain zero, one, or multiple matching Patient resources \u2014 don't assume uniqueness unless the server enforces it\n- Always prefer including the system: different patients could share the same identifier value across different assigning authorities",
+  "reasoning": "FHIR R4: use `identifier` search parameter with system|value token syntax.",
+  "stop_reason": "stop",
+  "resolved_model": "kimi-k3",
+  "usage": {
+    "completion_tokens": 356,
+    "prompt_tokens": 117,
+    "total_tokens": 473,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 19,
+      "rejected_prediction_tokens": null
+    },
+    "prompt_tokens_details": null
+  },
+  "request_params": {
+    "model": "kimi-k3",
+    "max_tokens": 4096,
+    "reasoning_effort": "low"
+  }
+}

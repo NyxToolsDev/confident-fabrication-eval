@@ -1,0 +1,28 @@
+{
+  "question_id": "fhir-004",
+  "model_name": "kimi-k3",
+  "provider": "openai_compatible",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T17:29:43.969299+00:00",
+  "text": "In FHIR R4, the **Observation** resource represents an individual lab result or clinical measurement.\n\nKey details:\n\n- **Purpose**: Observations capture measurements, assessments, and point-in-time findings \u2014 such as lab results (e.g., blood glucose), vital signs (e.g., blood pressure, heart rate), imaging findings, and other clinical data.\n- **Key elements**:\n  - `code` \u2014 what was measured (typically coded with LOINC)\n  - `value[x]` \u2014 the result (quantity, string, CodeableConcept, etc.)\n  - `referenceRange` \u2014 normal/abnormal ranges for interpretation\n  - `interpretation` \u2014 flags like High, Low, or Abnormal\n  - `effective[x]` \u2014 when the measurement was taken\n  - `performer` \u2014 who performed the test\n  - `category` \u2014 e.g., laboratory, vital-signs, survey\n- **Related resources**:\n  - `DiagnosticReport` \u2014 groups multiple Observations into a report (e.g., a complete blood count panel)\n  - `Specimen` \u2014 represents the sample on which an Observation was performed\n  - `ServiceRequest` \u2014 represents the order that led to the Observation\n\n**Example**: A serum potassium result would be an Observation with a LOINC code (e.g., `2823-3`), a valueQuantity like `4.5 mmol/L`, and a reference range of 3.5\u20135.0 mmol/L.",
+  "reasoning": "FHIR Observation resource.",
+  "stop_reason": "stop",
+  "resolved_model": "kimi-k3",
+  "usage": {
+    "completion_tokens": 325,
+    "prompt_tokens": 112,
+    "total_tokens": 437,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 6,
+      "rejected_prediction_tokens": null
+    },
+    "prompt_tokens_details": null
+  },
+  "request_params": {
+    "model": "kimi-k3",
+    "max_tokens": 4096,
+    "reasoning_effort": "low"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "question_id": "fhir-002",
+  "model_name": "kimi-k3",
+  "provider": "openai_compatible",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T17:29:15.918390+00:00",
+  "text": "In **FHIR R4**, `Patient.contact` is a BackboneElement (not a standalone resource) that represents a contact party for the patient. It defines:\n\n- `id` \u2014 unique identifier for the element\n- `extension` \u2014 additional extensions\n- `modifierExtension` \u2014 extensions that modify the meaning of the contact\n- `relationship` \u2014 the kind of relationship to the patient (`CodeableConcept`)\n- `name` \u2014 the contact person\u2019s name (`HumanName`)\n- `telecom` \u2014 contact details such as phone or email (`ContactPoint[]`)\n- `address` \u2014 the contact person\u2019s address (`Address`)\n- `gender` \u2014 the contact person\u2019s gender (`code`: `male | female | other | unknown`)\n- `organization` \u2014 organization on whose behalf the contact is acting (`Reference(Organization)`)\n- `period` \u2014 period during which this contact is valid (`Period`)\n\nAt least one of `name`, `telecom`, `address`, `organization`, or `relationship` should normally be present.",
+  "reasoning": "We need need answer likely Patient.contact backbone not resource. Elements: relationship, name, telecom, address, gender, organization, period. Also modifierExtension? In R4 Patient.Contact structure BackboneElement: relationship CodeableConcept, name HumanName, telecom ContactPoint, address Address, gender code, organization Reference(Organization), period Period. Could mention id, extension, modifierExtension. Question wording \"PatientContact resource\" perhaps Patient.contact. Correct terminology.",
+  "stop_reason": "stop",
+  "resolved_model": "kimi-k3",
+  "usage": {
+    "completion_tokens": 317,
+    "prompt_tokens": 111,
+    "total_tokens": 428,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 91,
+      "rejected_prediction_tokens": null
+    },
+    "prompt_tokens_details": null
+  },
+  "request_params": {
+    "model": "kimi-k3",
+    "max_tokens": 4096,
+    "reasoning_effort": "low"
+  }
+}

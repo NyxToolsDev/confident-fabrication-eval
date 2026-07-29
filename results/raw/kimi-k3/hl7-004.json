@@ -1,0 +1,28 @@
+{
+  "question_id": "hl7-004",
+  "model_name": "kimi-k3",
+  "provider": "openai_compatible",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T17:31:41.545178+00:00",
+  "text": "ADT^A99 is **not a defined trigger event** in HL7 version 2.5.1 (or in other published versions of the HL7 v2.x standard).\n\nSome context:\n\n- In HL7 v2.x, ADT (Admit/Discharge/Transfer) messages are identified by message type `ADT` combined with a trigger event code, such as `ADT^A01` (admit/visit notification), `ADT^A02` (transfer a patient), `ADT^A03` (discharge/end visit), `ADT^A08` (update patient information), and `ADT^A40` (merge patient \u2013 patient identifier list).\n- In HL7 v2.5.1, the defined ADT trigger events run from A01 through A62, but not all numbers in that range are assigned, and **A99 is not among the assigned codes**.\n\nIf you encountered `ADT^A99` in an actual interface, it would most likely be one of the following:\n\n1. **A locally defined (Z-trigger or site-specific) event** \u2013 some vendors or organizations use nonstandard codes for custom workflows, though HL7 convention would suggest using a \"Z\" prefix for such customizations (e.g., `ADT^Z99`).\n2. **An error or misconfiguration** in the sending or receiving system's message construction.\n\nIf you're troubleshooting a real message, you'd need to consult the interface documentation of the specific vendor or organization that produced it, since A99 has no standard meaning.",
+  "reasoning": "HL7 ADT^A99 isn't standard... In HL7 v2, ADT^A99 doesn't exist \u2014 ADT messages go A01-A62ish. A99 is not defined. Actually I don't recall A99 being assigned. Best to say it's not a defined trigger event in v2.5.1.",
+  "stop_reason": "stop",
+  "resolved_model": "kimi-k3",
+  "usage": {
+    "completion_tokens": 395,
+    "prompt_tokens": 117,
+    "total_tokens": 512,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 67,
+      "rejected_prediction_tokens": null
+    },
+    "prompt_tokens_details": null
+  },
+  "request_params": {
+    "model": "kimi-k3",
+    "max_tokens": 4096,
+    "reasoning_effort": "low"
+  }
+}

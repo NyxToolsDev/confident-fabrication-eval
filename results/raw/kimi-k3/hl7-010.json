@@ -1,0 +1,28 @@
+{
+  "question_id": "hl7-010",
+  "model_name": "kimi-k3",
+  "provider": "openai_compatible",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T17:32:46.671579+00:00",
+  "text": "In HL7 v2.3.1, **PID-32 is \u201cIdentity Reliability Code.\u201d** It contains a coded value indicating how reliable the patient/person identity information is.\n\n- **Data type:** `IS`\n- **Code table:** HL7-defined table **0445**",
+  "reasoning": "We need need answer. Recall HL7 PID segment fields. PID-32? Identity reliability code? Let's enumerate: PID-19 SSN, 20 driver license, 21 mother identifier, 22 ethnic group, 23 birth place, 24 multiple birth indicator, 25 birth order, 26 citizenship, 27 veterans military status, 28 nationality (deprecated?), 29 patient death date/time, 30 patient death indicator, 31 identity unknown indicator, 32 identity reliability code, 33 last update date/time. Yes. Need precise datatype and description maybe CWE? v2.3.1 likely IS? HL7 v2.3.1 PID-32 Identity Reliability Code, data type IS? In newer v2.5 CWE. Let's verify. HL7 2.3.1 table: PID-32 Identity Reliability Code (IS) perhaps set user-defined? Values: AL Patient/Person Name is an Alias; UP Unknown/Patient? Identity known/reason? Wait code table 0445? Let's recall HL7 v2 chapter.\n\nField:\nPID-31 Identity Unknown Indicator (ID) HL7 table 0136\nPID-32 Identity Reliability Code (IS) HL7 table 0445, repeatable?\nPID-33 Last Update Date/Time (DT)\nPID-34 Last Update Facility (HD)\nPID-35 Taxonomic Classification Code (CWE)\nPID-36 Breed Code (CWE)\nPID-37 Strain (ST)\nPID-38 Production Class Code (CWE)\nPID-39 Tribal Citizenship (CWE)\n\nQuestion asks what contains. Answer identity reliability code, indicates reliability of identity info (patient identity). Mention datatype IS and table 0445 in v2.3.1. Is repeat? Field specs perhaps CE? Let's ensure. Search memory: HL7 2.3.1 PID table:\n00104 00111 PID-32 Identity Reliability Code 2 IS 0445\nCould length 2, optional. Values: AL, UA, UP? Table 0445:\nAL Patient/Person Name is an Alias\nUP Unknown/Patient? \nUA Unspecified? Maybe not necessary.\n\nLet's formulate.",
+  "stop_reason": "stop",
+  "resolved_model": "kimi-k3",
+  "usage": {
+    "completion_tokens": 525,
+    "prompt_tokens": 114,
+    "total_tokens": 639,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 451,
+      "rejected_prediction_tokens": null
+    },
+    "prompt_tokens_details": null
+  },
+  "request_params": {
+    "model": "kimi-k3",
+    "max_tokens": 4096,
+    "reasoning_effort": "low"
+  }
+}

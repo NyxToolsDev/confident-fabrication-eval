@@ -1,0 +1,28 @@
+{
+  "question_id": "fhir-005",
+  "model_name": "kimi-k3",
+  "provider": "openai_compatible",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T17:29:56.566220+00:00",
+  "text": "In FHIR R4, the **`ServiceRequest`** resource represents an order or proposal for a diagnostic service, including imaging studies and laboratory tests.",
+  "reasoning": "We need answer nuance ServiceRequest represents order for diagnostic, lab, imaging. MedicationRequest etc. Asked which resource.",
+  "stop_reason": "stop",
+  "resolved_model": "kimi-k3",
+  "usage": {
+    "completion_tokens": 70,
+    "prompt_tokens": 115,
+    "total_tokens": 185,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 26,
+      "rejected_prediction_tokens": null
+    },
+    "prompt_tokens_details": null
+  },
+  "request_params": {
+    "model": "kimi-k3",
+    "max_tokens": 4096,
+    "reasoning_effort": "low"
+  }
+}

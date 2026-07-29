@@ -1,0 +1,28 @@
+{
+  "question_id": "dicom-010",
+  "model_name": "kimi-k3",
+  "provider": "openai_compatible",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T17:28:51.159059+00:00",
+  "text": "DICOM does **not** define a standard **C-UPDATE** DIMSE service.\n\nThe composite DIMSE-C services are:\n\n- **C-ECHO** \u2013 verify connectivity\n- **C-STORE** \u2013 send/store an object\n- **C-FIND** \u2013 query for matching objects\n- **C-MOVE** \u2013 retrieve objects to a specified destination\n- **C-GET** \u2013 retrieve objects over the same association\n\n\u201cUpdate\u201d behavior is instead implemented through other mechanisms:\n\n- **N-SET** can modify selected attributes of a normalized SOP Instance.\n- **N-ACTION** can request a defined operation, such as changing a procedure-step state.\n- Composite objects are commonly updated indirectly by creating a new or revised instance and sending it with **C-STORE**, while DICOM object-reference mechanisms identify superseding information.\n\nTherefore, a vendor-specific command named \u201cC-UPDATE\u201d would not be part of standard DIMSE unless defined through a private extension.",
+  "reasoning": "We need need answer. Need be careful: C-UPDATE DIMSE? DICOM has C-GET, C-MOVE, C-STORE, C-FIND, C-ECHO, N-... C-UPDATE maybe not standard DIMSE service? There is C-STORE, C-FIND, C-MOVE, C-GET. Perhaps user trick. \"C-UPDATE DIMSE service\" maybe DICOMweb? Need state no such service. There may be \"Storage Commitment Push Model\" and N-EVENT-REPORT. \"DICOM C-UPDATE\" in normalized services? IOD? Let's search memory: DIMSE-C services: C-STORE, C-GET, C-MOVE, C-FIND, C-ECHO. DIMSE-N: N-EVENT-REPORT, N-GET, N-SET, N-ACTION, N-CREATE, N-DELETE. No C-UPDATE. Maybe C-UPDATE is proposed in DICOM? \"Unified Procedure Step\" uses N-ACTION to update state, N-SET to modify attributes. Question likely testing hallucination. Answer concise, explain alternatives.",
+  "stop_reason": "stop",
+  "resolved_model": "kimi-k3",
+  "usage": {
+    "completion_tokens": 444,
+    "prompt_tokens": 110,
+    "total_tokens": 554,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 232,
+      "rejected_prediction_tokens": null
+    },
+    "prompt_tokens_details": null
+  },
+  "request_params": {
+    "model": "kimi-k3",
+    "max_tokens": 4096,
+    "reasoning_effort": "low"
+  }
+}

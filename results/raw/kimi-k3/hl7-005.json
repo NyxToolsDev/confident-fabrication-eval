@@ -1,0 +1,28 @@
+{
+  "question_id": "hl7-005",
+  "model_name": "kimi-k3",
+  "provider": "openai_compatible",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T17:31:55.640913+00:00",
+  "text": "The **OBX (Observation/Result) segment** carries the individual observation results in an ORU^R01 message.\n\nKey points:\n\n- **OBX** contains the actual result data, including:\n  - **OBX-3**: Observation identifier (e.g., a LOINC code identifying the test)\n  - **OBX-5**: Observation value (the actual result)\n  - **OBX-6**: Units\n  - **OBX-7**: Reference range\n  - **OBX-8**: Abnormal flags\n  - **OBX-11**: Result status (e.g., F for final, P for preliminary)\n\n- Each OBX segment represents **one** observation, so a message with multiple results contains multiple OBX segments.\n\n- OBX segments are typically grouped under an **OBR (Observation Request)** segment, which identifies the overall order or battery (e.g., a complete blood count), while the OBX segments beneath it carry the individual components (e.g., hemoglobin, WBC count, platelet count).",
+  "reasoning": "HL7 v2 ORU^R01: OBX segment carries individual observation results. OBR is the order header.",
+  "stop_reason": "stop",
+  "resolved_model": "kimi-k3",
+  "usage": {
+    "completion_tokens": 257,
+    "prompt_tokens": 116,
+    "total_tokens": 373,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 26,
+      "rejected_prediction_tokens": null
+    },
+    "prompt_tokens_details": null
+  },
+  "request_params": {
+    "model": "kimi-k3",
+    "max_tokens": 4096,
+    "reasoning_effort": "low"
+  }
+}

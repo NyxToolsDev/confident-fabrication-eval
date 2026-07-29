@@ -1,0 +1,28 @@
+{
+  "question_id": "fhir-006",
+  "model_name": "kimi-k3",
+  "provider": "openai_compatible",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T17:30:00.943607+00:00",
+  "text": "# DiagnosticOrder in FHIR R4 \u2014 Important Clarification\n\nThe **DiagnosticOrder resource does not exist in FHIR R4**. It was present in FHIR DSTU2 and STU3, but in R4 it was **split and replaced by two resources**:\n\n- **ServiceRequest** \u2014 for requesting diagnostic tests (lab, imaging, pathology, etc.)\n- **RequestGroup** \u2014 for grouping multiple related requests\n\n## Key Elements of DiagnosticOrder (STU3, for reference)\n\n- **identifier** \u2013 business identifiers for the order\n- **status** \u2013 proposed | draft | planned | requested | received | accepted | in-progress | completed | suspended | rejected | cancelled\n- **intent** \u2013 proposal | plan | order\n- **priority** \u2013 routine | urgent | asap | stat\n- **subject** \u2013 the patient (or group/device/location) the test is for\n- **encounter** \u2013 the encounter context\n- **orderer** \u2013 the practitioner requesting the test\n- **reasonCode / reasonReference** \u2013 clinical justification (Condition/Observation)\n- **supportingInformation** \u2013 additional clinical info supporting the order\n- **specimen** \u2013 specimens collected for the order\n- **item (backbone element)** \u2013 the individual tests requested, each with:\n  - **code** (CodeableConcept) \u2013 the test/procedure requested\n  - **status**, **bodySite**, **specimen**, **event** (status, date/time, actor)\n- **event** \u2013 status-change history for the order overall\n- **note** \u2013 comments and instructions\n\n## R4 Equivalent: ServiceRequest\n\nIf you're working in R4, use **ServiceRequest**, which carries these key elements: `status`, `intent`, `category`, `priority`, `code`, `subject`, `encounter`, `requester`, `performer`, `reasonCode/reasonReference`, `specimen`, `bodySite`, and `orderDetail`.\n\nWould you like a detailed breakdown of ServiceRequest in R4?",
+  "reasoning": "DiagnosticOrder was replaced by ServiceRequest in R4 (DiagnosticOrder existed in DSTU2/STU3). Key elements historically: subject, orderer, item (code, specimen, bodySite, status, event), status, priority, identifier, encounter, clinical notes.",
+  "stop_reason": "stop",
+  "resolved_model": "kimi-k3",
+  "usage": {
+    "completion_tokens": 487,
+    "prompt_tokens": 112,
+    "total_tokens": 599,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 56,
+      "rejected_prediction_tokens": null
+    },
+    "prompt_tokens_details": null
+  },
+  "request_params": {
+    "model": "kimi-k3",
+    "max_tokens": 4096,
+    "reasoning_effort": "low"
+  }
+}
