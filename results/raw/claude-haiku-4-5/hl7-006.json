@@ -1,0 +1,26 @@
+{
+  "question_id": "hl7-006",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:58:37.957270+00:00",
+  "text": "# HL7 v2 Component Separator\n\nIn HL7 v2 messages using default encoding characters, the **caret (`^`)** character separates components within a field.\n\n## Context\n\nHL7 v2 uses a hierarchical structure of separators:\n\n| Separator | Character | Purpose |\n|-----------|-----------|---------|\n| Field | `\\|` | Separates fields |\n| **Component** | **`^`** | **Separates components within a field** |\n| Repetition | `~` | Separates repeated fields |\n| Escape | `\\` | Escapes special characters |\n| Subcomponent | `&` | Separates subcomponents |\n\n## Example\n\nIn a patient name field, components are separated by the caret:\n\n```\nPID|1||12345^^^MRN||Doe^John^A||19800101\n```\n\nHere, \"Doe^John^A\" represents:\n- Last name: `Doe`\n- First name: `John`\n- Middle initial: `A`",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 44,
+    "output_tokens": 250,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

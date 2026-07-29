@@ -1,0 +1,26 @@
+{
+  "question_id": "dicom-006",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:57:39.230569+00:00",
+  "text": "# DICOM Tag for Modality\n\nThe DICOM tag for Modality is **(0008,0060)**.\n\n**Details:**\n- **Group:** 0008 (Image-related Information)\n- **Element:** 0060\n- **VR (Value Representation):** CS (Code String)\n- **VM (Value Multiplicity):** 1\n\nThis tag specifies the type of imaging modality used to acquire the image, such as CT, MR, US, XA, CR, etc.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 36,
+    "output_tokens": 121,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

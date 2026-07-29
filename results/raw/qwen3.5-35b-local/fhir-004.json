@@ -1,0 +1,23 @@
+{
+  "question_id": "fhir-004",
+  "model_name": "qwen3.5-35b-local",
+  "provider": "ollama_native",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T16:01:23.274139+00:00",
+  "text": "In HL7 Fast Healthcare Interoperable Resources (FHIR) Release 4 (R4), the primary resource used to represent a single **lab result** or a specific **clinical measurement** is the **Observation**.\n\nThe `Observation` resource is highly versatile and serves as the standard container for:\n*   Laboratory test results (e.g., blood glucose, hemoglobin).\n*   Vital signs measurements (e.g., temperature, blood pressure).\n*   Other clinical findings such as imaging reports or patient-reported symptoms.\n\nWhile an **DiagnosticReport** resource can group multiple observations together into a formal report summary, the individual data points that constitute specific lab values and measurements are encapsulated within one or more `Observation` resources linked to that report. The result value is typically stored in the `.value[x]` element (e.g., `valueQuantity`, `valueCodeableConcept`) of the Observation resource.\n\n**Answer:** **Observation**",
+  "reasoning": null,
+  "stop_reason": "stop",
+  "resolved_model": "qwen3.5:35b",
+  "usage": {
+    "prompt_tokens": 40,
+    "completion_tokens": 198
+  },
+  "request_params": {
+    "model": "qwen3.5:35b",
+    "stream": false,
+    "options": {
+      "num_predict": 2048
+    },
+    "think": false
+  }
+}

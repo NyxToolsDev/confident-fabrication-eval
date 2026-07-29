@@ -1,0 +1,29 @@
+{
+  "question_id": "dicom-004",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:53:50.425310+00:00",
+  "text": "# DICOM Query/Retrieve DIMSE Services\n\nDICOM Query/Retrieve operations between a workstation (SCU) and a PACS (SCP) are implemented using the following **DIMSE-C (Composite)** services:\n\n## Query Services\n\n### C-FIND\n- Used to **query** the PACS for information about available studies, series, and images\n- The workstation sends search criteria (e.g., Patient ID, Study Date, Accession Number)\n- The PACS returns matching entries based on the query keys\n- Operates across the four query/retrieve levels: **Patient, Study, Series, and Image (Instance)**\n\n## Retrieve Services\n\n### C-MOVE\n- Instructs the PACS to **send (move)** matching objects to a specified destination Application Entity (AE)\n- Uses a **third-party transfer model**: the retrieved images are sent over a *separate* association using C-STORE\n- The destination is identified by its AE Title (must be pre-configured)\n\n### C-GET\n- Retrieves objects over the **same association** used for the request\n- Combines query/retrieve and storage on a single connection\n- Less commonly used than C-MOVE in traditional PACS environments (though useful when firewall/network configuration makes C-MOVE difficult)\n\n## Supporting Service\n\n### C-STORE\n- The actual mechanism by which images are transferred\n- With **C-MOVE**: the PACS becomes an SCU and issues C-STORE operations to the destination\n- With **C-GET**: C-STORE sub-operations occur on the same association\n\n---\n\n## Summary Table\n\n| DIMSE Service | Role | Function |\n|---------------|------|----------|\n| **C-FIND** | Query | Search for studies/series/images |\n| **C-MOVE** | Retrieve | Transfer objects to a destination AE (separate association) |\n| **C-GET** | Retrieve | Transfer objects on same association |\n| **C-STORE** | Transfer | Actual image transmission (invoked by C-MOVE/C-GET) |\n\n**Typical workflow:** The workstation issues a **C-FIND** to locate studies, then a **C-MOVE** to instruct the PACS to transmit the images (via C-STORE) back to the workstation.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 58,
+    "output_tokens": 734,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

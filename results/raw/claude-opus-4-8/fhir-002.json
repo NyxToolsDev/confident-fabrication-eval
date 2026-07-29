@@ -1,0 +1,29 @@
+{
+  "question_id": "fhir-002",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:54:55.650575+00:00",
+  "text": "# FHIR R4 and the \"PatientContact\" Resource\n\nI need to offer a correction here: **there is no standalone \"PatientContact\" resource** in FHIR R4.\n\nInstead, patient contact information is represented as a **backbone element** called `contact` *within* the **Patient** resource. It's sometimes referred to as `Patient.contact`, but it is not an independent resource.\n\n## Elements defined on `Patient.contact`\n\nThe `Patient.contact` backbone element includes the following elements:\n\n| Element | Cardinality | Type | Description |\n|---------|-------------|------|-------------|\n| `relationship` | 0..* | CodeableConcept | The nature of the relationship (e.g., emergency contact, next of kin) |\n| `name` | 0..1 | HumanName | A name associated with the contact person |\n| `telecom` | 0..* | ContactPoint | Phone, email, etc. for the contact person |\n| `address` | 0..1 | Address | Address for the contact person |\n| `gender` | 0..1 | code | male \\| female \\| other \\| unknown |\n| `organization` | 0..1 | Reference(Organization) | Organization on behalf of which the contact acts (or is acting) |\n| `period` | 0..1 | Period | The period during which this contact is valid to be contacted |\n\n## Constraints\n\n- **pat-1**: A contact SHALL at least contain a `name`, a `telecom`, an `address`, or an `organization` reference. (Expressed as: `name.exists() or telecom.exists() or address.exists() or organization.exists()`)\n\n## A note on terminology\n\nYou may be thinking of one of these related concepts:\n- **`Patient.contact`** \u2013 the backbone element described above (most likely what you mean)\n- **`RelatedPerson`** \u2013 a *separate resource* for a person related to the patient who is involved in their care but is not the target of care themselves\n\nIf you were actually asking about **RelatedPerson** or another resource, let me know and I can detail those elements instead.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 49,
+    "output_tokens": 651,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

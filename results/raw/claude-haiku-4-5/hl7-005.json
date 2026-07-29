@@ -1,0 +1,26 @@
+{
+  "question_id": "hl7-005",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:58:35.089769+00:00",
+  "text": "# HL7 v2 ORU^R01 Message Structure\n\nIn an HL7 v2 **ORU^R01** (Observation Result/Unsolicited) message, the **OBX segment** carries the individual observation results.\n\n## Key Details:\n\n- **OBX** = Observation/Result Segment\n- Contains the actual observation data, including:\n  - Observation identifier\n  - Observation value\n  - Units of measure\n  - Reference ranges\n  - Result status\n  - Abnormal flags\n\n## Message Structure Context:\n\nA typical ORU^R01 message contains:\n- **MSH** - Message header\n- **PID** - Patient identification\n- **OBR** - Observation request (groups related observations)\n- **OBX** - Observation result (one or more per OBR)\n\nMultiple OBX segments can appear in a single message to report different observations for the same patient, and they are typically grouped under an OBR segment that describes the overall order or test requisition.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 45,
+    "output_tokens": 242,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

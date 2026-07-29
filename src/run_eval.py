@@ -27,7 +27,8 @@ MAX_TOKENS = 2048
 
 # Error substrings that mean every remaining call to this model will also fail
 # (billing, bad key, bad model id) — abort the model instead of burning the bank.
-FATAL_ERROR_MARKERS = ("credit balance", "authentication_error", "invalid x-api-key", "not_found_error")
+FATAL_ERROR_MARKERS = ("credit balance", "authentication_error", "invalid x-api-key", "not_found_error",
+                       "AuthenticationError", "insufficient balance")
 
 
 def load_questions(include_drafts: bool) -> list[dict[str, Any]]:
@@ -179,6 +180,13 @@ def main() -> None:
             "ANTHROPIC_API_KEY is not set (environment or repo-root .env). "
             "Anthropic models cannot run; set it or use --only for a local model."
         )
+    for m in models:
+        key_env = m.get("api_key_env")
+        if m["provider"] == "openai_compatible" and key_env and not os.environ.get(key_env):
+            raise SystemExit(
+                f"{key_env} is not set (environment or repo-root .env). "
+                f"Model {m['name']!r} cannot run; set it or use --only for another model."
+            )
     questions = load_questions(include_drafts=args.include_drafts)
     if args.questions:
         wanted = {q.strip() for q in args.questions.split(",")}

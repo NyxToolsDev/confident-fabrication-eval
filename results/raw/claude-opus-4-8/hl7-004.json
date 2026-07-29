@@ -1,0 +1,29 @@
+{
+  "question_id": "hl7-004",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:56:24.535140+00:00",
+  "text": "In HL7 v2.5.1, the ADT message type uses trigger events in the format A01, A02, A03, etc. However, **A99 is not a defined trigger event** in the standard HL7 v2.5.1 specification.\n\nThe defined ADT trigger events in HL7 v2.5.1 range through various numbers (A01 through A62, with some gaps), but **A99 does not correspond to any standard trigger event**.\n\nA few clarifications worth noting:\n\n- The highest standard ADT trigger events in v2.5.1 top out in the A60s range (for example, A60 \u2013 Update allergy information, A61 \u2013 Change consulting doctor, A62 \u2013 Cancel change consulting doctor).\n- If you've encountered **ADT^A99** in a real-world interface, it is most likely a **local/custom trigger event** (\"Z-segment\"-style customization or a site-specific extension). HL7 allows implementers to define local codes for use cases not covered by the standard, and unusual or high-numbered codes like A99 are sometimes used privately by specific vendors or institutions.\n\nIf you saw A99 in a specific system's documentation, I'd recommend checking that vendor's or organization's implementation guide, since its meaning would be defined locally rather than by the HL7 standard itself.\n\nIf you meant a different trigger event (for example, a specific one you're trying to identify), let me know and I can help clarify what it represents.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 54,
+    "output_tokens": 454,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

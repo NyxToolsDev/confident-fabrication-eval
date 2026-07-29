@@ -1,0 +1,4 @@
+model_name,correct,abstain,hedged_wrong,confident_fabrication,n
+claude-haiku-4-5,0.867,0.0,0.0,0.133,30
+claude-opus-4-8,1.0,0.0,0.0,0.0,30
+qwen3.5-35b-local,0.5,0.0,0.0,0.5,30

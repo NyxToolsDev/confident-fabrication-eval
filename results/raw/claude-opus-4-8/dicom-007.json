@@ -1,0 +1,29 @@
+{
+  "question_id": "dicom-007",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:54:15.382214+00:00",
+  "text": "The DICOM tag for **SOP Instance UID** is:\n\n**(0008,0018)**\n\n- **Group:** 0008\n- **Element:** 0018\n\n**Additional details:**\n- **VR (Value Representation):** UI (Unique Identifier)\n- **VM (Value Multiplicity):** 1\n- **Attribute Name:** SOP Instance UID\n\nThis attribute uniquely identifies a specific SOP (Service-Object Pair) Instance and is a fundamental identifier in DICOM. It's part of the SOP Common Module and is present in virtually every DICOM object.\n\n**Related commonly-confused tag:**\n- **SOP Class UID:** (0008,0016) \u2014 identifies the *type* of object (e.g., CT Image Storage), whereas the SOP Instance UID identifies the *specific instance* of that object.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 49,
+    "output_tokens": 276,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

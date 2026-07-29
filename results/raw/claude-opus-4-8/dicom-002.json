@@ -1,0 +1,29 @@
+{
+  "question_id": "dicom-002",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:53:37.519995+00:00",
+  "text": "The DICOM tag for **Study Instance UID** is:\n\n**(0020,000D)**\n\n### Details:\n- **Group:** 0020\n- **Element:** 000D\n- **VR (Value Representation):** UI (Unique Identifier)\n- **VM (Value Multiplicity):** 1\n\n### Context:\nThe Study Instance UID is a globally unique identifier that distinguishes one imaging study from all others. It's a critical element in the DICOM information hierarchy:\n\n| Level | Tag | Description |\n|-------|-----|-------------|\n| Study | (0020,000D) | Study Instance UID |\n| Series | (0020,000E) | Series Instance UID |\n| Instance | (0008,0018) | SOP Instance UID |\n\nThis UID is essential for querying and retrieving studies (e.g., via C-FIND/C-MOVE operations) and for correlating imaging data across systems, including with related standards like HL7/FHIR ImagingStudy resources.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 48,
+    "output_tokens": 319,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

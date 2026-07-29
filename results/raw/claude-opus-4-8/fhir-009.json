@@ -1,0 +1,29 @@
+{
+  "question_id": "fhir-009",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:56:02.535698+00:00",
+  "text": "In FHIR R4, the datatype that represents a single coded value together with the code system it comes from and a display string is the **Coding** datatype.\n\n## Coding Datatype Structure\n\nA `Coding` represents a reference to a code defined by a terminology system. Its key elements include:\n\n| Element | Description |\n|---------|-------------|\n| `system` | The URI identifying the code system (e.g., `http://loinc.org`) |\n| `version` | The version of the code system (optional) |\n| `code` | The actual symbol/value in the code system's syntax |\n| `display` | The human-readable representation of the code |\n| `userSelected` | Indicates whether this coding was chosen directly by the user |\n\n## Example\n\n```json\n\"coding\": {\n  \"system\": \"http://loinc.org\",\n  \"code\": \"1963-8\",\n  \"display\": \"Bicarbonate [Moles/volume] in Serum\"\n}\n```\n\n## Important Distinction: Coding vs. CodeableConcept\n\nIt's worth clarifying a common point of confusion:\n\n- **`Coding`** \u2014 a *single* coded value from *one* code system (the answer to your question).\n- **`CodeableConcept`** \u2014 a datatype that can contain *multiple* `Coding` elements (representing the same concept in different code systems) plus a `text` element for the overall meaning.\n\nSo if you need just one code + system + display, the answer is **`Coding`**. If you need to represent a concept that may be encoded in several systems simultaneously, you would use `CodeableConcept`.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 58,
+    "output_tokens": 485,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

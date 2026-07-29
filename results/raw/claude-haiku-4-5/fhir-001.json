@@ -1,0 +1,26 @@
+{
+  "question_id": "fhir-001",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:57:53.874028+00:00",
+  "text": "# FHIR R4 ImagingStudy Resource\n\nIn FHIR R4, the **ImagingStudy** resource represents the metadata of a diagnostic imaging study, including series, instances, and modality information.\n\n## Key Features:\n\nThe ImagingStudy resource captures:\n- **Study-level metadata**: Study UID, date, description\n- **Series information**: Multiple series within a study, each with:\n  - Series UID\n  - Series number\n  - Modality (e.g., CT, MRI, XR, US)\n  - Series description\n- **Instance information**: Individual imaging instances within each series, including:\n  - SOP Class UID\n  - Instance UID\n  - Instance number\n\n## Structure Overview:\n```\nImagingStudy\n\u251c\u2500\u2500 Study metadata (subject, date, etc.)\n\u2514\u2500\u2500 Series[] \n    \u251c\u2500\u2500 Series metadata (modality, number, etc.)\n    \u2514\u2500\u2500 Instance[]\n        \u2514\u2500\u2500 Instance metadata (UID, number, etc.)\n```\n\nThis resource is particularly useful for tracking imaging procedures without requiring access to the actual DICOM files, making it ideal for referral systems, clinical decision support, and interoperability between imaging systems and electronic health records.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 45,
+    "output_tokens": 283,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "question_id": "fhir-007",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:58:15.051180+00:00",
+  "text": "# FHIR R4 REST API - Updating a Patient Resource\n\n## HTTP Method and URL Pattern\n\n**HTTP Method:** `PUT`\n\n**URL Pattern:** `PUT [base]/Patient/[id]`\n\n## Example\n\n```\nPUT http://example.com/fhir/Patient/123\nContent-Type: application/fhir+json\n\n{\n  \"resourceType\": \"Patient\",\n  \"id\": \"123\",\n  \"name\": [{\n    \"use\": \"official\",\n    \"given\": [\"John\"],\n    \"family\": \"Doe\"\n  }],\n  ...\n}\n```\n\n## Key Points\n\n- **PUT** is used for **full updates** (complete replacement of the resource)\n- The resource **id** in the URL must match the id in the request body\n- The entire resource must be included in the request body\n- Returns a **200 OK** or **201 Created** status on success\n- Optionally, **PATCH** can be used for partial updates in FHIR systems that support it\n\n## Alternative: Conditional Update\n\nYou can also use conditional updates with query parameters:\n\n```\nPUT [base]/Patient?identifier=system|value\n```\n\nThis updates a patient based on an identifier rather than a direct id reference.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 46,
+    "output_tokens": 289,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

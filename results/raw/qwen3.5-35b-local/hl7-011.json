@@ -1,0 +1,23 @@
+{
+  "question_id": "hl7-011",
+  "model_name": "qwen3.5-35b-local",
+  "provider": "ollama_native",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T16:03:20.847249+00:00",
+  "text": "In **HL7 v2.x** (including version 2.5.1), there is **no standard `ZPD` segment**.\n\nThe use of the letter **\"Z\"** in an HL7 message indicates a **user-defined or local-segment definition**. According to the HL7 standards, segments beginning with \"Z\" are reserved for specific implementations and are not part of the official International (HL7) vocabulary. Therefore:\n\n*   **Standard Meaning**: There is no universally defined meaning for `ZPD`. It does not appear in the standard message definitions or segment catalogs for v2.5.1.\n*   **Actual Usage**: If you encounter a `ZPD` segment in an HL7 2.5.1 exchange, its content and definition are determined entirely by:\n    *   The specific healthcare organization that sent it (e.g., a hospital or payer).\n    *   A contract or agreement between the sending and receiving systems.\n*   **Potential Content**: Based on naming conventions where \"PD\" often stands for **\"Patient Demographics\"** or **\"Provider Data,\"** this custom segment likely contains additional patient identification details, insurance information not covered by standard segments (like `PID` or `PV1`), or specific data points required for a local reporting interface. However, without the accompanying implementation guide from that specific organization, it is impossible to determine exactly which fields are included in its sub-components (e.g., ZPD-1, ZPD-2).\n\n**Conclusion**: The `ZPD` segment contains **custom-specific information defined locally by an implementer**. To understand what data it holds, you must consult the local interface specifications or implementation guide for the specific facility or system generating that message.",
+  "reasoning": null,
+  "stop_reason": "stop",
+  "resolved_model": "qwen3.5:35b",
+  "usage": {
+    "prompt_tokens": 42,
+    "completion_tokens": 356
+  },
+  "request_params": {
+    "model": "qwen3.5:35b",
+    "stream": false,
+    "options": {
+      "num_predict": 2048
+    },
+    "think": false
+  }
+}

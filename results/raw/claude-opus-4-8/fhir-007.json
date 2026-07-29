@@ -1,0 +1,29 @@
+{
+  "question_id": "fhir-007",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:55:47.224868+00:00",
+  "text": "# Updating a Patient Resource in FHIR R4\n\n## HTTP Method and URL Pattern\n\nTo update an existing Patient resource in the FHIR R4 REST API, you use:\n\n**HTTP Method:** `PUT`\n\n**URL Pattern:** `[base]/Patient/[id]`\n\n## Example\n\n```\nPUT https://example.com/fhir/Patient/123\nContent-Type: application/fhir+json\n\n{\n  \"resourceType\": \"Patient\",\n  \"id\": \"123\",\n  \"name\": [\n    {\n      \"family\": \"Smith\",\n      \"given\": [\"John\"]\n    }\n  ],\n  \"gender\": \"male\",\n  \"birthDate\": \"1980-01-01\"\n}\n```\n\n## Key Points\n\n- The **`PUT`** method performs a full update (replacement) of the resource.\n- The **`[id]`** in the URL must match the `id` in the request body's resource.\n- The `Content-Type` header should be set to `application/fhir+json` (or `application/fhir+xml`).\n- The server returns:\n  - **`200 OK`** if the resource was successfully updated\n  - **`201 Created`** if the resource did not previously exist and the server permits \"update as create\"\n\n## Related Operations\n\n| Operation | Method | URL Pattern |\n|-----------|--------|-------------|\n| Update (full) | `PUT` | `[base]/Patient/[id]` |\n| Partial update | `PATCH` | `[base]/Patient/[id]` |\n| Create | `POST` | `[base]/Patient` |\n| Read | `GET` | `[base]/Patient/[id]` |\n| Delete | `DELETE` | `[base]/Patient/[id]` |\n\nFor a **partial** update (modifying only specific fields), use the **`PATCH`** method instead.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 63,
+    "output_tokens": 578,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

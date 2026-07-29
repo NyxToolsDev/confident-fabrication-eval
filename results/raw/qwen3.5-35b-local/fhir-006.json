@@ -1,0 +1,23 @@
+{
+  "question_id": "fhir-006",
+  "model_name": "qwen3.5-35b-local",
+  "provider": "ollama_native",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T16:01:45.097482+00:00",
+  "text": "The **DiagnosticOrder** resource in HL7 FHIR Release 4 is a transactional order placed for an investigation (such as a lab test or imaging study). It represents the clinical request but does not contain results. Its primary purpose is to facilitate communication between providers and diagnostic laboratories/imaging centers regarding what needs to be done, who it concerns, when by, and why.\n\nThe resource follows the standard FHIR backbone pattern with several specific extensions for this domain. Below are the **key elements** categorized by their functional role:\n\n### 1. Core Identification and Status\n*   `status`: The life-cycle status of the order (e.g., *active*, *completed*, *cancelled*). This is critical for knowing if the request is currently actionable or historical.\n*   `category`: Indicates the type of diagnostic order, such as *laboratory*, *radiology*, *cardiovascular*, etc.\n*   `identifier`: Business identifiers (e.g., an internal hospital ID) to track the order across systems.\n\n### 2. Patient and Requester Information\n*   **`subject`** (Required): The reference (`Patient`) for whom the diagnostic test is being ordered. This links the request directly to a specific individual's record.\n*   **`requester`**: The provider or organization placing the order, including their contact details if needed.\n\n### 3. Timing and Urgency\n*   `authoredOn`: When the order was created/signed (the date/time of authorization).\n*   `occurrence[x]`: Defines when the event should occur. This can be a specific time (`occurrenceDateTime`), an interval, or a period for repeat testing.\n*   **`priority`** (Optional but vital): Indicates the urgency of the request (e.g., *routine*, *urgent*, *stat*).\n\n### 4. Clinical Context and Justification\n*   `reasonCode`: A code describing why the test is needed (using SNOMED CT, LOINC, or ICD-10-CM codes). This provides the clinical rationale.\n*   **`note`**: Free-text notes that might be attached to the order but don't fit into structured fields.\n\n### 5. The Ordered Investigation Itself (`performerType`) and `code`\nThis is the core of what is being asked:\n*   **`code`** (Required): Describes exactly which test or procedure is ordered. This typically points to a LOINC code for laboratory tests, CPT codes for procedures, or SNOMED CT terms for imaging protocols. It acts as a precise \"name\" and definition of the investigation.\n\n### 6. Instructions\n*   `note` (as part of instructions): While often just in the main note field, specific text-based instructions to the performing department can be added here regarding specimen handling or special requirements. Note that FHIR R4 distinguishes between textual notes (`note`) and structured parameters for specific tests via extensions where necessary, but historically complex procedural details were handled as free text until more granular profiles (like US Core) introduced specific constraint structures.\n\n### Summary of Critical Relationships\nThe `DiagnosticOrder` resource is designed to be linked with the **DiagnosticReport** (which holds results). The relationship between them is often established via:\n*   `DiagnosticReport.order`: A reference back to this `DiagnosticOrder`.\n\nThis creates a clear workflow chain: The provider issues an order (`DiagnosticOrder`) -> The lab performs it and generates findings (`DiagnosticReport`).",
+  "reasoning": null,
+  "stop_reason": "stop",
+  "resolved_model": "qwen3.5:35b",
+  "usage": {
+    "prompt_tokens": 40,
+    "completion_tokens": 733
+  },
+  "request_params": {
+    "model": "qwen3.5:35b",
+    "stream": false,
+    "options": {
+      "num_predict": 2048
+    },
+    "think": false
+  }
+}

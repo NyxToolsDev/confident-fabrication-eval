@@ -14,6 +14,13 @@
     "provider": "ollama_native",
     "model_id": "qwen3.5:35b",
     "base_url": "http://localhost:11434",
-    "params": {"think": false}
+    "params": {"think": false, "options": {"num_predict": 4096}}
+  },
+  {
+    "name": "kimi-k3",
+    "provider": "openai_compatible",
+    "model_id": "kimi-k3",
+    "base_url": "https://api.moonshot.ai/v1",
+    "api_key_env": "MOONSHOT_API_KEY"
   }
 ]

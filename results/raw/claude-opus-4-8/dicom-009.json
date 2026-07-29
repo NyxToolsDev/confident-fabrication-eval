@@ -1,0 +1,29 @@
+{
+  "question_id": "dicom-009",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:54:31.728561+00:00",
+  "text": "The DICOM tag for **Patient ID** is:\n\n**(0010,0020)**\n\n- **Group:** 0010 (Patient information group)\n- **Element:** 0020\n\nSome additional context:\n- The Value Representation (VR) for this tag is **LO** (Long String)\n- It's part of the Patient module and is a commonly used identifier\n- Related tags in the same group include Patient's Name **(0010,0010)**, Patient's Birth Date **(0010,0030)**, and Patient's Sex **(0010,0040)**",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 46,
+    "output_tokens": 174,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "question_id": "dicom-008",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:57:45.050908+00:00",
+  "text": "# DICOM Connectivity Testing\n\n## Answer\n\nThe **C-ECHO** service is used to test DICOM connectivity between two application entities, paired with the **Verification SOP Class** (UID: 1.2.840.10008.1.1).\n\n## Details\n\n### C-ECHO Service\n- **Purpose**: A simple request-response mechanism to verify communication between DICOM application entities\n- **Operation**: One AE sends an echo request; the other AE responds with an echo response\n- **DIMSE Type**: This is a confirmed service (requires acknowledgment)\n\n### Verification SOP Class\n- **UID**: 1.2.840.10008.1.1\n- **Role**: The standard SOP Class associated with C-ECHO operations\n- **Characteristics**: The simplest and most basic DICOM service, requiring minimal implementation\n\n## Practical Use\n\nC-ECHO is commonly used for:\n- Verifying network connectivity between DICOM systems\n- Testing firewall configurations\n- Confirming proper DICOM port access (typically port 104)\n- Troubleshooting connectivity issues before attempting complex DICOM operations\n\nThis is often the first diagnostic step when establishing DICOM communication between systems.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 41,
+    "output_tokens": 279,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "question_id": "hl7-008",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:58:42.741173+00:00",
+  "text": "# HL7 v2.5.1 MSH-9 (Message Type) Components\n\nIn HL7 version 2.5.1, MSH-9 (Message Type) is a **composite field** with the following components:\n\n## Components:\n\n1. **MSH-9-1: Message Code** (CM_MSG)\n   - The message type code (e.g., ADT, ORU, ORM, RGV)\n\n2. **MSH-9-2: Trigger Event** (ID)\n   - The trigger event code (e.g., A01, A04, R01, O01)\n\n## Format:\n\nThe field is typically structured as:\n```\nMSH-9: [Message Code]^[Trigger Event]\n```\n\n## Example:\n\n`ADT^A01` represents:\n- **Message Code**: ADT (Admission, Discharge, Transfer)\n- **Trigger Event**: A01 (Admit/Visit Notification)\n\n## Note:\n\nIn some later versions of HL7 v2.x (v2.7 and beyond), a third component was added:\n- **MSH-9-3: Message Structure** (ID) - to handle multiple message structures for the same message type\n\nHowever, in v2.5.1, only the two components above are standard.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 46,
+    "output_tokens": 310,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

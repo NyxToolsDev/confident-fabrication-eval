@@ -1,0 +1,29 @@
+{
+  "question_id": "fhir-006",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:55:37.123807+00:00",
+  "text": "# DiagnosticOrder in FHIR\n\nI need to offer an important correction here: **the `DiagnosticOrder` resource does not exist in FHIR R4.**\n\n## What Happened to DiagnosticOrder\n\n`DiagnosticOrder` was a resource that existed in earlier FHIR versions (specifically DSTU1 and DSTU2). During the development toward the R4 release, it was **replaced and superseded** by the more generalized **`ServiceRequest`** resource.\n\nAlong the way, several ordering-related resources were consolidated:\n- `DiagnosticOrder`\n- `ProcedureRequest`\n- `ReferralRequest`\n\nThese were merged into **`ServiceRequest`** to reduce fragmentation and provide a unified way to represent requests for services (diagnostic tests, procedures, referrals, etc.).\n\n## Key Elements of `ServiceRequest` (R4)\n\nSince `ServiceRequest` is the R4 successor, here are its important elements:\n\n| Element | Description |\n|---------|-------------|\n| `identifier` | Business identifiers for the request |\n| `status` | draft, active, on-hold, revoked, completed, entered-in-error, unknown |\n| `intent` | proposal, plan, order, etc. (required) |\n| `category` | Classification of the service |\n| `priority` | routine, urgent, asap, stat |\n| `code` | What is being requested (the test/procedure) |\n| `subject` | Who/what the request is for (usually Patient) (required) |\n| `encounter` | Associated encounter |\n| `occurrence[x]` | When the service should occur |\n| `requester` | Who initiated the request |\n| `performer` | Requested performer |\n| `reasonCode` / `reasonReference` | Why the request is made |\n| `specimen` | Specimens involved (relevant for lab orders) |\n| `bodySite` | Anatomical location |\n| `note` | Additional comments |\n\n## Recommendation\n\nIf you're working with a system referencing `DiagnosticOrder`, it's likely based on an older FHIR version. For R4 (and R5), you should migrate to `ServiceRequest`.\n\nWould you like details on mapping old `DiagnosticOrder` fields to `ServiceRequest`?",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 53,
+    "output_tokens": 741,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

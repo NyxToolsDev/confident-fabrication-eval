@@ -1,0 +1,26 @@
+{
+  "question_id": "fhir-004",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:58:03.977392+00:00",
+  "text": "# FHIR R4 Lab Result Resource\n\nIn FHIR R4, the **Observation** resource represents an individual lab result or clinical measurement.\n\n## Key Details:\n\nThe **Observation** resource is used to capture and exchange measurements and assertions about a patient, including:\n\n- **Laboratory results** (e.g., blood glucose, cholesterol levels)\n- **Vital signs** (e.g., blood pressure, temperature, heart rate)\n- **Clinical assessments** (e.g., pain scale, Glasgow Coma Scale)\n- **Other measurements** (e.g., height, weight, body mass index)\n\n## Common Observation Elements:\n\n- `code` - What was measured (using LOINC or other coding systems)\n- `value` - The actual result/measurement\n- `status` - The observation status (final, preliminary, amended, etc.)\n- `subject` - Reference to the patient\n- `performer` - Who performed the observation\n- `effectiveDateTime` - When the observation was made\n\nThe Observation resource is one of the most frequently used FHIR resources in clinical data exchange due to its broad applicability to measurement-based clinical information.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 38,
+    "output_tokens": 266,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

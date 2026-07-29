@@ -1,0 +1,26 @@
+{
+  "question_id": "fhir-005",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:58:08.127630+00:00",
+  "text": "# FHIR R4 Diagnostic Order Resources\n\nIn FHIR R4, there are two primary resources that represent orders for diagnostic studies:\n\n## **ServiceRequest** (Primary Resource)\n**ServiceRequest** is the main resource used to represent an order for a diagnostic imaging study or laboratory test. It is a general-purpose resource that covers:\n- Laboratory tests\n- Diagnostic imaging orders\n- Other clinical services and procedures\n\n## **ProcedureRequest** (Deprecated)\nIn earlier versions of FHIR (STU3 and prior), **ProcedureRequest** was used for this purpose. However, it was **consolidated into ServiceRequest in FHIR R4**, making ServiceRequest the current standard.\n\n## Key Point\nWhen working with FHIR R4, always use **ServiceRequest** for representing diagnostic orders. This resource provides a more unified approach to ordering various types of services across different clinical domains.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 41,
+    "output_tokens": 207,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

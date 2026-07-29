@@ -1,0 +1,26 @@
+{
+  "question_id": "dicom-001",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:57:21.628965+00:00",
+  "text": "# DICOM Tag for Accession Number\n\nThe DICOM tag for Accession Number is **(0008,0050)**.\n\n**Key Details:**\n- **Tag:** (0008,0050)\n- **Keyword:** AccessionNumber\n- **VR (Value Representation):** SH (Short String)\n- **VM (Value Multiplicity):** 1\n- **Definition:** A RIS generated Accession Number used to identify the imaging service request.\n\nThis tag is part of the General Series Module and is commonly used in medical imaging to link imaging studies to their corresponding service requests or orders.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 37,
+    "output_tokens": 140,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "question_id": "hl7-005",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:56:32.510927+00:00",
+  "text": "In an HL7 v2 ORU^R01 message, the **OBX** (Observation/Result) segment carries the individual observation results.\n\n## Key Details\n\n**OBX Segment:**\n- Contains a single observation or observation fragment\n- Each discrete result value gets its own OBX segment\n- Represents the actual data points (e.g., a specific lab value, measurement, or finding)\n\n## Important Related Segments for Context\n\nWhile OBX carries the actual results, it works within a hierarchy:\n\n| Segment | Purpose |\n|---------|---------|\n| **OBR** | Observation Request \u2014 groups related observations (identifies the ordered test/battery) |\n| **OBX** | Observation/Result \u2014 the individual result values |\n| **NTE** | Notes and Comments \u2014 supplementary notes attached to OBR or OBX |\n\n## Typical Structure\n```\nMSH  (Message Header)\nPID  (Patient Identification)\nOBR  (Observation Request \u2014 e.g., \"CBC panel\")\n  OBX  (Result 1 \u2014 e.g., WBC count)\n  OBX  (Result 2 \u2014 e.g., RBC count)\n  OBX  (Result 3 \u2014 e.g., Hemoglobin)\n```\n\n## Notable OBX Fields\n- **OBX-2**: Value Type (e.g., NM for numeric, ST for string, CE/CWE for coded)\n- **OBX-3**: Observation Identifier (often a LOINC code)\n- **OBX-5**: Observation Value (the actual result)\n- **OBX-6**: Units\n- **OBX-8**: Abnormal Flags\n- **OBX-11**: Observation Result Status\n\n**Answer: The OBX segment.**",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 55,
+    "output_tokens": 551,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

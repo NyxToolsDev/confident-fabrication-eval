@@ -1,0 +1,29 @@
+{
+  "question_id": "fhir-008",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:55:54.475881+00:00",
+  "text": "There's a misconception in this question worth clarifying: **FHIR R4 does not have a `Patient.mrn` element.**\n\nThere is no field called `mrn` on the Patient resource in FHIR R4 (or any FHIR version).\n\n## How MRN Is Actually Represented\n\nA Medical Record Number (MRN) is stored within the **`Patient.identifier`** element, which is a list of `Identifier` data types. The MRN is distinguished from other identifiers using coded metadata:\n\n```json\n{\n  \"resourceType\": \"Patient\",\n  \"identifier\": [\n    {\n      \"use\": \"usual\",\n      \"type\": {\n        \"coding\": [\n          {\n            \"system\": \"http://terminology.hl7.org/CodeSystem/v2-0203\",\n            \"code\": \"MR\",\n            \"display\": \"Medical Record Number\"\n          }\n        ]\n      },\n      \"system\": \"http://hospital.example.org/mrns\",\n      \"value\": \"12345\"\n    }\n  ]\n}\n```\n\n## Key Components\n\n- **`identifier.type.coding.code`** = `\"MR\"` \u2014 the standard code (from HL7 v2 table 0203) that marks this identifier as an MRN.\n- **`identifier.system`** \u2014 a URI namespace identifying which system/organization assigned the MRN (important because MRNs are only unique within an assigning authority).\n- **`identifier.value`** \u2014 the actual MRN string.\n\n## Takeaway\n\nIf you encountered `Patient.mrn` somewhere, it may be from a **custom profile, a proprietary API, or a non-standard extension** rather than base FHIR R4. In standard FHIR, always look to `Patient.identifier` with a type code of `MR`.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 47,
+    "output_tokens": 545,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

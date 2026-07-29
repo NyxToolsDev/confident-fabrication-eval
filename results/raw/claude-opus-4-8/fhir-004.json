@@ -1,0 +1,29 @@
+{
+  "question_id": "fhir-004",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:55:17.980680+00:00",
+  "text": "In FHIR R4, the **Observation** resource represents an individual lab result or clinical measurement.\n\n## Overview\n\nThe `Observation` resource is one of the most commonly used resources in FHIR and captures measurements and simple assertions made about a patient, device, or other subject.\n\n## Common Use Cases\n\n- **Laboratory results** (e.g., blood glucose, hemoglobin, potassium levels)\n- **Vital signs** (e.g., blood pressure, heart rate, body temperature, respiratory rate)\n- **Clinical measurements** (e.g., height, weight, BMI)\n- **Social history** (e.g., smoking status)\n- **Imaging findings** (qualitative observations)\n\n## Key Elements\n\n| Element | Description |\n|---------|-------------|\n| `status` | The status of the result (e.g., `registered`, `preliminary`, `final`, `amended`) |\n| `code` | What was observed (typically a LOINC code) |\n| `subject` | Who/what the observation is about (usually a `Patient`) |\n| `effective[x]` | Time the observation was made |\n| `value[x]` | The actual result (e.g., `valueQuantity`, `valueCodeableConcept`, `valueString`) |\n| `referenceRange` | Normal/expected range for interpretation |\n| `component` | Used for multi-part observations (e.g., systolic/diastolic blood pressure) |\n\n## Related Resources\n\n- **`DiagnosticReport`** \u2014 Groups related observations into a clinical report (e.g., a complete blood panel bundles multiple `Observation` resources).\n- **`Specimen`** \u2014 Represents the sample that was analyzed.\n\n## Example (simplified)\n\n```json\n{\n  \"resourceType\": \"Observation\",\n  \"status\": \"final\",\n  \"code\": {\n    \"coding\": [{\n      \"system\": \"http://loinc.org\",\n      \"code\": \"2339-0\",\n      \"display\": \"Glucose [Mass/volume] in Blood\"\n    }]\n  },\n  \"subject\": { \"reference\": \"Patient/example\" },\n  \"valueQuantity\": {\n    \"value\": 95,\n    \"unit\": \"mg/dL\",\n    \"system\": \"http://unitsofmeasure.org\",\n    \"code\": \"mg/dL\"\n  }\n}\n```\n\nLet me know if you'd like details on how `Observation` relates to `DiagnosticReport` or how vital signs profiles constrain this resource!",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 52,
+    "output_tokens": 785,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "question_id": "fhir-001",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:54:44.614649+00:00",
+  "text": "In FHIR R4, the resource that represents the metadata of a diagnostic imaging study is **`ImagingStudy`**.\n\n## Overview\n\nThe `ImagingStudy` resource represents the content produced in a DICOM imaging study. It contains the metadata describing the study, its series, and the individual instances (images/objects) \u2014 but not the actual pixel/image data itself, which typically remains in a PACS or DICOMweb server.\n\n## Key Structure\n\nThe resource is organized hierarchically to mirror the DICOM information model:\n\n| Level | Element | Description |\n|-------|---------|-------------|\n| **Study** | `ImagingStudy` | Top-level container with study-wide metadata |\n| **Series** | `ImagingStudy.series` | A set of instances sharing a common modality/body part |\n| **Instance** | `ImagingStudy.series.instance` | Individual SOP instances (e.g., images) |\n\n## Notable Elements\n\n**Study level:**\n- `identifier` \u2014 includes the DICOM Study Instance UID (as an identifier with the `urn:dicom:uid` system)\n- `status` \u2014 e.g., `registered`, `available`, `cancelled`\n- `subject` \u2014 reference to the Patient\n- `modality` \u2014 list of all modalities across series\n- `numberOfSeries` / `numberOfInstances`\n- `started` \u2014 when the study began\n\n**Series level (`ImagingStudy.series`):**\n- `uid` \u2014 Series Instance UID\n- `modality` \u2014 the modality (e.g., CT, MR, US, XR) using DICOM codes\n- `number` \u2014 series number\n- `bodySite` \u2014 anatomical region imaged\n- `numberOfInstances`\n\n**Instance level (`ImagingStudy.series.instance`):**\n- `uid` \u2014 SOP Instance UID\n- `sopClass` \u2014 the DICOM SOP Class UID\n- `number` \u2014 instance number\n\n## Related Resources\n\n- **`ServiceRequest`** \u2014 the order that led to the study\n- **`DiagnosticReport`** \u2014 the report interpreting the study (can reference `ImagingStudy` via `imagingStudy`)\n- **`Media`** / **`DocumentReference`** \u2014 alternatives for referencing image content in some contexts\n- **`Endpoint`** \u2014 referenced by `ImagingStudy` to indicate where the images can be retrieved (e.g., DICOMweb WADO-RS)\n\nIf you'd like, I can provide a sample JSON `ImagingStudy` instance.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 63,
+    "output_tokens": 806,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

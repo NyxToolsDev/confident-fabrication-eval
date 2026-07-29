@@ -1,0 +1,26 @@
+{
+  "question_id": "dicom-007",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:57:43.314767+00:00",
+  "text": "# DICOM Tag for SOP Instance UID\n\nThe DICOM tag for **SOP Instance UID** is:\n\n**(0008,0018)**\n\nThis tag is located in the File Meta Information group and is used to uniquely identify a specific DICOM instance (individual image or object) within a Study.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 38,
+    "output_tokens": 73,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

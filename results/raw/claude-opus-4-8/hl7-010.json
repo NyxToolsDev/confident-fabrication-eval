@@ -1,0 +1,29 @@
+{
+  "question_id": "hl7-010",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:57:07.149933+00:00",
+  "text": "In HL7 v2.3.1, **PID-32** is the **Identity Reliability Code** field.\n\nHowever, I want to flag some important context here: In HL7 v2.3.1 specifically, the PID (Patient Identification) segment only extended through **PID-30 (Patient Death Indicator)**. Fields like PID-31 (Identity Unknown Indicator), PID-32 (Identity Reliability Code), and beyond were added in **later versions (v2.4 and onward)**.\n\nSo to be precise:\n\n- In **HL7 v2.3.1**, PID-32 did **not exist** \u2014 the PID segment ended at PID-30.\n- Starting in **HL7 v2.4**, **PID-32** was defined as the **Identity Reliability Code**, which uses coded values (from a user-defined table) to indicate the reliability of the patient's identifying information (e.g., unknown/default address, unknown/default name, etc.).\n\nIf you're working with a system labeled as v2.3.1 that includes a PID-32, it may be using a custom extension or a slightly non-standard implementation. I'd recommend double-checking which version you're actually targeting.\n\nWould you like the full PID segment field list for a specific version?",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 49,
+    "output_tokens": 393,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "question_id": "dicom-008",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:54:20.183910+00:00",
+  "text": "# DICOM Connectivity Testing\n\n## DIMSE Service: **C-ECHO**\n\nThe **C-ECHO** (DIMSE-C service) is used to test DICOM connectivity between two Application Entities (AEs).\n\n## SOP Class: **Verification SOP Class**\n\n- **SOP Class Name:** Verification SOP Class\n- **SOP Class UID:** `1.2.840.10008.1.1`\n\n## How It Works\n\nThe C-ECHO operation is commonly referred to as a **\"DICOM ping\"** (though it operates at the application layer, not the network layer like a true ICMP ping).\n\nThe process works as follows:\n\n1. The **SCU** (Service Class User) initiates an association with the **SCP** (Service Class Provider)\n2. The SCU sends a **C-ECHO-RQ** (request) message\n3. The SCP responds with a **C-ECHO-RSP** (response) message\n4. A successful response confirms:\n   - Network connectivity exists\n   - DICOM association negotiation succeeded\n   - Both AEs can communicate using the DICOM protocol\n\n## Practical Use\n\nC-ECHO verification is typically used to:\n\n- **Validate configuration** when setting up new DICOM connections\n- **Troubleshoot** communication issues between modalities, PACS, and workstations\n- **Confirm** that AE Titles, IP addresses, and port numbers are correctly configured\n\n---\n\n**Summary Table**\n\n| Component | Value |\n|-----------|-------|\n| DIMSE Service | C-ECHO |\n| SOP Class | Verification SOP Class |\n| SOP Class UID | 1.2.840.10008.1.1 |\n| Common Name | DICOM Echo / DICOM Ping |",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 57,
+    "output_tokens": 571,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

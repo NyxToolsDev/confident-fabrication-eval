@@ -1,0 +1,26 @@
+{
+  "question_id": "hl7-004",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:58:31.486654+00:00",
+  "text": "# HL7 v2.5.1 Trigger Event ADT^A99\n\nIn HL7 version 2.5.1, **ADT^A99 represents a generic/undefined ADT (Admission, Discharge, Transfer) event**.\n\n## Key Details:\n\n- **Message Type**: ADT (Admission/Discharge/Transfer)\n- **Trigger Event**: A99\n- **Purpose**: A99 serves as a catch-all or placeholder for ADT-related events that don't fit into the standard predefined trigger events (A01-A52)\n\n## Context:\n\nThe A99 trigger event is typically used when:\n- An organization needs to send an ADT message for an event not covered by the standard trigger event codes\n- Legacy systems or custom implementations require a generic ADT notification\n- There's a need for flexibility in handling non-standard patient movement events\n\n## Standard ADT Trigger Events (for reference):\n- **A01**: Admit/visit notification\n- **A02**: Transfer a patient\n- **A03**: Discharge/end visit\n- **A04**: Register a patient\n- *...and others up to A52*\n\n**Note**: While A99 exists as an escape valve for non-standard scenarios, best practice recommends using the most appropriate standard trigger event code whenever possible to ensure maximum interoperability.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 44,
+    "output_tokens": 303,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

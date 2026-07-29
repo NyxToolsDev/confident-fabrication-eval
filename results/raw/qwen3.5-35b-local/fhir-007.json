@@ -1,0 +1,23 @@
+{
+  "question_id": "fhir-007",
+  "model_name": "qwen3.5-35b-local",
+  "provider": "ollama_native",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T16:01:58.583780+00:00",
+  "text": "To update an existing **Patient** resource in a **FHIR Release 4 (R4)** server using its RESTful API, you must use the following combination:\n\n*   **HTTP Method**: `PUT`\n    *   This method is used for updating or replacing a specific instance of a resource by sending the complete new version of that resource. If you need to perform a partial update instead, FHIR R4 supports using `PATCH` with JSON Merge Patch format via operation-specific URLs (e.g., `/Patient/_patch`), but standard full replacement uses `PUT`.\n*   **URL Pattern**: `/{resourceType}/{id}`\n    *   You replace `{resourceType}` with `Patient` and `{id}` with the unique logical identifier of the patient you wish to update.\n\n**Example:**\nIf you want to update a Patient resource with ID `12345`, the request would look like this:\n\n```http\nPUT /fhir/Patient/12345\nContent-Type: application/fhir+json; charset=UTF-8\n\n{ ... full JSON representation of the updated Patient resource ... }\n```",
+  "reasoning": null,
+  "stop_reason": "stop",
+  "resolved_model": "qwen3.5:35b",
+  "usage": {
+    "prompt_tokens": 47,
+    "completion_tokens": 238
+  },
+  "request_params": {
+    "model": "qwen3.5:35b",
+    "stream": false,
+    "options": {
+      "num_predict": 2048
+    },
+    "think": false
+  }
+}

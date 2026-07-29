@@ -1,0 +1,29 @@
+{
+  "question_id": "dicom-001",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:53:33.697111+00:00",
+  "text": "The DICOM tag for **Accession Number** is:\n\n**(0008,0050)**\n\n- **Group:** 0008\n- **Element:** 0050\n- **VR (Value Representation):** SH (Short String)\n- **Value Multiplicity:** 1\n\nThe Accession Number is a departmental (typically Radiology Information System, or RIS) identifier assigned to an imaging order/study. It's commonly used to link images to the originating order and is frequently included in the Study level of the DICOM information model.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 46,
+    "output_tokens": 161,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

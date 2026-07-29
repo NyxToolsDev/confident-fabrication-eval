@@ -1,0 +1,26 @@
+{
+  "question_id": "fhir-009",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:58:21.176969+00:00",
+  "text": "# FHIR R4 Coded Value Datatype\n\nIn FHIR R4, the **Coding** datatype represents a single coded value together with the code system it comes from and a display string.\n\n## Key Components of Coding\n\nThe Coding datatype includes:\n\n- **system** - The code system URI (e.g., `http://snomed.info/sct`)\n- **code** - The actual code value (e.g., `840539006`)\n- **display** - A human-readable display string (e.g., `COVID-19`)\n- **version** - Optional version of the code system\n- **userSelected** - Optional indicator if the user explicitly selected this code\n\n## Example\n\n```json\n{\n  \"system\": \"http://snomed.info/sct\",\n  \"code\": \"840539006\",\n  \"display\": \"COVID-19\"\n}\n```\n\n## Related Datatype\n\nIt's worth noting that **CodeableConcept** is a related datatype that can contain multiple Coding values (to represent the same concept from different code systems), along with text, making it useful for representing concepts that may be coded in multiple ways.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 48,
+    "output_tokens": 270,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

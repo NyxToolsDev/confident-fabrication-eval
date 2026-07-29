@@ -1,0 +1,29 @@
+{
+  "question_id": "dicom-005",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:54:01.133993+00:00",
+  "text": "# DICOM Tag (0008,0010)\n\n## Original Purpose\n\nDICOM tag **(0008,0010)** was the **\"Recognition Code\"** attribute. It was used in early versions of the DICOM standard (and its predecessor, ACR-NEMA) to identify the version or recognition method of the data format/structure. In the ACR-NEMA era, it helped systems recognize the format conventions being used in the dataset.\n\n## Current Status\n\nThis tag is **retired** in the current DICOM standard.\n\n- It was removed because its function became obsolete once DICOM adopted more robust mechanisms for identifying dataset structure and encoding, primarily through:\n  - **Transfer Syntax UIDs** (which define encoding rules)\n  - **SOP Class UIDs** (which define the object type and structure)\n\n- Although retired, the tag number remains reserved and documented in the standard's registry of retired data elements. This preservation ensures **backward compatibility** and prevents the tag number from being reused for a different purpose, so legacy datasets containing this element can still be interpreted correctly.\n\n## Note\n\nIf you're working with older archived studies, you may still encounter this element, but modern implementations should not rely on or generate it.\n\n---\n\n*If you'd like, I can clarify related retired tags in the (0008,xxxx) group or explain how retired elements are formally handled in the DICOM standard.*",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 54,
+    "output_tokens": 449,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

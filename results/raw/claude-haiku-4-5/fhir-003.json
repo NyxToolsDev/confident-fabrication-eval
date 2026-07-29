@@ -1,0 +1,26 @@
+{
+  "question_id": "fhir-003",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:58:00.396254+00:00",
+  "text": "# FHIR R4 Patient Search by Medical Record Number\n\nIn FHIR R4, you search for a Patient by medical record number using the **`identifier`** search parameter via the REST API.\n\n## Basic Syntax\n\n```\nGET [base]/Patient?identifier=[system]|[value]\n```\n\n## Example\n\n```\nGET http://example.com/fhir/Patient?identifier=http://hospital.example.com/mrn|12345\n```\n\n## Breaking Down the Components\n\n- **`[system]`**: The URI that defines the coding system for the identifier (e.g., your hospital's MRN system)\n- **`[value]`**: The actual medical record number value\n- **`|`**: Separator between system and value\n\n## Practical Example\n\nIf your hospital uses the system `urn:oid:1.2.840.113619.6.21`, you would search as:\n\n```\nGET /Patient?identifier=urn:oid:1.2.840.113619.6.21|MRN789456\n```\n\n## Optional Modifiers\n\nYou can also use modifiers for more specific searches:\n\n```\nGET /Patient?identifier=MRN789456          # Search by value only (less specific)\nGET /Patient?identifier:exact=[value]      # Exact match\nGET /Patient?identifier:of-type=[system]|[value]  # Specify type as well\n```\n\n## Response\n\nThe server returns a FHIR Bundle containing Patient resources matching the criteria.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 43,
+    "output_tokens": 351,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

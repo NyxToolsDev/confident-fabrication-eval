@@ -1,0 +1,26 @@
+{
+  "question_id": "dicom-005",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:57:33.188891+00:00",
+  "text": "# DICOM Tag (0008,0010)\n\n## Historical Use\n\nDICOM tag (0008,0010) was originally designated as **Recognition Code** in early versions of the DICOM standard. It was intended to contain a code identifying the recognizing entity or system.\n\n## Current Status\n\n**This tag is now RETIRED** in the current DICOM standard (as of DICOM 2024 and several versions prior).\n\n## Key Points\n\n- The tag was removed from active use because its functionality and purpose were better served by other, more standardized mechanisms in DICOM\n- Retired tags are maintained in the standard for backward compatibility with legacy systems, but new implementations should not use them\n- Any data encoded with this tag in older systems may need to be mapped to current equivalent tags or attributes for modern interoperability\n\n## Modern Alternative\n\nRather than relying on this retired tag, modern DICOM implementations use more structured approaches such as:\n- Proper identification through other UIDs and identifiers\n- Manufacturer and device identification through appropriate data elements\n- Institutional context through proper DICOM messaging and routing\n\nIf you're working with legacy DICOM data containing this tag, consult the specific DICOM version documentation you're working with for migration guidance.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 45,
+    "output_tokens": 276,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

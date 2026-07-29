@@ -1,0 +1,29 @@
+{
+  "question_id": "fhir-005",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:55:29.383120+00:00",
+  "text": "In FHIR R4, the resource that represents an order for a diagnostic imaging study or laboratory test is the **ServiceRequest** resource.\n\n## Overview\n\nThe `ServiceRequest` resource is used to represent a request or order for a service to be performed. This includes:\n\n- **Diagnostic imaging studies** (e.g., X-rays, CT scans, MRIs, ultrasounds)\n- **Laboratory tests** (e.g., blood panels, urinalysis)\n- **Other procedures and services** (e.g., referrals, therapies, counseling)\n\n## Historical Context\n\nIt's worth noting that `ServiceRequest` was introduced to consolidate and replace several resources that existed in earlier FHIR versions (DSTU2/STU3), including:\n\n- `DiagnosticOrder`\n- `ProcedureRequest`\n- `ReferralRequest`\n\nThese were merged into the single, more general `ServiceRequest` resource in FHIR R4.\n\n## Key Elements\n\nSome important elements of the `ServiceRequest` resource include:\n\n| Element | Description |\n|---------|-------------|\n| `status` | The status of the order (e.g., `draft`, `active`, `completed`) |\n| `intent` | Whether it's a proposal, plan, or order |\n| `code` | What is being requested (the specific test or study) |\n| `subject` | The patient the request is for |\n| `requester` | Who initiated the request |\n| `reasonCode` / `reasonReference` | The clinical justification |\n\n## Related Resource\n\nOnce the order is fulfilled, the results are typically represented in the **DiagnosticReport** resource (with individual results often in **Observation** resources), while the imaging data itself may be referenced via **ImagingStudy**.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 58,
+    "output_tokens": 569,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

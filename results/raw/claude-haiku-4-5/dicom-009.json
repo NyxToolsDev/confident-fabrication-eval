@@ -1,0 +1,26 @@
+{
+  "question_id": "dicom-009",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:57:48.301015+00:00",
+  "text": "# DICOM Tag for Patient ID\n\nThe DICOM tag for Patient ID is **(0010,0020)**.\n\n**Details:**\n- **Group:** 0010 (Patient Information Group)\n- **Element:** 0020 (Patient ID)\n- **VR (Value Representation):** LO (Long String)\n- **VM (Value Multiplicity):** 1\n\nThis tag contains a unique identifier for the patient within a medical imaging system and is one of the fundamental demographic identifiers in DICOM files.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 35,
+    "output_tokens": 121,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

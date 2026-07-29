@@ -1,0 +1,29 @@
+{
+  "question_id": "fhir-003",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:55:05.576903+00:00",
+  "text": "# Searching for a Patient by Medical Record Number (MRN) in FHIR R4\n\nTo search for a Patient by their medical record number, you use the `identifier` search parameter on the Patient resource. Because an MRN is stored as a value within the Patient's `identifier` array (each with an optional `system` and `value`), you typically want to include both the identifier system and value.\n\n## Basic Syntax\n\nThe `identifier` search parameter uses a token type, which follows the format `system|value`:\n\n```\nGET [base]/Patient?identifier=[system]|[value]\n```\n\n## Examples\n\n**1. Search with system and value (recommended):**\n\n```\nGET [base]/Patient?identifier=http://hospital.example.org/mrn|12345\n```\n\nThis matches only identifiers where the system equals the given URL *and* the value equals `12345`.\n\n**2. Search by value only (any system):**\n\n```\nGET [base]/Patient?identifier=12345\n```\n\nThis matches any identifier with value `12345` regardless of system. This is less precise and can return patients whose MRN happens to collide with another identifier type (like an SSN).\n\n**3. Search by system only (all patients with an MRN from that system):**\n\n```\nGET [base]/Patient?identifier=http://hospital.example.org/mrn|\n```\n\nThe trailing pipe with an empty value matches any identifier in that system.\n\n## Important Notes\n\n- **Full HTTP request** looks like:\n  ```\n  GET https://fhir.example.org/r4/Patient?identifier=http://hospital.example.org/mrn|12345\n  Accept: application/fhir+json\n  ```\n\n- **URL-encode** special characters. The pipe (`|`) technically should be encoded as `%7C`, and colons/slashes in the system URI should be encoded as needed:\n  ```\n  GET [base]/Patient?identifier=http%3A%2F%2Fhospital.example.org%2Fmrn%7C12345\n  ```\n\n- **Response** is a `Bundle` resource of type `searchset` containing matching Patient resources (or zero entries if none match).\n\n- **Identifier type filtering**: FHIR R4 does not have a standard search parameter to filter by identifier *type code* (e.g., `MR` for medical record number). Servers distinguish MRNs by their assigning **system** URI, so knowing the correct system is key.\n\n## Best Practice\n\nAlways use the fully qualified `system|value` form for MRN searches. This ensures you don't accidentally match identifiers of a different type that share the same value, which is important for patient safety and correct record matching.\n\nWould you like examples using a specific FHIR client library (e.g., HAPI FHIR, .NET Firely SDK)?",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 53,
+    "output_tokens": 874,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "question_id": "fhir-008",
+  "model_name": "qwen3.5-35b-local",
+  "provider": "ollama_native",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T16:02:04.669092+00:00",
+  "text": "In **HL7 FHIR Release 4 (R4)**, the `Patient` resource contains an identifier of type `HumanName`. The specific element you are asking about is found within that structure.\n\nWhen referring to \"MRN\" in a healthcare context, it stands for **Master Patient Index Number** (or Medical Record Number). In FHIR R4 data models, this is represented as the value associated with an identifier system where `system` denotes the specific organization or network issuing the ID (e.g., `\"http://terminology.hl7.org/CodeSystem/v2-0391\"` for MRN), and the actual number itself resides in the **value** property.\n\nHowever, looking strictly at the standard FHIR R4 schema, there is no single scalar element named `mrn`. Instead, MRNs are stored as an entry within a list called `_identifier` (or simply `identifier`). To access the specific string value of an identifier that represents an MRN:\n1.  You look for an entry in the `Patient.identifier` array where `type.coding.code` equals `\"MR\"` and the associated system or type logic identifies it as an internal medical record number, OR more commonly in practice implementations, you filter by a specific coding standard like `v2-0391`.\n2.  The actual alphanumeric string representing the MRN is contained in the **value** field of that identifier object: **`Patient.identifier.value`**.\n\nIf your question refers to a custom extension or a profile (like US Core) where an explicit sub-element might be named `mrn`, note that these are not part of the base FHIR R4 core resource definitions. In base R4, you must query the identifiers list and extract the **value** field corresponding to the MRN identifier type.\n\n### Conclusion\nIn standard HL7 FHIR R4, there is no element named `Patient.mrn`. The Master Patient (Medical) Record Number is contained within:\n**`Patient.identifier.value`**\n\n...specifically for those entries in the `identifier` array that identify the record as an MRN.",
+  "reasoning": null,
+  "stop_reason": "stop",
+  "resolved_model": "qwen3.5:35b",
+  "usage": {
+    "prompt_tokens": 38,
+    "completion_tokens": 439
+  },
+  "request_params": {
+    "model": "qwen3.5:35b",
+    "stream": false,
+    "options": {
+      "num_predict": 2048
+    },
+    "think": false
+  }
+}

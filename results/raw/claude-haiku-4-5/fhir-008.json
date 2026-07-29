@@ -1,0 +1,26 @@
+{
+  "question_id": "fhir-008",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:58:17.840983+00:00",
+  "text": "# FHIR R4 Patient.mrn Element\n\nIn FHIR R4, there is **no element called `Patient.mrn`**.\n\nInstead, Medical Record Numbers (MRNs) are represented using the **`Patient.identifier`** element, which is a repeating array of Identifier data types.\n\n## Correct Usage\n\nTo represent an MRN in FHIR R4, you would structure it like this:\n\n```json\n{\n  \"resourceType\": \"Patient\",\n  \"identifier\": [\n    {\n      \"type\": {\n        \"coding\": [\n          {\n            \"system\": \"http://terminology.hl7.org/CodeSystem/v2-0203\",\n            \"code\": \"MR\"\n          }\n        ]\n      },\n      \"system\": \"http://hospital.example.com/mrn\",\n      \"value\": \"12345678\"\n    }\n  ]\n}\n```\n\n## Key Points\n\n- **`identifier`** is used for all types of identifiers (MRN, SSN, etc.)\n- The **`type`** field specifies that this is an MR (Medical Record) identifier\n- The **`system`** indicates the assigning authority\n- The **`value`** contains the actual MRN number\n\nThis flexible approach allows a single Patient resource to contain multiple identifiers from different systems.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 37,
+    "output_tokens": 317,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

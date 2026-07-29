@@ -1,0 +1,29 @@
+{
+  "question_id": "hl7-011",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:57:13.412048+00:00",
+  "text": "In HL7 v2.5.1, there is no standard \"ZPD\" segment defined in the specification.\n\nHere's the important context:\n\n**Z-segments are custom/local segments.** In HL7 v2.x, any segment beginning with the letter \"Z\" (such as ZPD, ZPI, ZID, etc.) is a **user-defined, non-standard segment**. These are created by specific organizations, vendors, or implementations to convey information not covered by the standard HL7 segments.\n\n**What this means for \"ZPD\":**\n- It is **not part of the HL7 v2.5.1 standard**, so its contents are not defined by HL7 International.\n- Its meaning, fields, and structure depend entirely on the **local implementation** that created it.\n- Based on the naming convention, \"ZPD\" might plausibly relate to patient demographic data (a local extension to PID, \"Patient Demographics\"), but this is only a guess\u2014the actual content varies by site.\n\n**To find out what a specific ZPD segment contains, you would need to:**\n- Consult the **interface specification or implementation guide** provided by the sending/receiving system or vendor.\n- Contact the organization that defined the segment.\n\nIf you encountered \"ZPD\" in a specific system or documentation, let me know the source, and I can help you interpret it further.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 50,
+    "output_tokens": 417,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

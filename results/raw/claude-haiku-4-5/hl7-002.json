@@ -1,0 +1,26 @@
+{
+  "question_id": "hl7-002",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:58:26.669216+00:00",
+  "text": "# HL7 v2.5.1 Field PID-60\n\nIn HL7 version 2.5.1, field **PID-60 contains the Patient's Religion**.\n\nThis field is part of the Patient Identification (PID) segment and uses the coded value CE (Coded Element) data type. It captures information about the patient's religious affiliation, which can be clinically relevant for care planning and respecting patient preferences during treatment.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 42,
+    "output_tokens": 104,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

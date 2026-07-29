@@ -1,0 +1,23 @@
+{
+  "question_id": "dicom-007",
+  "model_name": "qwen3.5-35b-local",
+  "provider": "ollama_native",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T16:04:27.103575+00:00",
+  "text": "The DICOM tag for **SOP Instance UID** is:\n\n*   **Group**: `0x7FE0`\n*   **Element**: `0x0010`\n*   **Full Tag**: `(7FE0, 0010)` (often written as **(7FE0, 0010)** or simply **DICOM tag (7fe0,e010)** in lowercase hexadecimal)\n\n### Key Details:\n*   **Tag Name**: SOP Instance UID\n*   **Keyword**: `SOPInstanceUID`\n*   **Value Representation (VR)**: `UI` (Unique Identifier)\n*   **Cardinality**: 1 (exactly one is required for each instance).\n\nThis tag uniquely identifies a specific medical image or data object within the DICOM standard. It must be unique across all healthcare systems and networks to ensure correct association of studies, series, and instances.",
+  "reasoning": null,
+  "stop_reason": "stop",
+  "resolved_model": "qwen3.5:35b",
+  "usage": {
+    "prompt_tokens": 39,
+    "completion_tokens": 196
+  },
+  "request_params": {
+    "model": "qwen3.5:35b",
+    "stream": false,
+    "options": {
+      "num_predict": 4096
+    },
+    "think": false
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "question_id": "dicom-002",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:57:24.275621+00:00",
+  "text": "# DICOM Tag for Study Instance UID\n\nThe DICOM tag for Study Instance UID is **(0020,000D)**.\n\nThis tag is used to uniquely identify a study within a DICOM system. The Study Instance UID is a unique identifier assigned to all images that are part of the same study for a particular patient.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 37,
+    "output_tokens": 77,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

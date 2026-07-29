@@ -1,0 +1,26 @@
+{
+  "question_id": "hl7-007",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:58:40.971126+00:00",
+  "text": "# HL7 v2.5.1 PID Segment - Patient Account Number\n\nIn HL7 version 2.5.1, the **PID-18** field contains the patient account number.\n\n**Field Details:**\n- **Field Position:** PID-18\n- **Field Name:** Patient Account Number\n- **Data Type:** CX (Extended Composite ID with Check Digit)\n- **Repetitions:** Non-repeating\n- **Usage:** Optional\n\nThis field is used to identify the patient's account number as assigned by the healthcare facility or billing system.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 45,
+    "output_tokens": 132,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

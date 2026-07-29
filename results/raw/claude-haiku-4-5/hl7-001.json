@@ -1,0 +1,26 @@
+{
+  "question_id": "hl7-001",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:58:24.172319+00:00",
+  "text": "# HL7 v2.5.1 PID Segment - Date of Birth Field\n\nIn HL7 version 2.5.1, the patient's date/time of birth is contained in **PID field 7 (PID-7)**.\n\nThis field is defined as:\n- **Field Name:** Date/Time of Birth\n- **Data Type:** TS (Time Stamp)\n- **Format:** YYYYMMDD[HHMM[SS[.S[S[S[S]]]]]]\n\n**Example:** A patient born on January 15, 1975 would be represented as:\n```\nPID|...|19750115|...\n```",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 49,
+    "output_tokens": 159,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

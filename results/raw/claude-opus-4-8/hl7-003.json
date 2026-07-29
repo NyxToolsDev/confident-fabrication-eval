@@ -1,0 +1,29 @@
+{
+  "question_id": "hl7-003",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:56:17.515760+00:00",
+  "text": "# Inpatient Admission Notification in HL7 v2\n\nThe message type and trigger event used to notify systems of an inpatient admission is:\n\n## **ADT^A01**\n\n- **Message Type:** ADT (Admission, Discharge, Transfer)\n- **Trigger Event:** A01 (Admit/Visit Notification)\n\n## Details\n\nThe **A01** event is specifically used to notify systems that a patient has been **admitted as an inpatient** to a facility. It is triggered when a patient physically arrives and is assigned a bed/location as an inpatient.\n\n## Related ADT Events for Context\n\n| Event | Description |\n|-------|-------------|\n| **A01** | Admit/visit notification (inpatient admission) |\n| **A02** | Transfer a patient |\n| **A03** | Discharge/end visit |\n| **A04** | Register a patient (typically outpatient/ED registration) |\n| **A05** | Pre-admit a patient |\n| **A08** | Update patient information |\n| **A11** | Cancel admit/visit notification |\n\n## Key Distinction\nIt's worth noting the difference between **A01** and **A04**:\n- **A01** \u2192 Inpatient **admission** (patient assigned a bed)\n- **A04** \u2192 **Registration** (typically outpatient, emergency, or non-admitted patients)\n\nThis distinction is important because using the wrong trigger event can cause downstream systems to misclassify the patient's encounter type.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 56,
+    "output_tokens": 469,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

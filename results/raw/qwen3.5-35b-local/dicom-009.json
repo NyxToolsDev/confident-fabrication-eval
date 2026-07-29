@@ -1,0 +1,23 @@
+{
+  "question_id": "dicom-009",
+  "model_name": "qwen3.5-35b-local",
+  "provider": "ollama_native",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T16:00:58.577877+00:00",
+  "text": "The DICOM tag for **Patient ID** is **(0010,0020)**.\n\nHere are the specific details:\n*   **Group Number**: `0010` (Patient Module Group)\n*   **Element Number**: `0020`\n*   **Keyword**: PatientID\n*   **Value Representation (VR)**: LO (Long String), though often treated as PN or LO depending on the specific implementation context.\n\nThis is one of the most critical tags in DICOM, serving as a unique identifier for the patient within the healthcare information system that generated the image data.",
+  "reasoning": null,
+  "stop_reason": "stop",
+  "resolved_model": "qwen3.5:35b",
+  "usage": {
+    "prompt_tokens": 38,
+    "completion_tokens": 129
+  },
+  "request_params": {
+    "model": "qwen3.5:35b",
+    "stream": false,
+    "options": {
+      "num_predict": 2048
+    },
+    "think": false
+  }
+}

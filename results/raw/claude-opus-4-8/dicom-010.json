@@ -1,0 +1,29 @@
+{
+  "question_id": "dicom-010",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:54:36.018492+00:00",
+  "text": "# C-UPDATE in DICOM\n\nThere's an important correction to make here: **C-UPDATE is not a valid DIMSE service in DICOM.**\n\n## The Actual DIMSE Services\n\nDICOM defines two categories of DIMSE (DICOM Message Service Element) services:\n\n### DIMSE-C (Composite) Services\nThese operate on complete composite objects (like images):\n- **C-STORE** \u2013 transfer/store an object\n- **C-FIND** \u2013 query for information\n- **C-GET** \u2013 retrieve objects (retrieval on same association)\n- **C-MOVE** \u2013 retrieve objects (moved to a destination)\n- **C-ECHO** \u2013 verification (\"ping\" for connectivity)\n\n### DIMSE-N (Normalized) Services\nThese operate on normalized objects (individual attributes/instances):\n- **N-CREATE**\n- **N-SET** \u2190 *this is likely what you're thinking of*\n- **N-GET**\n- **N-ACTION**\n- **N-DELETE**\n- **N-EVENT-REPORT**\n\n## What You Might Be Looking For\n\nIf you need to **update/modify attributes** of an existing object, the relevant service is:\n\n- **N-SET** \u2013 used to modify (update) attribute values of a Normalized SOP Instance. For example, updating the status of a Modality Performed Procedure Step (MPPS).\n\nThere is **no C-UPDATE**, because the Composite (C) services don't include an update operation\u2014composite objects are generally treated as immutable once stored.\n\n---\n\nIf you can share more context about what you're trying to accomplish (e.g., modifying stored study data, updating worklist entries), I can point you to the correct mechanism.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 49,
+    "output_tokens": 543,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "question_id": "dicom-006",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:54:08.770056+00:00",
+  "text": "The DICOM tag for **Modality** is **(0008,0060)**.\n\n## Details\n\n| Attribute | Value |\n|-----------|-------|\n| **Tag** | (0008,0060) |\n| **Group** | 0008 (General Information / SOP Common related group) |\n| **Element** | 0060 |\n| **Keyword** | Modality |\n| **VR (Value Representation)** | CS (Code String) |\n| **VM (Value Multiplicity)** | 1 |\n\n## About the Modality Attribute\n\nThe Modality attribute identifies the **type of equipment** that acquired the data used to create the images in a DICOM series. It is a **Series-level attribute** (part of the General Series Module).\n\n## Common Modality Values (Defined Terms)\n\nSome frequently used values include:\n\n- **CT** \u2014 Computed Tomography\n- **MR** \u2014 Magnetic Resonance\n- **US** \u2014 Ultrasound\n- **XA** \u2014 X-Ray Angiography\n- **CR** \u2014 Computed Radiography\n- **DX** \u2014 Digital Radiography\n- **MG** \u2014 Mammography\n- **NM** \u2014 Nuclear Medicine\n- **PT** \u2014 Positron Emission Tomography (PET)\n- **RF** \u2014 Radio Fluoroscopy\n- **OT** \u2014 Other\n\nThese codes are defined by the DICOM standard and are also referenced in related standards work (e.g., IHE profiles and HL7 mappings for imaging interoperability).",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 44,
+    "output_tokens": 471,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

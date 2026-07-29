@@ -1,0 +1,26 @@
+{
+  "question_id": "hl7-003",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:58:28.317766+00:00",
+  "text": "# HL7 v2 Inpatient Admission Notification\n\n## Message Type and Trigger Event\n\n**Message Type:** ADT (Admission, Discharge, Transfer)\n\n**Trigger Event:** A01 (Admit/Visit Notification)\n\n## Key Details\n\nThe **ADT^A01** message is the standard HL7 v2 construct used to notify receiving systems when a patient is admitted to an inpatient facility. This message contains demographic and clinical information about the admission and is typically sent to:\n\n- Electronic health record (EHR) systems\n- Billing and registration systems\n- Laboratory and radiology information systems\n- Nursing and clinical care systems\n\n## Common Related ADT Messages\n\n- **A02** \u2013 Transfer (patient moves to different bed/unit)\n- **A03** \u2013 Discharge/End Visit\n- **A04** \u2013 Register Patient (outpatient)\n- **A05** \u2013 Pre-Admit Patient\n\nThe ADT message family is one of the most fundamental message types in HL7 v2 healthcare interoperability standards.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 44,
+    "output_tokens": 242,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

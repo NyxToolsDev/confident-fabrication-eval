@@ -1,0 +1,26 @@
+{
+  "question_id": "hl7-011",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:58:52.015293+00:00",
+  "text": "# HL7 v2.5.1 ZPD Segment\n\nI don't have reliable information about a \"ZPD\" segment in HL7 version 2.5.1 in my training data.\n\n**Important context:** Z-segments in HL7 v2.x are **vendor-defined extensions** rather than standard segments defined by HL7 International. This means:\n\n- The ZPD segment is **not a standard HL7 segment**\n- Its content and usage depend entirely on how a specific vendor or implementation has defined it\n- There is no universal definition across all HL7 implementations\n\n**If you need to know what ZPD contains**, I'd recommend:\n1. Checking your organization's HL7 implementation guide\n2. Consulting the specific vendor's documentation\n3. Reviewing your message definition files (conformance profile)\n\nIf you have additional context about which vendor or system uses this segment, I may be able to provide more specific guidance.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 41,
+    "output_tokens": 222,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

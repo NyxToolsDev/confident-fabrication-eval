@@ -1,0 +1,26 @@
+{
+  "question_id": "fhir-006",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:58:11.147640+00:00",
+  "text": "# FHIR R4 DiagnosticOrder Resource\n\nI need to clarify an important point: **DiagnosticOrder was deprecated in FHIR R4** and replaced with more specific resources.\n\n## What Happened in R4\n\nIn FHIR R4, DiagnosticOrder was removed and its functionality was split into:\n\n- **ServiceRequest** - For ordering/requesting diagnostic services\n- **ProcedureRequest** - (also deprecated, merged into ServiceRequest)\n\n## Key Elements (Historical Context - R3 and Earlier)\n\nIf you're working with earlier FHIR versions where DiagnosticOrder existed, the key elements were:\n\n| Element | Description |\n|---------|-------------|\n| **identifier** | Business identifiers for the order |\n| **status** | Current state (proposed, draft, planned, etc.) |\n| **subject** | Patient who is the subject of the order |\n| **orderer** | Provider who requested the diagnostic |\n| **encounter** | Associated clinical encounter |\n| **reason** | Clinical indication for the test |\n| **specimen** | Specimen to be used for testing |\n| **item** | Individual ordered items/tests |\n\n## Current Best Practice (R4+)\n\nUse **ServiceRequest** instead, which provides:\n- More flexible ordering model\n- Better support for various service types\n- Improved workflow tracking\n- Enhanced clinical reasoning support\n\n**Are you working with an R3 system, or do you need information about ServiceRequest in R4?**",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 41,
+    "output_tokens": 343,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

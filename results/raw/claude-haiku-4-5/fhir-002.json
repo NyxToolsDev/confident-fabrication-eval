@@ -1,0 +1,26 @@
+{
+  "question_id": "fhir-002",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:57:57.293296+00:00",
+  "text": "# FHIR R4 PatientContact Elements\n\nI need to clarify an important point: There is no separate **PatientContact** resource in FHIR R4.\n\nHowever, you may be referring to one of these:\n\n## 1. **Patient.contact** (BackboneElement)\nThe Patient resource includes a `contact` element that represents contact persons for the patient. Key elements include:\n\n- **relationship** - The kind of relationship (CodeableConcept)\n- **name** - A name associated with the contact person (HumanName)\n- **telecom** - A contact detail for the person (ContactPoint) - repeating\n- **address** - Address for the contact person (Address)\n- **gender** - male | female | other | unknown\n- **organization** - Organization name (Reference to Organization)\n- **period** - The period during which this contact person or organization is valid\n\n## 2. **RelatedPerson** Resource\nIf you're looking for detailed contact/related person information, FHIR R4 provides the **RelatedPerson** resource, which is a standalone resource for contacts related to a patient.\n\nCould you clarify which resource you're asking about, or provide more context about your use case? This would help me give you a more precise answer.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 38,
+    "output_tokens": 292,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

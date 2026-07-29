@@ -1,0 +1,29 @@
+{
+  "question_id": "hl7-007",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:56:45.183578+00:00",
+  "text": "In HL7 v2.5.1, the patient account number is contained in **PID-18 (Patient Account Number)**.\n\nThis field is of data type CX (Extended Composite ID with Check Digit) and is used to carry the account number assigned to the patient's account.\n\nIt's worth noting that account numbers can also appear in other contexts\u2014for example, **PV1-19 (Visit Number)** relates to a specific visit/encounter\u2014but the field specifically designated for the patient account number in the PID segment is **PID-18**.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 54,
+    "output_tokens": 165,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

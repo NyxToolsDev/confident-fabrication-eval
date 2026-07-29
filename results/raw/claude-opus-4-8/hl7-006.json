@@ -1,0 +1,29 @@
+{
+  "question_id": "hl7-006",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:56:40.163825+00:00",
+  "text": "In HL7 v2 messages using the default encoding characters, the **component separator** is the **caret (`^`)**.\n\n## Default Encoding Characters in HL7 v2\n\nHL7 v2 defines a set of standard delimiters, typically declared in the MSH segment:\n\n| Character | Name | Purpose |\n|-----------|------|---------|\n| `|` (pipe) | Field separator | Separates fields within a segment |\n| `^` (caret) | **Component separator** | **Separates components within a field** |\n| `~` (tilde) | Repetition separator | Separates repeating occurrences of a field |\n| `\\` (backslash) | Escape character | Used for escape sequences |\n| `&` (ampersand) | Subcomponent separator | Separates subcomponents within a component |\n\n## Example\n\nConsider a patient name field (PID-5):\n\n```\nSmith^John^A^^Dr.\n```\n\nHere, the `^` separates the components:\n- `Smith` (family name)\n- `John` (given name)\n- `A` (middle name/initial)\n- (empty) (suffix)\n- `Dr.` (prefix)\n\nSo the answer is the **caret (`^`)**.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 54,
+    "output_tokens": 380,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "question_id": "hl7-010",
+  "model_name": "qwen3.5-35b-local",
+  "provider": "ollama_native",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T16:03:14.106328+00:00",
+  "text": "In **HL7 Version 2.3.1**, Field **PID-32** is defined as **`Patient Country Code (C)`**.\n\nHere are the specific details regarding this field:\n\n*   **Field Name**: Patient Country of Residence or Citizenship.\n*   **Data Type**: `CE` (Coded Element). This means it should contain a code that represents a concept, typically using an HL7-3 standard table.\n*   **HL7 Standard Table**: It references **Table 0158 \u2013 ISO country code**. While the original text in v2.x referred to \"ISO country codes,\" implementations usually map this field to specific two-letter or three-letter standards (such as ISO 3166-1 alpha-2).\n*   **Context**: This field allows for the specification of a patient's nationality, citizenship, or permanent residence outside of the immediate address fields in PID-5\u2013PID-8.\n\n**Note on Evolution:** It is important to distinguish this from later versions of HL7 v2 (specifically 2.4 and newer), where country codes were sometimes integrated differently or expanded into new data types for internationalization, but in version **2.3.1**, PID-32 remains the specific carrier for the Patient Country Code using a coded element structure referencing Table 0158.",
+  "reasoning": null,
+  "stop_reason": "stop",
+  "resolved_model": "qwen3.5:35b",
+  "usage": {
+    "prompt_tokens": 43,
+    "completion_tokens": 280
+  },
+  "request_params": {
+    "model": "qwen3.5:35b",
+    "stream": false,
+    "options": {
+      "num_predict": 2048
+    },
+    "think": false
+  }
+}

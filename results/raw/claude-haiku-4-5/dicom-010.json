@@ -1,0 +1,26 @@
+{
+  "question_id": "dicom-010",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:57:50.152968+00:00",
+  "text": "# C-UPDATE in DICOM\n\nI should clarify that **C-UPDATE is not a standard DIMSE service in DICOM**. You may be confusing it with actual DICOM DIMSE services.\n\n## Standard DICOM DIMSE Services\n\nThe main DIMSE services in DICOM are:\n\n- **C-STORE** \u2013 Sends images/objects to a PACS or other system\n- **C-FIND** \u2013 Queries for patients, studies, or series\n- **C-GET** \u2013 Retrieves images from a remote system\n- **C-MOVE** \u2013 Moves images between systems\n- **C-ECHO** \u2013 Tests connectivity between DICOM devices\n- **N-CREATE, N-SET, N-DELETE** \u2013 Normalized services for creating/modifying/deleting objects\n\n## What You Might Be Looking For\n\nIf you're looking for **updating or modifying DICOM data**, this typically involves:\n\n1. **Re-sending objects** with C-STORE (replacing existing ones)\n2. **N-SET service** (for normalized operations on specific instances)\n3. **Modality Worklist** updates (for procedure information)\n\nCould you provide more context about what you're trying to accomplish? That would help me give you a more accurate answer about the relevant DICOM service.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 36,
+    "output_tokens": 302,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

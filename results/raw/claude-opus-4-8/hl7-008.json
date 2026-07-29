@@ -1,0 +1,29 @@
+{
+  "question_id": "hl7-008",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:56:48.924350+00:00",
+  "text": "# MSH-9 (Message Type) Components in HL7 v2.5.1\n\nIn HL7 version 2.5.1, **MSH-9** uses the **MSG** data type and consists of **three components**:\n\n## Components\n\n| Component | Name | Description |\n|-----------|------|-------------|\n| **MSH-9.1** | Message Code | The message type (e.g., `ADT`, `ORM`, `ORU`, `ACK`) \u2014 drawn from HL7 Table 0076 |\n| **MSH-9.2** | Trigger Event | The event that triggered the message (e.g., `A01`, `A04`, `O01`) \u2014 drawn from HL7 Table 0003 |\n| **MSH-9.3** | Message Structure | The abstract message structure that defines the segment grouping (e.g., `ADT_A01`) \u2014 drawn from HL7 Table 0354 |\n\n## Example\n\n```\nMSH-9 = ADT^A01^ADT_A01\n```\n\nWhere:\n- `ADT` = Message Code (Admit/Discharge/Transfer)\n- `A01` = Trigger Event (Admit/visit notification)\n- `ADT_A01` = Message Structure\n\n## Key Notes\n\n- The **Message Code** and **Trigger Event** are **required** components.\n- The **Message Structure** (third component) is used to identify the appropriate schema/structure for parsing the message. It became a distinct component to handle cases where multiple trigger events share the same message structure (e.g., `A01`, `A04`, `A08` may all map to `ADT_A01`).\n- The component separator is the `^` character (as defined in MSH-2).\n\nWould you like details on any specific component tables or related message header fields?",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 56,
+    "output_tokens": 554,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

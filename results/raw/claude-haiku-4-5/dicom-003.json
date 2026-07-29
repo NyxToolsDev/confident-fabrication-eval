@@ -1,0 +1,26 @@
+{
+  "question_id": "dicom-003",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:57:25.621607+00:00",
+  "text": "# DICOM Attribute (0008,9999)\n\nI don't have reliable information about a standard DICOM attribute at tag (0008,9999) in my training data.\n\n## Why this is uncertain:\n\n1. **Private tags**: DICOM tags with odd group numbers (like 9999) are typically **private tags** reserved for manufacturer-specific or application-specific use, not standard attributes defined by the DICOM standard.\n\n2. **Tag numbering**: Standard DICOM attributes are concentrated in specific group ranges. Group 0008 contains core information elements, but (0008,9999) falls in the private tag range for that group.\n\n## Recommendation:\n\nTo find accurate information about this tag, I'd suggest:\n- Consulting the **DICOM standard documentation** (PS 3.6 Data Dictionary)\n- Checking the **specific DICOM conformance statement** of the system claiming to use this tag\n- Contacting the **vendor/manufacturer** if this tag appears in your system, as it's likely vendor-specific\n\nIf you have context about where you encountered this tag, that would help clarify its actual usage.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 36,
+    "output_tokens": 257,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

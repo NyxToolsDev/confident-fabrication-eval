@@ -1,0 +1,29 @@
+{
+  "question_id": "hl7-009",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:56:56.706151+00:00",
+  "text": "# HL7 v2 Acknowledgment (ACK) Message\n\n## Field Carrying the Acknowledgment Code\n\nThe acknowledgment code is carried in **MSA-1** (the first field of the **MSA - Message Acknowledgment segment**).\n\nThe MSA segment structure begins:\n```\nMSA|<Acknowledgment Code>|<Message Control ID>|...\n```\n\nExample:\n```\nMSA|AA|MSG00001\n```\n\n## Common Values\n\nHL7 v2 supports two acknowledgment modes, which affects which codes are used:\n\n### Original Acknowledgment Mode\n| Code | Meaning |\n|------|---------|\n| **AA** | Application Accept \u2014 message accepted and processed successfully |\n| **AE** | Application Error \u2014 error occurred processing the message |\n| **AR** | Application Reject \u2014 message rejected (e.g., sequence/config issue, not a content error) |\n\n### Enhanced Acknowledgment Mode\n| Code | Meaning |\n|------|---------|\n| **CA** | Commit Accept \u2014 message received and committed (safely stored) |\n| **CE** | Commit Error \u2014 error committing the message |\n| **CR** | Commit Reject \u2014 message rejected at commit level |\n\n## Key Notes\n\n- **Enhanced mode** separates the *accept* acknowledgment (was the message safely received?) from the *application* acknowledgment (was it successfully processed?), enabling two-phase acknowledgment.\n- Related fields:\n  - **MSA-2** carries the Message Control ID (echoes MSH-10 of the original message, linking the ACK to its trigger message).\n  - **MSA-3** (Text Message) \u2014 optional human-readable text (deprecated in later versions in favor of ERR segment).\n  - The **ERR segment** typically accompanies AE/AR (or CE/CR) responses to detail the error.\n- The desired acknowledgment behavior is signaled in **MSH-15** (Accept Acknowledgment Type) and **MSH-16** (Application Acknowledgment Type) of the original message.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 67,
+    "output_tokens": 675,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

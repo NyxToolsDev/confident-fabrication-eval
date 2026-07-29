@@ -1,0 +1,26 @@
+{
+  "question_id": "dicom-004",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:57:29.232045+00:00",
+  "text": "# DIMSE Services for DICOM Query/Retrieve\n\nThe DIMSE services that implement DICOM Query/Retrieve between a workstation and a PACS are:\n\n## Primary Services:\n\n1. **C-FIND** - Used to query the PACS database\n   - Workstation sends a C-FIND request with search criteria (patient name, ID, study date, etc.)\n   - PACS responds with matching records\n\n2. **C-MOVE** - Used to retrieve images from the PACS\n   - Workstation sends a C-MOVE request to retrieve studies/images\n   - PACS sends the requested DICOM objects to a specified destination\n   - Can involve a third entity (the move destination) in the transfer\n\n## Supporting Service:\n\n3. **C-GET** - Alternative retrieval method\n   - Similar to C-MOVE but the destination is always the requester\n   - PACS sends images directly back to the workstation that made the request\n   - Less commonly used than C-MOVE in typical PACS architectures\n\n## Typical Workflow:\n1. Workstation uses **C-FIND** to search for studies matching criteria\n2. Workstation uses **C-MOVE** (or C-GET) to retrieve the selected studies\n3. PACS sends the DICOM images to the workstation\n\nThese services are part of the DIMSE-C (DICOM Message Service Element - Composite) protocol and are fundamental to PACS operations.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 42,
+    "output_tokens": 342,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

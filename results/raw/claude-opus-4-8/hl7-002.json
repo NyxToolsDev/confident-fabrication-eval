@@ -1,0 +1,29 @@
+{
+  "question_id": "hl7-002",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T15:56:11.417806+00:00",
+  "text": "In HL7 version 2.5.1, PID-60 does **not** exist as a defined field.\n\nThe PID (Patient Identification) segment in HL7 v2.5.1 only extends through **PID-39** (\"Tribal Citizenship\"). The standard PID segment fields in v2.5.1 range from PID-1 to PID-39.\n\nHere's a quick reference for some of the higher-numbered PID fields that *do* exist in v2.5.1:\n\n- **PID-30** \u2013 Patient Death Indicator\n- **PID-31** \u2013 Identity Unknown Indicator\n- **PID-32** \u2013 Identity Reliability Code\n- **PID-33** \u2013 Last Update Date/Time\n- **PID-34** \u2013 Last Update Facility\n- **PID-35** \u2013 Species Code\n- **PID-36** \u2013 Breed Code\n- **PID-37** \u2013 Strain\n- **PID-38** \u2013 Production Class Code\n- **PID-39** \u2013 Tribal Citizenship\n\nIf you encountered a reference to \"PID-60,\" it may be from:\n- A **local/custom \"Z-segment\" extension** or a site-specific customization,\n- A **different standard or newer version** (though even later versions don't reach PID-60 in the standard specification), or\n- A **typo or misreference**.\n\nIf you can share where you saw PID-60, I can help you interpret it in context.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 49,
+    "output_tokens": 430,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}
