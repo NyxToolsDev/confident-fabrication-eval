@@ -1,0 +1,26 @@
+{
+  "question_id": "dicom-014",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:55:47.188988+00:00",
+  "text": "# DICOM Study Instance UID Validation\n\nThis question contains a **misconception**. DICOM does not have a specific attribute that stores a checksum to validate a Study Instance UID.\n\n## Key Points:\n\n**Study Instance UID (0020,000D):**\n- Is a unique identifier for a study following the UID format standards\n- Does not inherently include embedded checksums for validation\n- Is validated by its compliance with UID format rules, not by a separate checksum attribute\n\n**DICOM Verification Approaches:**\n- **UID Format Validation**: Ensures the UID follows proper format (numeric components separated by periods)\n- **File Meta Information**: Contains validation through attributes like `File Meta Information Group Length` and `File Meta Information Version`\n- **Digital Signatures**: DICOM supports digital signatures for document integrity, but these are separate from the UID itself\n\nIf you're working with DICOM data integrity, you would typically rely on:\n- Digital signatures (encrypted)\n- Hash values stored separately (not as part of the UID)\n- Database-level validation mechanisms\n\nIs there a specific aspect of DICOM validation or Study Instance UID you'd like to clarify?",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 39,
+    "output_tokens": 267,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

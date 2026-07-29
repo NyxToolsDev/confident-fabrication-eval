@@ -1,0 +1,28 @@
+{
+  "question_id": "fhir-010",
+  "model_name": "kimi-k3",
+  "provider": "openai_compatible",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:57:08.249076+00:00",
+  "text": "The **DiagnosticReport** resource groups individual Observation results into a report, such as a laboratory panel or radiology report.\n\nThe **`DiagnosticReport.result`** element contains the references to those **Observation** resources.",
+  "reasoning": "We need answer DiagnosticReport, result element. Mention references Observation, maybe Media etc? FHIR R4 DiagnosticReport.result Reference(Observation). Question asks groups individual Observation results into report and element. Concise.",
+  "stop_reason": "stop",
+  "resolved_model": "kimi-k3",
+  "usage": {
+    "completion_tokens": 100,
+    "prompt_tokens": 133,
+    "total_tokens": 233,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 44,
+      "rejected_prediction_tokens": null
+    },
+    "prompt_tokens_details": null
+  },
+  "request_params": {
+    "model": "kimi-k3",
+    "max_tokens": 4096,
+    "reasoning_effort": "low"
+  }
+}

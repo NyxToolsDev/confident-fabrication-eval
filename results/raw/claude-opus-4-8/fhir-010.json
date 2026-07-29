@@ -1,0 +1,29 @@
+{
+  "question_id": "fhir-010",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:56:29.321053+00:00",
+  "text": "In FHIR R4, the **DiagnosticReport** resource is used to group individual `Observation` results into a report, such as a lab panel or a radiology report.\n\n## Key Element\n\nThe element that holds references to those individual Observations is:\n\n- **`DiagnosticReport.result`** \u2014 This is an array of `Reference(Observation)` entries, each pointing to an individual `Observation` resource that makes up the report.\n\n## Example (simplified JSON)\n\n```json\n{\n  \"resourceType\": \"DiagnosticReport\",\n  \"status\": \"final\",\n  \"code\": {\n    \"coding\": [{\n      \"system\": \"http://loinc.org\",\n      \"code\": \"58410-2\",\n      \"display\": \"Complete blood count (hemogram) panel\"\n    }]\n  },\n  \"subject\": { \"reference\": \"Patient/123\" },\n  \"result\": [\n    { \"reference\": \"Observation/wbc\" },\n    { \"reference\": \"Observation/rbc\" },\n    { \"reference\": \"Observation/hgb\" }\n  ]\n}\n```\n\n## Additional Notes\n\n- **`DiagnosticReport`** provides the overall report context (status, category, code identifying the panel/study, subject, effective time, performer, conclusion, etc.).\n- **`Observation`** resources carry the atomic result values (e.g., individual analytes with their values, units, and reference ranges).\n- For panels, Observations can also be nested via **`Observation.hasMember`** (linking a \"grouping\" Observation to its component/child Observations), but the report-level grouping is done through `DiagnosticReport.result`.\n- Related elements on `DiagnosticReport` include `media` (images), `imagingStudy` (for radiology), and `presentedForm` (the full rendered report, e.g., a PDF).",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 76,
+    "output_tokens": 566,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "question_id": "fhir-012",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:56:05.977352+00:00",
+  "text": "# FHIR R4 Conformance Resource\n\nIn FHIR R4, the **Conformance resource has been renamed to the CapabilityStatement resource**.\n\n## What It Describes\n\nThe CapabilityStatement (formerly Conformance) describes:\n\n- **System capabilities** - What a FHIR-compliant system can do\n- **Supported resources** - Which FHIR resources the system implements\n- **Interactions** - What operations are supported (create, read, update, delete, search, etc.)\n- **Search parameters** - Supported search capabilities for each resource\n- **Messaging capabilities** - Event definitions and message definitions (if applicable)\n- **Document capabilities** - Document profiles supported (if applicable)\n- **Implementation details** - Software information, FHIR version, publisher details, etc.\n\n## Key Purpose\n\nCapabilityStatement serves as a machine-readable declaration that allows:\n- Client systems to discover what operations a server supports\n- Automated validation of conformance to FHIR standards\n- Documentation of implementation-specific capabilities and constraints\n\nThis resource is essential for healthcare interoperability, as it enables systems to understand each other's capabilities before attempting to exchange data.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 36,
+    "output_tokens": 271,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

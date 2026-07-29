@@ -1,0 +1,28 @@
+{
+  "question_id": "dicom-014",
+  "model_name": "kimi-k3",
+  "provider": "openai_compatible",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:56:14.602348+00:00",
+  "text": "There is no DICOM attribute that stores a checksum for validating the **Study Instance UID** `(0020,000D)`. DICOM UIDs are globally unique identifiers, but the UID structure does not include a standard checksum or check digit.",
+  "reasoning": "We need need identify DICOM attribute. Study Instance UID validation checksum? There is \"Study Instance UID\" (0020,000D). Checksum maybe \"Study Comments\"? DICOM UID itself does not checksum generally. Attribute \"Study Status ID\" old retired? There is \"Study ID Issuer\" etc. Perhaps question refers to \"Study Instance UID checksum\" in \"Referenced Study Sequence\"? Let's search memory DICOM data dictionary. Attributes with checksum:\n- Encrypted Attributes Sequence\n- Digital Signatures\n- Source Image Sequence.\n- Storage Media File-set ID.\n- HL7 document type.\n\"Study Verification Flag\" (0008,??)\nDICOM modality worklist matching.\n\"Study Status ID\" (0032,000A)\n\"Study Priority ID\" (0032,000C)\n\"Study ID\" (0020,0010)\n\"Study ID Issuer\" (0032,0012)\n\"Study Verified Date\" etc.\nCould be \"Study Instance UID (0020,000D)\" does not contain checksum.\n\nMaybe \"Attribute stores checksum used to validate a Study Instance UID\" is \"DICOM attribute (0008,1150?) Referenced SOP Class UID\"? No.\n\nHealthcare interoperability maybe \"DICOM IOD: File Meta Information Group Length?\" DICOM UID includes suffix based on NEMA? \"Media Storage SOP Instance UID checksum\"?\n\nSome imaging context uses \"Accession Number\" validation, not Study Instance UID.\n\nAttribute named \"Study Instance UID Check Digit\" maybe retired DICOM data element? Data dictionary vaguely:\n(0008,0056) Instance Availability\n(0008,1120) Referenced Patient Sequence\n(0008,1140) Referenced Image Sequence\n(0008,1160) Referenced Frame Number\n(0008,1190) Retrieve URL\n(0020,0011) Series Number\n(0020,0013) Instance Number\n(0020,0052) Frame of Reference UID\n(0020,0xxx)\nCould have \"Study Instance UID\" check digit sequence?\n\nDICOM attribute \"MAC Parameters Sequence\" checksum? Digital Signature UID and MAC Calculation Transfer Syntax UID. To validate UIDs there is \"Certified Timestamp Type\".\n\nCould answer \"none\" and explain UID is identifier, checksum not standard DICOM. User singular expects maybe \"none\". Checksum used to validate Study Instance UID perhaps \"Study Instance UID (0020,000D) itself\" because UUID style has check digit? DICOM UID no checksum.",
+  "stop_reason": "stop",
+  "resolved_model": "kimi-k3",
+  "usage": {
+    "completion_tokens": 578,
+    "prompt_tokens": 112,
+    "total_tokens": 690,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 515,
+      "rejected_prediction_tokens": null
+    },
+    "prompt_tokens_details": null
+  },
+  "request_params": {
+    "model": "kimi-k3",
+    "max_tokens": 4096,
+    "reasoning_effort": "low"
+  }
+}

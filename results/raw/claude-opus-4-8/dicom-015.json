@@ -1,0 +1,29 @@
+{
+  "question_id": "dicom-015",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:56:08.527481+00:00",
+  "text": "The SOP Class UID for the **Modality Worklist Information Model \u2014 FIND** service is:\n\n**1.2.840.10008.5.1.4.31**\n\nThis UID is defined in the DICOM standard and is used by modalities (such as CT, MR, ultrasound, and other imaging devices) to query a worklist server\u2014typically a RIS (Radiology Information System) or DICOM worklist provider\u2014to retrieve scheduled procedure information. This helps automate patient and study data entry at the imaging device, reducing manual input errors.\n\nThe service uses the C-FIND DIMSE operation to perform the query against the worklist.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 55,
+    "output_tokens": 201,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

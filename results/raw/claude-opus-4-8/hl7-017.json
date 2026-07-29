@@ -1,0 +1,29 @@
+{
+  "question_id": "hl7-017",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:57:54.001046+00:00",
+  "text": "In an HL7 v2.5.1 ORU^R01 message:\n\n- **OBX-5 (Observation Value)** carries the actual observation value/result.\n- **OBX-2 (Value Type)** declares the data type of the value in OBX-5.\n\n**Details:**\n\n- **OBX-2 (Value Type)** contains a code identifying the data type used in OBX-5. Common values include:\n  - `NM` \u2014 Numeric\n  - `ST` \u2014 String data\n  - `TX` \u2014 Text data\n  - `CE`/`CWE` \u2014 Coded entry/coded with exceptions\n  - `SN` \u2014 Structured numeric\n  - `FT` \u2014 Formatted text\n  - `DT`/`TS` \u2014 Date / Timestamp\n\n- **OBX-5 (Observation Value)** holds the value itself, and its internal structure must conform to the data type declared in OBX-2. For example, if OBX-2 is `NM`, then OBX-5 should contain a number; if OBX-2 is `CWE`, then OBX-5 is structured as a coded element with components (identifier^text^coding system\u2026).\n\nThis pairing is important because a receiving system must read OBX-2 first to correctly parse and interpret the contents of OBX-5.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 73,
+    "output_tokens": 396,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

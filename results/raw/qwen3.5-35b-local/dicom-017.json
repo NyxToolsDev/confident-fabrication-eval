@@ -1,0 +1,23 @@
+{
+  "question_id": "dicom-017",
+  "model_name": "qwen3.5-35b-local",
+  "provider": "ollama_native",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:57:39.166844+00:00",
+  "text": "The **Series Instance UID** in the DICOM standard corresponds to:\n\n*   **(0020,9053)** \u2014 Group `0020`, Element `9053`\n    *   Tag Hex Value: `(0x0020, 0x9053)`\n    *   Keyword: **SeriesInstanceUID**\n\nThis tag is used to uniquely identify a series of images (e.g., a specific CT scan run) within an examination.",
+  "reasoning": null,
+  "stop_reason": "stop",
+  "resolved_model": "qwen3.5:35b",
+  "usage": {
+    "prompt_tokens": 39,
+    "completion_tokens": 105
+  },
+  "request_params": {
+    "model": "qwen3.5:35b",
+    "stream": false,
+    "options": {
+      "num_predict": 4096
+    },
+    "think": false
+  }
+}

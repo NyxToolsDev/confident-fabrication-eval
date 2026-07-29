@@ -1,0 +1,23 @@
+{
+  "question_id": "hl7-018",
+  "model_name": "qwen3.5-35b-local",
+  "provider": "ollama_native",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T19:05:23.313680+00:00",
+  "text": "In **HL7 Version 2.3.1**, **MSH-21** contains: **The sequence number of the message (Message Sequence Number)**.\n\nHere are a few key details regarding this field in that specific version:\n\n*   **Context**: In HL7 v2.x versions prior to 2.5, MSH-21 was defined as \"Sequence #\".\n*   **Usage**: It is used to identify the order of messages within a sequence, particularly useful for acknowledgments or batch processing where multiple messages are sent together.\n*   **Evolution Note**: In later versions (starting with 2.5), this field's purpose and position shifted slightly in terminology and usage relative to other MSH segment fields like `MSH-10` (which serves as a Message Control ID). However, specifically for the request on version **2.3.1**, it represents the sequence number.\n\n**Field Definition Summary:**\n*   **Segment**: MSH (Message Header)\n*   **Position**: 21 (Sequence # in v2.3.1 documentation)\n*   **Data Type**: ST (String Text), though often numeric.",
+  "reasoning": null,
+  "stop_reason": "stop",
+  "resolved_model": "qwen3.5:35b",
+  "usage": {
+    "prompt_tokens": 44,
+    "completion_tokens": 246
+  },
+  "request_params": {
+    "model": "qwen3.5:35b",
+    "stream": false,
+    "options": {
+      "num_predict": 4096
+    },
+    "think": false
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "question_id": "hl7-014",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:56:26.761981+00:00",
+  "text": "# HL7 v2.5.1 MSH-25\n\nIn HL7 version 2.5.1, field **MSH-25 contains the Application Acknowledgment Type**.\n\nThis field specifies the type of application-level acknowledgment expected in response to this message. It uses a coding system to indicate whether:\n\n- **AL** = Always acknowledgment\n- **NE** = Never acknowledgment\n- **SU** = Successful completion acknowledgment\n- **ER** = Error/reject conditions only acknowledgment\n\nThis field allows sending systems to communicate their expectations about how the receiving system should acknowledge receipt and processing of the message.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 42,
+    "output_tokens": 146,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

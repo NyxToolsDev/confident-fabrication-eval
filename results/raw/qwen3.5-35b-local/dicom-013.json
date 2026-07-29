@@ -1,0 +1,23 @@
+{
+  "question_id": "dicom-013",
+  "model_name": "qwen3.5-35b-local",
+  "provider": "ollama_native",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:56:43.766374+00:00",
+  "text": "The **Explicit VR Little/Big Endian** Transfer Syntax with UID `1.2.840.10008.1.2.2` is currently defined as a **Mandatory (Required)** transfer syntax within the DICOM Standard, but it has been superseded in practice by more efficient standards for high-speed applications.\n\nHere are the specific details regarding its status:\n\n### 1. Current Status: Retained and Mandatory\nDespite being an older standard introduced with DICOM Version 3.0 (in 1993), UID `1.2.840.10008.1.2.2` has **not been deprecated or removed** from the standard. According to Part 5 of the current NEMA PS3.5 (Data Formats for Interoperability) and Part 7, it remains a **Mandatory** transfer syntax that all compliant DICOM Conforming Systems must support for basic interoperability.\n\n*   **VR Encoding:** In this syntax, Value Representation (VR) codes are explicitly written before each value in the Data Element structure.\n    *   For little-endian systems: VR is placed at offset +2 of the tag and encoded according to Little Endian byte ordering.\n    *   For big-endian systems: The VR field itself follows Big Endian rules (the bytes representing \"UI\" or other strings are in network order).\n\n### 2. Contextual Usage vs. Modern Standards\nWhile mandatory for conformance, its usage has declined significantly since the introduction of **Implicit VR LittleEndian** (`1.2.840.10008.1.2`, the original default) and more critically **Explicit VR Little Endian** (`1.2.840.10008.1.2.1`) which became the de facto standard for network transfer in the late 90s/early 2000s due to its balance of efficiency (no length field needed if Implicit) or better tooling support compared to explicit Big Endian.\n\n*   **Why it exists:** It is primarily retained as a fallback for legacy systems, specific archival scenarios on non-x86 hardware that historically used big-endian architectures, and to ensure backward compatibility with very old implementations.\n*   **Performance:** Explicit VR Big Endian requires parsing both the Tag (2 bytes) + Length (4 bytes) + VR (2 chars/bytes). It is generally less efficient than Implicit VR LittleEndian for transmission over TCP/IP networks because it sends more metadata per element compared to implicit syntax, and modern network stacks are optimized for little-endian data.\n\n### 3. Comparison with other Explicit Syntaxes\nTo understand where `1.2.840.10008.1.2.2` stands relative to its peers:\n*   **Implicit VR Little Endian (`... .1.2`):** No explicit VR; most compact but requires knowing the type of data element by tag number alone. Still widely used for archival (WADO-RS, PACS storage often default here).\n*   **Explicit VR Little Endian (`... .1.2.1`):** Explicit VR + LE byte order. This is currently the dominant syntax for network transfer and modern web-based services because it allows easy debugging of data types without looking up tag tables and matches native x86/ARM architecture (little-endian).\n*   **Explicit VR Big Endian (`... .1.2.2`):** Explicit VR + BE byte order. Used rarely outside of niche legacy environments or specific non-x840 embedded systems from the 90s.\n\n### Conclusion\nThe transfer syntax `1.2.840.10008.1.2.2` (Explicit VR Big Endian) remains a **mandatory** part of the DICOM standard to ensure backward compatibility and broad conformance, but it is considered a **legacy protocol**. In modern healthcare interoperability architectures, Explicit VR Little Endian (`1.2.840.10008.1.2.1`) or Implicit VR Little Endian are preferred for performance and network efficiency, with Big Endian support primarily maintained to handle legacy devices.",
+  "reasoning": null,
+  "stop_reason": "stop",
+  "resolved_model": "qwen3.5:35b",
+  "usage": {
+    "prompt_tokens": 64,
+    "completion_tokens": 888
+  },
+  "request_params": {
+    "model": "qwen3.5:35b",
+    "stream": false,
+    "options": {
+      "num_predict": 4096
+    },
+    "think": false
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "question_id": "hl7-013",
+  "model_name": "qwen3.5-35b-local",
+  "provider": "ollama_native",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T19:08:36.273469+00:00",
+  "text": "In **HL7 Version 2.5.1**, the Patient Class is defined within the **PV1** (Patient Visit) segment as follows:\n\n*   **Field Position**: It is located in **field PV1-3**. In the HL7 version 2.5 specification, this field explicitly carries the value for \"PatientClass\".\n*   **Defining Table**: The allowable values and definitions are found in **HL7 Table 0068** (titled *Patient Class*).\n\nThe standard allows for various codes within this table to represent different statuses or types of care. Common examples include:\n*   `A` - Acute Care, Short Term Stay Inpatient Admit Type\n*   `D` - Day Surgery/Outpatient Admission\n*   `E` - Emergency Room Patient\n*   `I` - Inpatient Admitted (General)\n\n**Conclusion:**\nThe patient class is carried in **PV1-3**, and its values are defined by **Table 0068**.",
+  "reasoning": null,
+  "stop_reason": "stop",
+  "resolved_model": "qwen3.5:35b",
+  "usage": {
+    "prompt_tokens": 64,
+    "completion_tokens": 215
+  },
+  "request_params": {
+    "model": "qwen3.5:35b",
+    "stream": false,
+    "options": {
+      "num_predict": 8192
+    },
+    "think": false
+  }
+}

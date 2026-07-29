@@ -1,0 +1,28 @@
+{
+  "question_id": "dicom-016",
+  "model_name": "kimi-k3",
+  "provider": "openai_compatible",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:56:43.101535+00:00",
+  "text": "## N-QUERY vs. C-FIND in DICOM\n\nBoth services are part of DIMSE (DICOM Message Service Element) and serve a query/lookup role, but they operate on fundamentally different data models:\n\n### N-QUERY\n- **Normalized service**: It operates on *normalized SOP Classes* \u2014 information objects that represent real-world entities (e.g., Patient, Study) directly, independent of any specific composite image/object.\n- It queries normalized attributes of these managed entities using the normalized query/retrieve information model (e.g., Patient/Root Query/Retrieve models).\n- Retrieval of the results requires the companion normalized services **N-RETRIEVE** and **N-MOVE**.\n- N-QUERY/N-RETRIEVE were part of the original \"normalized query/retrieve\" model and were **retired/deprecated** in later DICOM versions because they were never widely adopted.\n\n### C-FIND\n- **Composite service**: It operates on *composite information objects* (e.g., images) and queries using composite attributes, following the hierarchical Patient\u2013Study\u2013Series\u2013Instance information model.\n- It is part of the widely used **C-based Query/Retrieve service class**, where matching results (identifiers) are returned, and actual object retrieval is done with **C-MOVE** or **C-GET**.\n- C-FIND is the standard, universally implemented way to query modalities, PACS, and workstations.\n\n### Key distinction\n| Aspect | N-QUERY | C-FIND |\n|---|---|---|\n| SOP class type | Normalized | Composite |\n| Information model | Normalized (entity-based) | Patient/Study-Root composite hierarchy |\n| Companion retrieval | N-RETRIEVE / N-MOVE | C-MOVE / C-GET |\n| Status | Retired/rarely used | Standard, ubiquitous |\n\nIn practice, C-FIND won out because the composite model mapped more naturally onto the actual stored objects, while the normalized model proved too complex to implement.",
+  "reasoning": "DICOM question: N-QUERY vs C-FIND. Explain that N-QUERY operates on normalized SOP classes using normalized identifiers, part of older normalized query model (patient/root), while C-FIND operates on composite (composite object) attributes, uses C-MOVE/C-GET for retrieval; N-QUERY/N-RETRIEVE deprecated.",
+  "stop_reason": "stop",
+  "resolved_model": "kimi-k3",
+  "usage": {
+    "completion_tokens": 495,
+    "prompt_tokens": 114,
+    "total_tokens": 609,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 72,
+      "rejected_prediction_tokens": null
+    },
+    "prompt_tokens_details": null
+  },
+  "request_params": {
+    "model": "kimi-k3",
+    "max_tokens": 4096,
+    "reasoning_effort": "low"
+  }
+}

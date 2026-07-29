@@ -1,0 +1,23 @@
+{
+  "question_id": "dicom-015",
+  "model_name": "qwen3.5-35b-local",
+  "provider": "ollama_native",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:57:11.549438+00:00",
+  "text": "In DICOM (Digital Imaging and Communications in Medicine), specific services operate on distinct information models, each identified by a unique Service Class ID (SOP Class UID). The **Modality Worklist** functionality allows modality stations (like X-ray machines) to query the RIS/HIS for scheduled appointments without manual data entry.\n\nWhen this service is used specifically as a **FIND** operation (which corresponds to the C-FIND query/retrieve mechanism within the Modality Worklist context), it operates under the **Modality Performed Procedure Step - FIND** information model, often simply referred to in standards documentation regarding worklist queries.\n\nThe specific SOP Class UID for the **Worklist Information Model \u2013 Find Service** is:\n`1.2.840.10008.5.1.4.31.1.1`\n\nThis UID uniquely identifies the \"Modality Worklist\" service class where the application of the FIND functionality occurs. Note that while there are other Modality Worklist UIDs for storage (C-STORE) or specific procedure details, `1.2.840.10008.5.1.4.31.1.1` is the definitive identifier for the **Modality Performed Procedure Step - FIND** SOP Class used in worklist queries.\n\n**Answer:**\nThe SOP Class UID that identifies the Modality Worklist Information Model \u2014 Find service is:\n**1.2.840.10008.5.1.4.31.1.1**",
+  "reasoning": null,
+  "stop_reason": "stop",
+  "resolved_model": "qwen3.5:35b",
+  "usage": {
+    "prompt_tokens": 39,
+    "completion_tokens": 328
+  },
+  "request_params": {
+    "model": "qwen3.5:35b",
+    "stream": false,
+    "options": {
+      "num_predict": 4096
+    },
+    "think": false
+  }
+}

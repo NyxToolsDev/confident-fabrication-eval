@@ -1,0 +1,26 @@
+{
+  "question_id": "hl7-012",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:56:20.455605+00:00",
+  "text": "# HL7 v2.5.1 OBR Segment - Universal Service Identifier\n\nIn HL7 version 2.5.1, the **OBR-4 field** contains the Universal Service Identifier.\n\n## Details:\n\n- **Field:** OBR-4\n- **Field Name:** Universal Service Identifier\n- **Data Type:** CE (Coded Entry)\n- **Purpose:** Contains the code for the ordered test, procedure, or service\n\nThis field uses a coded value (typically from LOINC or other appropriate coding systems) to uniquely identify what test or procedure has been ordered. It is one of the key identifying fields in the OBR (Observation Request) segment.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 56,
+    "output_tokens": 161,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

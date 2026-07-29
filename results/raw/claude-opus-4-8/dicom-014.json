@@ -1,0 +1,29 @@
+{
+  "question_id": "dicom-014",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:55:59.331242+00:00",
+  "text": "I need to correct a misconception in this question.\n\n**There is no DICOM attribute that stores a checksum for validating a Study Instance UID.**\n\nHere's why:\n\n1. **Study Instance UID (0020,000D)** is itself a unique identifier (UID) formatted according to ISO/IEC 8824 (an OID-style dotted numeric string). It does not have an associated checksum attribute in the DICOM standard.\n\n2. **UIDs are not validated via checksums in DICOM.** Uniqueness is guaranteed by the structure of the UID itself\u2014typically an organization's registered root OID combined with a locally-generated suffix. There is no self-validating checksum digit or companion checksum attribute defined for it.\n\n3. **No such attribute exists** in the DICOM Data Dictionary (PS3.6) for storing a checksum of the Study Instance UID.\n\nIf you're thinking of data integrity mechanisms in DICOM, the relevant concepts are actually different:\n- **MAC (Message Authentication Code)** and **Digital Signatures** \u2014 used for verifying dataset integrity (PS3.15), but these apply to datasets/attributes broadly, not specifically as a Study UID checksum.\n- **Transfer syntax / TCP-level integrity** \u2014 network transmission integrity is handled by the underlying protocols.\n\nIf this question came from a quiz, exam, or study material, it may contain a **flawed premise**. I'd recommend double-checking the source, as the correct answer is that no such attribute exists.\n\nIs there something specific about DICOM UIDs or data integrity you'd like me to clarify?",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 54,
+    "output_tokens": 524,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

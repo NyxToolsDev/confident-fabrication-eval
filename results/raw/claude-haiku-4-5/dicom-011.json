@@ -1,0 +1,26 @@
+{
+  "question_id": "dicom-011",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:55:38.837573+00:00",
+  "text": "# DICOM Tag for Patient's Birth Date\n\nThe DICOM tag for Patient's Birth Date is **(0010,0030)**.\n\n## Details:\n- **Group:** 0010 (Patient Information Module)\n- **Element:** 0030\n- **VR (Value Representation):** DA (Date)\n- **VM (Value Multiplicity):** 1\n- **Keyword:** PatientBirthDate\n\nThis tag stores the patient's date of birth in the format YYYYMMDD (e.g., 19800515 for May 15, 1980).",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 37,
+    "output_tokens": 137,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "question_id": "hl7-017",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:56:36.526754+00:00",
+  "text": "# HL7 v2.5.1 ORU^R01 OBX Fields\n\nIn an HL7 v2.5.1 ORU^R01 message:\n\n## Observation Value\n**OBX-5 (Observation Value)** carries the actual observation/result value.\n\n## Data Type Declaration\n**OBX-2 (Value Type)** declares the data type of that value.\n\n### Example:\n```\nOBX|1|NM|2345-7^Glucose^LN||95|mg/dL|70-100|N|||F\n     ^              ^\n    OBX-2        OBX-5\n   (Value Type)  (Observation Value)\n```\n\nIn this example:\n- **OBX-2 = \"NM\"** specifies the data type is Numeric\n- **OBX-5 = \"95\"** contains the actual glucose value\n\nCommon OBX-2 values include: **NM** (numeric), **ST** (string), **CE** (coded entry), **TX** (text), **DT** (date), **TM** (time), and others depending on the observation type.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 64,
+    "output_tokens": 281,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

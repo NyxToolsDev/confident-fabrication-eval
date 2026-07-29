@@ -14,7 +14,7 @@
     "provider": "ollama_native",
     "model_id": "qwen3.5:35b",
     "base_url": "http://localhost:11434",
-    "params": {"think": false, "options": {"num_predict": 4096}}
+    "params": {"think": false, "options": {"num_predict": 16384}}
   },
   {
     "name": "kimi-k3",

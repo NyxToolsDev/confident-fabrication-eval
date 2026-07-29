@@ -1,0 +1,26 @@
+{
+  "question_id": "hl7-018",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:56:41.748000+00:00",
+  "text": "# HL7 v2.3.1 MSH-21 Field\n\nIn HL7 version 2.3.1, field **MSH-21 contains the Message Profile Identifier(s)**.\n\nThis field is used to identify the message profile(s) that define the structure and constraints for a specific message instance. It allows systems to specify which implementation guide or profile a message conforms to, enabling receiving systems to apply appropriate validation and processing rules.\n\nThe field is optional and repeating, allowing multiple profile identifiers to be associated with a single message.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 42,
+    "output_tokens": 126,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "question_id": "fhir-013",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:56:09.354199+00:00",
+  "text": "# FHIR R4 REST Search - Date Range Filtering\n\nTo filter Observation resources to a date range in FHIR R4 REST, use the **`date`** search parameter with comparison operators:\n\n## Example: All of 2023\n\n```\nGET /Observation?date=ge2023-01-01&date=lt2024-01-01\n```\n\nOr equivalently:\n\n```\nGET /Observation?date=ge2023&date=lt2024\n```\n\n## Breakdown\n\n- **`date=ge2023-01-01`** - \"greater than or equal to\" January 1, 2023\n- **`date=lt2024-01-01`** - \"less than\" January 1, 2024\n\n## Common Date Operators\n\n| Operator | Meaning |\n|----------|---------|\n| `ge` | greater than or equal to |\n| `le` | less than or equal to |\n| `gt` | greater than |\n| `lt` | less than |\n| `eq` | equals |\n| `ne` | not equals |\n\n## Additional Notes\n\n- The **`date`** parameter typically maps to the `effective` element (effective[x]) in Observation resources\n- Date precision can vary: `2023`, `2023-01`, `2023-01-15`, or full timestamp\n- Multiple parameters are combined with AND logic\n- URL encoding may be needed in actual requests (e.g., `&` as `%26`)",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 51,
+    "output_tokens": 345,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

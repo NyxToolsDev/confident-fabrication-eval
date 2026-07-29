@@ -1,0 +1,29 @@
+{
+  "question_id": "fhir-012",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:56:48.291650+00:00",
+  "text": "In FHIR R4, there is actually **no resource called \"Conformance.\"** This is a common point of confusion worth clarifying.\n\n## What Happened to the Conformance Resource\n\nThe **Conformance** resource existed in earlier versions of FHIR (DSTU1 and DSTU2). It was **renamed to `CapabilityStatement`** starting in **FHIR STU3**, and this name carried forward into **FHIR R4**.\n\n## What CapabilityStatement Describes (the R4 equivalent)\n\nThe **CapabilityStatement** resource documents a set of capabilities (behaviors) of a FHIR system. It describes:\n\n- **Which resources** a server supports (e.g., Patient, Observation, Encounter)\n- **Which interactions** are supported per resource (read, create, update, delete, search, etc.)\n- **Search parameters** and operations available\n- **Supported formats** (JSON, XML)\n- **Security requirements** (e.g., OAuth, SMART on FHIR)\n- **FHIR version** and implementation details\n- **RESTful, messaging, or document-based** capabilities the system supports\n- **Profiles** the system claims to conform to\n\nIt essentially serves as a machine-readable \"instruction manual\" that lets clients discover what a FHIR server can and cannot do.\n\n## Summary\n\n| Version | Resource Name |\n|---------|--------------|\n| DSTU1 / DSTU2 | Conformance |\n| STU3 / R4 | CapabilityStatement |\n\nSo if you're working specifically in **R4**, you should reference **CapabilityStatement** rather than Conformance.\n\nWould you like details on any specific element of the CapabilityStatement resource?",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 45,
+    "output_tokens": 550,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

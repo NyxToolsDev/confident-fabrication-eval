@@ -1,0 +1,28 @@
+{
+  "question_id": "fhir-013",
+  "model_name": "kimi-k3",
+  "provider": "openai_compatible",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:57:54.587093+00:00",
+  "text": "Use the Observation `date` search parameter with two date prefixes, one for the start and one for the end:\n\n```http\nGET [base]/Observation?date=ge2023-01-01&date=le2023-12-31\n```\n\n- `date=ge2023-01-01` \u2014 effective date is on or after January 1, 2023.\n- `date=le2023-12-31` \u2014 effective date is on or before December 31, 2023.\n- Repeating the same search parameter with `&` creates an AND condition.\n\nThe Observation `date` parameter searches `Observation.effective[x]`, such as `effectiveDateTime` or `effectivePeriod`. FHIR date-range matching has precision and interval semantics\u2014for example, a date like `2023-12-31` conceptually covers that entire day\u2014so check the specific server\u2019s implementation when boundary times and time zones are critical.",
+  "reasoning": "We need answer examples. Need clarify date search parameter, ge/le inclusive, URL encoding. All 2023: date=ge2023-01-01&date=le2023-12-31. Caveat effective dateTime/period matching rules and timezones. Also if instant? Observation date parameter defined effective. Use :exact? Prefix semantics for ranges. Repeat same param means AND. Maybe include base URL.",
+  "stop_reason": "stop",
+  "resolved_model": "kimi-k3",
+  "usage": {
+    "completion_tokens": 298,
+    "prompt_tokens": 123,
+    "total_tokens": 421,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 87,
+      "rejected_prediction_tokens": null
+    },
+    "prompt_tokens_details": null
+  },
+  "request_params": {
+    "model": "kimi-k3",
+    "max_tokens": 4096,
+    "reasoning_effort": "low"
+  }
+}

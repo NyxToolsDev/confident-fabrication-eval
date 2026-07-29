@@ -1,0 +1,23 @@
+{
+  "question_id": "fhir-014",
+  "model_name": "qwen3.5-35b-local",
+  "provider": "ollama_native",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T19:08:31.122346+00:00",
+  "text": "In **HL7 FHIR Release 4 (R4)**, the `Observation.resultStatus` element is defined as follows:\n\n*   **Cardinality**: **[0..1]**\n    *   This indicates that an observation resource may contain zero or one result status code. It is optional, but if provided, there can only be a single value.\n*   **Value Set**: **observation-status** (`http://hl7.org/fhir/ValueSet/observation-resultstatus`)\n    *   This fixed or extensible value set (depending on the specific usage context) defines the permissible codes for this element: `final`, `preliminary`, `corrected`, and `amended`.\n\nThese definitions are found in the FHIR R4 Specification under the **Observation** profile at path `Observation.resultStatus`.",
+  "reasoning": null,
+  "stop_reason": "stop",
+  "resolved_model": "qwen3.5:35b",
+  "usage": {
+    "prompt_tokens": 43,
+    "completion_tokens": 172
+  },
+  "request_params": {
+    "model": "qwen3.5:35b",
+    "stream": false,
+    "options": {
+      "num_predict": 8192
+    },
+    "think": false
+  }
+}

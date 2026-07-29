@@ -1,0 +1,29 @@
+{
+  "question_id": "dicom-017",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:56:23.401903+00:00",
+  "text": "The DICOM tag for **Series Instance UID** is:\n\n**(0020,000E)**\n\n### Details:\n- **Group:** 0020\n- **Element:** 000E\n- **Value Representation (VR):** UI (Unique Identifier)\n- **Value Multiplicity (VM):** 1\n- **Attribute Name:** Series Instance UID\n\nThis tag uniquely identifies a series within a study and is part of the **General Series Module**. It's a critical component in the DICOM information hierarchy:\n\n**Patient \u2192 Study \u2192 Series \u2192 Instance (Image)**\n\nFor reference, here are the related UIDs in the hierarchy:\n\n| Attribute Name | Tag |\n|---|---|\n| Study Instance UID | (0020,000D) |\n| **Series Instance UID** | **(0020,000E)** |\n| SOP Instance UID | (0008,0018) |\n\nNote that the element uses hexadecimal notation, so \"000E\" represents the value 14 in decimal.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 48,
+    "output_tokens": 317,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

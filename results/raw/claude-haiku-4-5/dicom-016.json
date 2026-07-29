@@ -1,0 +1,26 @@
+{
+  "question_id": "dicom-016",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:55:52.791331+00:00",
+  "text": "# DIMSE N-QUERY vs C-FIND in DICOM\n\nThese are actually **related but distinct services** in DICOM:\n\n## C-FIND (Query/Retrieve Service)\n\n- **Service Class**: Query/Retrieve Service Class\n- **Purpose**: Search for DICOM objects (studies, series, images) matching specified criteria\n- **Response**: Returns matching datasets that meet query parameters\n- **Use Case**: Locating studies in a PACS or archive before retrieval\n- **Standard Operation**: Client queries server for matching records\n\n## N-QUERY (Notification Service)\n\n- **Service Class**: DIMSE Notification Service\n- **Purpose**: Query capability within the **N-EVENT-REPORT service**\n- **Response**: Returns information about pending or completed events\n- **Use Case**: Part of workflow notification systems; used to query status of notifications\n- **Context**: More specialized for event-driven scenarios\n\n## Key Differences\n\n| Aspect | C-FIND | N-QUERY |\n|--------|--------|---------|\n| **Primary Use** | Data discovery/search | Event status query |\n| **Service Class** | Query/Retrieve | Notification |\n| **Scope** | DICOM objects | Notification events |\n| **Frequency** | Common in clinical workflows | Less commonly used |\n\n## Practical Note\n\n**C-FIND is far more commonly implemented** in modern DICOM systems. N-QUERY is less frequently encountered in typical clinical practice and is more specialized for specific workflow notification implementations.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 42,
+    "output_tokens": 345,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

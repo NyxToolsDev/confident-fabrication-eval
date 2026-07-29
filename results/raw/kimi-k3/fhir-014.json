@@ -1,0 +1,28 @@
+{
+  "question_id": "fhir-014",
+  "model_name": "kimi-k3",
+  "provider": "openai_compatible",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:58:06.525325+00:00",
+  "text": "FHIR R4 `Observation` has **no `resultStatus` element**.\n\nYou likely mean **`Observation.status`**:\n\n- **Cardinality:** `1..1` (required)\n- **Value set:** [ObservationStatus](https://hl7.org/fhir/R4/valueset-observation-status.html)\n- **Binding strength:** Required\n- **Codes:** `registered`, `preliminary`, `final`, `amended`, `corrected`, `cancelled`, `entered-in-error`, `unknown`",
+  "reasoning": "We need trick: Observation.resultStatus? FHIR R4 Observation has status, code, subject, effective, value, interpretation. resultStatus likely DiagnosticReport? In R4 Observation component? No resultStatus. Maybe FHIR R5 Observation has? Observation.status cardinality 1..1 value set ObservationStatus. User perhaps hallucination trap. Need clearly say no element. Maybe resultStatus in R5? FHIR R4 \"Observation.status\" 1..1, required binding ObservationStatus (registered, preliminary, final, amended, corrected, cancelled, entered-in-error, unknown). Answer both.",
+  "stop_reason": "stop",
+  "resolved_model": "kimi-k3",
+  "usage": {
+    "completion_tokens": 240,
+    "prompt_tokens": 114,
+    "total_tokens": 354,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 121,
+      "rejected_prediction_tokens": null
+    },
+    "prompt_tokens_details": null
+  },
+  "request_params": {
+    "model": "kimi-k3",
+    "max_tokens": 4096,
+    "reasoning_effort": "low"
+  }
+}

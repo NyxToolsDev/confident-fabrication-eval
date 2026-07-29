@@ -1,0 +1,29 @@
+{
+  "question_id": "fhir-015",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:57:13.520235+00:00",
+  "text": "# FHIR `_include` Parameter\n\n## What It Does\n\nThe `_include` parameter in FHIR R4 REST search instructs the server to **return additional resources that are referenced by the resources matching your search criteria**. \n\nInstead of just returning the primary resources you searched for, the server also includes the resources that those primary resources *point to* via references. This helps you avoid making multiple round-trip queries to resolve references.\n\n## Syntax\n\n```\n_include=[SourceResourceType]:[search-parameter]\n```\n\nOptionally, you can specify the target type:\n\n```\n_include=[SourceResourceType]:[search-parameter]:[TargetResourceType]\n```\n\n## Example with Observation\n\nSuppose you want to retrieve blood pressure observations **along with the patients** they refer to:\n\n```\nGET [base]/Observation?code=85354-9&_include=Observation:patient\n```\n\n**What happens:**\n- The server finds `Observation` resources matching the code (blood pressure).\n- For each matching Observation, it follows the `patient` reference (`Observation.subject`) and **includes those Patient resources** in the response.\n\n## Response Structure\n\nThe result is returned as a `Bundle`, where each entry has a `search.mode` indicating its role:\n\n- **`match`** \u2014 the primary resources (Observations)\n- **`include`** \u2014 the pulled-in referenced resources (Patients)\n\n```json\n{\n  \"resourceType\": \"Bundle\",\n  \"type\": \"searchset\",\n  \"entry\": [\n    {\n      \"resource\": { \"resourceType\": \"Observation\", \"...\": \"...\" },\n      \"search\": { \"mode\": \"match\" }\n    },\n    {\n      \"resource\": { \"resourceType\": \"Patient\", \"...\": \"...\" },\n      \"search\": { \"mode\": \"include\" }\n    }\n  ]\n}\n```\n\n## Related Parameters\n\n| Parameter | Direction |\n|-----------|-----------|\n| `_include` | Follows references **outward** (from result \u2192 referenced resource) |\n| `_revinclude` | Follows references **inward** (finds resources that *reference* your results) |\n| `_include:iterate` | Recursively includes references of included resources |\n\n**Example of `_revinclude`:** To get patients and the observations that reference them:\n```\nGET [base]/Patient?_revinclude=Observation:patient\n```\n\nWould you like details on `_include:iterate` or how servers handle wildcard includes (`_include=Observation:*`)?",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 60,
+    "output_tokens": 780,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

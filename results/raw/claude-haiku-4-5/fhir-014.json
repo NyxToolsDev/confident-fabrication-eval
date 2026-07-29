@@ -1,0 +1,26 @@
+{
+  "question_id": "fhir-014",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:56:13.067395+00:00",
+  "text": "# FHIR R4 Observation.resultStatus\n\nI need to clarify that there is **no element called \"resultStatus\"** in the FHIR R4 Observation resource.\n\nYou may be thinking of one of these related elements:\n\n## **Observation.status** (the actual element)\n- **Cardinality:** 1..1 (mandatory, appears exactly once)\n- **Value Set:** [ObservationStatus](http://hl7.org/fhir/R4/valueset-observation-status.html)\n- **Binding Strength:** Required\n- **Values include:** registered, preliminary, final, amended, corrected, cancelled, entered-in-error, unknown\n\nThis element indicates the status of the observation result (e.g., whether it's preliminary, final, amended, etc.).\n\nIf you were referring to a different element or a different FHIR version, please clarify and I can provide the correct information.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 44,
+    "output_tokens": 218,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

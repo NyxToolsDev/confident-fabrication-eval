@@ -1,0 +1,28 @@
+{
+  "question_id": "hl7-012",
+  "model_name": "kimi-k3",
+  "provider": "openai_compatible",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:58:34.381284+00:00",
+  "text": "In HL7 v2.5.1, **OBR-4** contains the **Universal Service Identifier**, identifying the ordered test or procedure.",
+  "reasoning": "We need answer exact field. OBR-4 Universal Service ID. Mention CE/CWE? In v2.5.1 datatype CE maybe. Need concise.",
+  "stop_reason": "stop",
+  "resolved_model": "kimi-k3",
+  "usage": {
+    "completion_tokens": 79,
+    "prompt_tokens": 128,
+    "total_tokens": 207,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 34,
+      "rejected_prediction_tokens": null
+    },
+    "prompt_tokens_details": null
+  },
+  "request_params": {
+    "model": "kimi-k3",
+    "max_tokens": 4096,
+    "reasoning_effort": "low"
+  }
+}

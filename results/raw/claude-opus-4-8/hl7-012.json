@@ -1,0 +1,29 @@
+{
+  "question_id": "hl7-012",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:57:24.464078+00:00",
+  "text": "In HL7 v2.5.1, the **Universal Service Identifier** is located in **OBR-4**.\n\n**Details:**\n- **Field:** OBR-4\n- **Name:** Universal Service Identifier\n- **Data Type:** CE (Coded Element) in v2.5.1\n- **Purpose:** Contains the code identifying the observation/service/test/procedure that was ordered (e.g., a LOINC code, CPT code, or local code for the ordered test or procedure)\n\nThe CE data type structure allows OBR-4 to carry:\n- Identifier (the code)\n- Text (description)\n- Name of Coding System\n- Alternate Identifier, Alternate Text, and Name of Alternate Coding System\n\nThis field is typically populated to match the corresponding **OBX-3** (Observation Identifier) in the result segments, tying the ordered service to its results.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 74,
+    "output_tokens": 284,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "question_id": "fhir-013",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:56:56.686497+00:00",
+  "text": "# Filtering FHIR Observations by Date Range\n\nIn FHIR R4 REST search, you filter `Observation` resources by date range using the **`date`** search parameter combined with **date prefixes**.\n\n## Basic Syntax\n\nTo get all Observations from 2023:\n\n```\nGET [base]/Observation?date=ge2023-01-01&date=le2023-12-31\n```\n\n## How It Works\n\nYou use two `date` parameters with comparison prefixes to define both ends of the range:\n\n| Prefix | Meaning |\n|--------|---------|\n| `ge` | greater than or equal to (\u2265) |\n| `le` | less than or equal to (\u2264) |\n| `gt` | greater than (>) |\n| `lt` | less than (<) |\n| `eq` | equals (default if no prefix) |\n| `sa` | starts after |\n| `eb` | ends before |\n\n## Alternative Approaches\n\n**Using year-level precision** (FHIR supports partial dates):\n```\nGET [base]/Observation?date=2023\n```\nThis matches all Observations whose date falls within 2023, since FHIR performs range matching based on the precision provided.\n\n**Using an exclusive upper bound** (often cleaner for avoiding boundary issues with times):\n```\nGET [base]/Observation?date=ge2023-01-01&date=lt2024-01-01\n```\n\n## Important Notes\n\n- The `date` search parameter on `Observation` maps to `Observation.effective[x]` (e.g., `effectiveDateTime`, `effectivePeriod`).\n- When you repeat the same parameter (`date=...&date=...`), the server treats them as an **AND** condition, which is exactly what you want for bounding a range.\n- Be mindful of **time zones** and time components when using precise boundaries\u2014using `lt2024-01-01` avoids edge cases where an observation at `2023-12-31T14:00` might be excluded.\n- Server support for all prefixes can vary, so check the server's `CapabilityStatement`.\n\n## Recommended Query\n\nFor \"all of 2023,\" the most robust option is:\n\n```\nGET [base]/Observation?date=ge2023-01-01&date=lt2024-01-01\n```",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 62,
+    "output_tokens": 707,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

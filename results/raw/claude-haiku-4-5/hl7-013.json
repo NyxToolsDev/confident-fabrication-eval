@@ -1,0 +1,26 @@
+{
+  "question_id": "hl7-013",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:56:23.611871+00:00",
+  "text": "# HL7 v2.5.1 Patient Class Information\n\n## Field Location\nIn HL7 version 2.5.1, **PV1-2 (Patient Class)** carries the patient class information (inpatient, outpatient, emergency, etc.).\n\n## Defining Table\nThe values for PV1-2 are defined by **HL7 Table 0004 - Patient Class**.\n\n## Common Values from Table 0004\n- **I** = Inpatient\n- **O** = Outpatient\n- **E** = Emergency\n- **P** = Preadmit\n- **R** = Recurring patient\n- **B** = Obstetrics\n- **C** = Commercial Account\n- **N** = Not Applicable\n\nThis field is typically required in PV1 segments and appears as one of the earliest fields in the segment, immediately following PV1-1 (Set ID).",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 69,
+    "output_tokens": 217,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "question_id": "dicom-017",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:55:57.511211+00:00",
+  "text": "# DICOM Tag for Series Instance UID\n\nThe DICOM tag for Series Instance UID is **(0x0020, 0x000E)** or written as **(0020,000E)**.\n\nThis tag is used to uniquely identify a series within a study in DICOM medical imaging. It is a required attribute in the Series level of the DICOM information model hierarchy.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 37,
+    "output_tokens": 90,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

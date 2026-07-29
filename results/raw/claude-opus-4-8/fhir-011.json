@@ -1,0 +1,29 @@
+{
+  "question_id": "fhir-011",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:56:37.647247+00:00",
+  "text": "# MedicationOrder in FHIR R4 \u2014 An Important Correction\n\nI need to flag a key issue with your question: **`MedicationOrder` does not exist in FHIR R4.**\n\n## What Actually Happened\n\nThe `MedicationOrder` resource was **renamed to `MedicationRequest`** during FHIR's development. Here's the timeline:\n\n- **DSTU2 (FHIR 1.0):** The resource was called `MedicationOrder`\n- **STU3 and R4:** It was renamed to **`MedicationRequest`** to better reflect that it covers both orders and requests/proposals\n\nSo if you're working in **FHIR R4**, you'll want to use `MedicationRequest`.\n\n## Key Elements of `MedicationRequest` (FHIR R4)\n\nHere are the important elements:\n\n| Element | Description |\n|---------|-------------|\n| `identifier` | External business identifier(s) |\n| `status` | active, on-hold, cancelled, completed, entered-in-error, stopped, draft, unknown |\n| `statusReason` | Reason for the current status |\n| `intent` | proposal, plan, order, original-order, reflex-order, filler-order, instance-order, option |\n| `category` | Type of usage (inpatient, outpatient, community, etc.) |\n| `priority` | routine, urgent, asap, stat |\n| `medication[x]` | The medication (CodeableConcept or Reference to Medication) |\n| `subject` | Who the medication is for (usually Patient) |\n| `encounter` | The encounter that initiated the request |\n| `authoredOn` | When the request was created |\n| `requester` | Who/what requested the medication |\n| `reasonCode` / `reasonReference` | Why the medication is being prescribed |\n| `dosageInstruction` | How the medication should be taken |\n| `dispenseRequest` | Details for dispensing (quantity, refills, validity period) |\n| `substitution` | Whether substitution is allowed |\n\n## Note on the Broader \"Medication\" Module\n\nFHIR R4 includes several related medication resources you may also find useful:\n- `MedicationRequest` \u2014 orders/prescriptions\n- `MedicationDispense` \u2014 the dispensing act\n- `MedicationAdministration` \u2014 the administration act\n- `MedicationStatement` \u2014 a record of medication use\n- `Medication` \u2014 the drug definition itself\n\nWould you like me to go deeper on any of these, or explain the dosage/dispense structures in more detail?",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 51,
+    "output_tokens": 809,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

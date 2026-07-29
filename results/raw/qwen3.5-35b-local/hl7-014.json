@@ -1,0 +1,23 @@
+{
+  "question_id": "hl7-014",
+  "model_name": "qwen3.5-35b-local",
+  "provider": "ollama_native",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T19:02:56.976682+00:00",
+  "text": "In **HL7 Version 2.x** (including release **2.5.1**), Field **MSH-25** is defined as the **Security Message Text**.\n\nThis optional field allows for a security-related message to be inserted into the header of an HL7 transmission. Its primary purpose is to carry messages that may pertain to access control, audit trails, or other security protocols between systems before the processing of the clinical data begins (specifically within the application layer). While often left empty in many standard implementations, when populated, it can contain alerts regarding authentication issues, user permissions, or other critical security notifications relevant to the receiving system's policies.\n\n**Summary:**\n*   **Field Name**: Security Message Text\n*   **Position**: MSH-25\n*   **Data Type**: ST (String)\n*   **Usage**: Optional carrier for application-layer security alerts or audit messages.",
+  "reasoning": null,
+  "stop_reason": "stop",
+  "resolved_model": "qwen3.5:35b",
+  "usage": {
+    "prompt_tokens": 44,
+    "completion_tokens": 188
+  },
+  "request_params": {
+    "model": "qwen3.5:35b",
+    "stream": false,
+    "options": {
+      "num_predict": 4096
+    },
+    "think": false
+  }
+}

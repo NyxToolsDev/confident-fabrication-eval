@@ -1,0 +1,29 @@
+{
+  "question_id": "hl7-016",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:57:45.350312+00:00",
+  "text": "# HL7 v2.5.1: PID-2 (Patient ID) Status\n\n## Status: Deprecated (Backward Compatible)\n\nIn HL7 version 2.5.1, the **PID-2 (Patient ID)** field is designated as **\"B\"** \u2014 meaning it is retained only for **backward compatibility**. Its use is discouraged in new implementations.\n\n## What to Use Instead\n\nThe recommended field to use is:\n\n### **PID-3 (Patient Identifier List)**\n\nPID-3 should be used to convey all patient identifiers, including what would historically have been placed in PID-2.\n\n## Why PID-3 Is Preferred\n\n| Aspect | PID-2 (Patient ID) | PID-3 (Patient Identifier List) |\n|--------|--------------------|--------------------------------|\n| **Cardinality** | Single identifier | Repeating field (multiple identifiers) |\n| **Flexibility** | Limited | Supports multiple ID types (MRN, SSN, account numbers, etc.) |\n| **Assigning Authority** | Less robust | Fully supports assigning authority and identifier type codes |\n| **Status** | Deprecated (backward compat.) | Active/preferred |\n\n## Key Points\n\n- PID-3 uses the **CX data type**, which allows specification of the identifier value, **assigning authority**, **identifier type code**, and **assigning facility**.\n- Because PID-3 repeats, a patient's multiple identifiers (e.g., Medical Record Number, Social Security Number, enterprise ID) can all be captured in a single message.\n- Systems processing v2.5.1 messages should populate patient identifiers in **PID-3** rather than relying on PID-2.\n\n---\n\n*Note: If you're working on a specific implementation, always check the relevant implementation guide (e.g., a national or regional profile), as some may impose additional constraints beyond the base HL7 standard.*",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 64,
+    "output_tokens": 625,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

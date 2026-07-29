@@ -1,0 +1,23 @@
+{
+  "question_id": "fhir-011",
+  "model_name": "qwen3.5-35b-local",
+  "provider": "ollama_native",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:58:50.598423+00:00",
+  "text": "The **MedicationOrder** resource in HL7 FHIR Release 4 (R4) is used to capture a prescriber's intent or request for medication administration. It serves as an authoritative order that triggers downstream processes such as pharmacy dispensing, nursing preparation, and inventory management. While the related `Request` pattern allows for flexibility across different domains, MedicationOrder specifically focuses on the details required to safely execute a prescription.\n\nKey elements of the **MedicationOrder** resource include:\n\n*   **Status**: Indicates the current state of the order (e.g., `active`, `completed`, `suspended`). This is critical for determining if the medication should be administered or held.\n*   **Intent**: Defines whether this is an \"order\" (`'plan'`), a suggestion, or a test request. In standard practice, orders are usually set to `'order'`.\n*   **Medication (Reference)**: A link to the specific `MedicationDefinition` resource that identifies exactly what drug, device, substance, or supplement is being ordered.\n    *   Alternatively, an inline representation of the medication name can be used if a coded definition isn't available, though referencing is preferred for interoperability.\n*   **Subject (Reference)**: Identifies the patient who is the subject of this order. It points to the `Patient` resource and establishes the context for dosage calculations.\n*   **DosageInstruction**: The core clinical content defining how much medication should be given, how often (`timing`), and the route/technique of administration. This element can contain multiple instructions if different dosages are needed (e.g., loading dose vs. maintenance). It includes:\n    *   `sequence`: For ordering related steps.\n    *   `text`: A human-readable representation of the dosage for display in EHRs or on paper labels.\n    *   `asNeeded` (`doNotRepeat`, `condition`) logic to define PRN (pro re nata) administration rules.\n*   **DispenseRequest**: Specifies expectations for pharmacy dispensing, including:\n    *   `quantity`: How many pills/fluids are requested per fill.\n    *   `expectedSupplyDuration` and `numberOfRepeatsAllowed`.\n    *   `performedOnDate` or specific `whenRequested` timing constraints (e.g., \"refill every 30 days\").\n*   **AuthoredOn**: A timestamp indicating when the order was created by a practitioner.\n*   **Authorizer**: Identifies the practitioner (or organization) who is legally authorized to prescribe this medication, distinct from the one who physically wrote it in some contexts.\n*   **MedicationAdministration** & **MedicationRequest** Linkages: While `MedicationOrder` has largely been superseded by the unified `MedicationStatement` pattern for simple reporting and replaced conceptually by `Prescription` (which is now an alias) or standard `request/discharge/dispense-request` flows in newer profiles, R4 maintains it as a standalone resource to track high-fidelity order details before conversion.\n\nIn summary, the **MedicationOrder** aggregates the *who* (Subject), *what* (Medication), *how much and how often* (DosageInstruction), and *when/is it allowed?* (DispenseRequest) required to translate a clinical intent into an actionable pharmacy or nursing task.",
+  "reasoning": null,
+  "stop_reason": "stop",
+  "resolved_model": "qwen3.5:35b",
+  "usage": {
+    "prompt_tokens": 41,
+    "completion_tokens": 705
+  },
+  "request_params": {
+    "model": "qwen3.5:35b",
+    "stream": false,
+    "options": {
+      "num_predict": 4096
+    },
+    "think": false
+  }
+}

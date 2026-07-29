@@ -1,0 +1,23 @@
+{
+  "question_id": "dicom-014",
+  "model_name": "qwen3.5-35b-local",
+  "provider": "ollama_native",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:57:00.243559+00:00",
+  "text": "**No such attribute exists in the DICOM standard.**\n\nThere is **no specific DICOM Data Element (Attribute)** designated or mandated for storing a checksum specifically to validate a **Study Instance UID**.\n\nHere are the technical details regarding how this works:\n\n1.  **The Role of SIV**: The *Secondary Value Identifiers* module in DICOM uses an attribute called `SupplementarySourceValues` and associated modules, but even there, validation is not performed via checksums stored within individual patient or study attributes for UIDs themselves.\n2.  **Study Validation (SOP Instance vs. Study)**: DICOM relies on the structural integrity of the UID itself rather than a separate checksum attribute. A valid SOP Instance UID or Series/Modality specific rule usually ensures uniqueness through hierarchical structure, but there is no algorithmic \"checksum\" field like `Hash` stored in the meta-information for a *Study* that can be read to validate the study's history (similar to how you might see an MD5 checksum on a file download).\n3.  **Common Confusion**: You might be thinking of:\n    *   **The File Hash**: DICOM files have standard metadata tags like `(0008,0012) Institution Name` or `(0008,0016) Manufacturer`, but they do not store a checksum tag for the file content (like a CRC32 or SHA-256 hash). If you need to verify data integrity of the DICOM *file* itself (not just the UID), this must be done by external systems checking the raw bytes, as there is no \"checksum\" attribute in the header.\n    *   **The Patient ID/Study Instance UID**: The `StudyInstanceUID` (Tag **(0020,000D)**) is a string that acts as the primary key. Its validity is usually checked against an OID namespace and format rules defined by DCMTK or other standards bodies, not by a stored checksum attribute in the file header.\n    *   **SOP Class Unique Identifiers**: While there are identifiers for SOP Classes (like `Image`, `SR`), they do not contain per-instance checksums.\n\n**Conclusion:**\nIf you see code or documentation suggesting an \"attribute that stores the checksum used to validate a Study Instance UID,\" it is likely referring to **external verification mechanisms**, **custom application-specific tags**, or a misunderstanding of how DICOM data integrity works (which relies on transmission protocols like TCP/IP rather than embedded UIDs checksums).\n\nIf you are looking for an attribute related to **data validation** within the file itself, there is no standard tag that stores a checksum for `StudyInstanceUID`.",
+  "reasoning": null,
+  "stop_reason": "stop",
+  "resolved_model": "qwen3.5:35b",
+  "usage": {
+    "prompt_tokens": 40,
+    "completion_tokens": 564
+  },
+  "request_params": {
+    "model": "qwen3.5:35b",
+    "stream": false,
+    "options": {
+      "num_predict": 4096
+    },
+    "think": false
+  }
+}

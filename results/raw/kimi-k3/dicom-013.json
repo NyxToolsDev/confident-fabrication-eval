@@ -1,0 +1,28 @@
+{
+  "question_id": "dicom-013",
+  "model_name": "kimi-k3",
+  "provider": "openai_compatible",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:55:54.466355+00:00",
+  "text": "The **Explicit VR Big Endian** transfer syntax, UID **1.2.840.10008.1.2.2**, is **retired** in the current DICOM standard.\n\nIt should **not be used for new DICOM implementations, associations, or stored objects**. The UID remains documented to identify legacy data, but current systems normally use **Explicit VR Little Endian (1.2.840.10008.1.2.1)** or another supported transfer syntax. Legacy Big Endian objects may need conversion to Little Endian for interoperable exchange.",
+  "reasoning": "We need need answer factual. Need current status. DICOM transfer syntax Explicit VR Big Endian UID retired? DICOM PS3.5: Big Endian Explicit VR retired, shall not be used. UID 1.2.840.10008.1.2.2 retired? Default transfer syntax little endian implicit. Big endian explicit retired in 2006 perhaps. Need precise current: Retired, not part of standard? Remains assigned UID and may be encountered legacy. DICOM standard no longer supports, implementations shall not claim? Let's formulate. Need maybe distinguish \"retired transfer syntax\". Current editions list it as retired in PS3.5 Table A.1? I recall DICOM transfer syntaxes:\n\n1.2.840.10008.1.2 Implicit VR Little Endian\n1.2.840.10008.1.2.1 Explicit VR Little Endian\n1.2.840.10008.1.2.2 Explicit VR Big Endian (Retired)\ndeflated...\nJPEG etc.\n\nCould mention receivers may support privately but not required and should not negotiate/store by default. Does \"retired\" mean cannot be used except in retired SOP classes? Let's investigate from memory. PS3.5:\n\"Explicit VR Big Endian Encoding has been retired. See PS3.5-2009.\"\nNotes:\n\"The use of Explicit VR Big Endian Transfer Syntax has been retired. The following UID is used to identify this retired Transfer Syntax: 1.2.840.10008.1.2.2\"\nMaybe Annex A states \"This Transfer Syntax is retired, and shall not be proposed or accepted in an Association.\" Is that exact? I recall DICOM PS3.5:\nA.1 DICOM implicit VR little endian transfer syntax\n\"This transfer syntax shall be supported by all DICOM implementations...\"\nA.2 Explicit little endian\nA.3 Explicit VR big endian\n\"This Transfer Syntax is retired.\"\nI found online likely table:\n1.2.840.10008.1.2 Implicit VR Little Endian: Default Transfer Syntax for DICOM\n1.2.840.10008.1.2.1 Explicit VR Little Endian\n1.2.840.10008.1.2.2 Explicit VR Big Endian (Retired)\nMaybe in current DICOM, a retired transfer syntax can be negotiated for retired storage SOP classes? Need direct answer concise. Include status and implications.",
+  "stop_reason": "stop",
+  "resolved_model": "kimi-k3",
+  "usage": {
+    "completion_tokens": 637,
+    "prompt_tokens": 131,
+    "total_tokens": 768,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 505,
+      "rejected_prediction_tokens": null
+    },
+    "prompt_tokens_details": null
+  },
+  "request_params": {
+    "model": "kimi-k3",
+    "max_tokens": 4096,
+    "reasoning_effort": "low"
+  }
+}

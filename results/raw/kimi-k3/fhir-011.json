@@ -1,0 +1,28 @@
+{
+  "question_id": "fhir-011",
+  "model_name": "kimi-k3",
+  "provider": "openai_compatible",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:57:13.962010+00:00",
+  "text": "In **FHIR R4, there is no `MedicationOrder` resource**. The STU3 `MedicationOrder` resource was renamed **`MedicationRequest`**.\n\nKey elements of **`MedicationRequest`** include:\n\n- **`identifier`** \u2013 Business identifiers for the prescription/order.\n- **`status`** \u2013 Lifecycle state, such as `active`, `completed`, `stopped`, or `cancelled` *(required)*.\n- **`intent`** \u2013 Nature of the request, such as `order`, `plan`, `proposal`, or `instance-order` *(required)*.\n- **`category`** \u2013 Usage context, such as inpatient, outpatient, community, or discharge medication.\n- **`priority`** \u2013 Request priority, such as `routine`, `urgent`, or `stat`.\n- **`medication[x]`** \u2013 Medication being ordered, represented as either:\n  - `medicationCodeableConcept` \u2014 a coded medication, or\n  - `medicationReference` \u2014 a reference to a `Medication` resource *(required)*.\n- **`subject`** \u2013 Patient or group receiving the medication *(required)*.\n- **`encounter`** \u2013 Encounter during which the medication was requested.\n- **`authoredOn`** \u2013 Date and time the request was created.\n- **`requester`** \u2013 Practitioner, patient, or other party making the request.\n- **`performer`** / **`performerType`** \u2013 Intended administering individual or role.\n- **`recorder`** \u2013 Person who entered the order.\n- **`reasonCode`** / **`reasonReference`** \u2013 Clinical indication for the medication.\n- **`basedOn`** \u2013 Care plan or other request this order is based on.\n- **`insurance`** \u2013 Coverage relevant to the request.\n- **`dosageInstruction`** \u2013 Dose, route, timing, frequency, duration, and administration instructions.\n- **`dispenseRequest`** \u2013 Dispensing information, including:\n  - `quantity`\n  - `expectedSupplyDuration`\n  - `numberOfRepeatsAllowed`\n  - `validityPeriod`\n  - `dispenser`\n- **`substitution`** \u2013 Whether and why generic or therapeutic substitution is allowed.\n- **`priorPrescription`** \u2013 Previous prescription being replaced or renewed.\n- **`courseOfTherapyType`** \u2013 Type of therapy course, such as acute or continuous.\n- **`detectedIssue`** \u2013 Related clinical concerns, such as interactions.\n- **`note`** \u2013 Additional instructions or comments.\n- **`statusReason`** \u2013 Reason for the current status.\n- **`doNotPerform`** \u2013 Indicates that the medication explicitly should not be administered or dispensed.\n- **`groupIdentifier`** \u2013 Identifier linking multiple related requests.\n\nThus, implementations using FHIR R4 should map legacy `MedicationOrder` data to `MedicationRequest`.",
+  "reasoning": "We need need correct: MedicationOrder was STU3 renamed MedicationRequest in R4. Explain no such resource, key elements of replacement. Include status, intent, medication[x], subject, encounter, authoredOn, requester, performer, dosageInstruction, dispenseRequest, substitution, priorPrescription, reason, insurance, note, basedOn.",
+  "stop_reason": "stop",
+  "resolved_model": "kimi-k3",
+  "usage": {
+    "completion_tokens": 646,
+    "prompt_tokens": 113,
+    "total_tokens": 759,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 73,
+      "rejected_prediction_tokens": null
+    },
+    "prompt_tokens_details": null
+  },
+  "request_params": {
+    "model": "kimi-k3",
+    "max_tokens": 4096,
+    "reasoning_effort": "low"
+  }
+}

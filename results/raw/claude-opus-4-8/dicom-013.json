@@ -1,0 +1,29 @@
+{
+  "question_id": "dicom-013",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:55:49.161673+00:00",
+  "text": "# Explicit VR Big Endian Transfer Syntax Status\n\nThe **Explicit VR Big Endian** transfer syntax (UID: **1.2.840.10008.1.2.2**) has been **retired** from the DICOM standard.\n\n## Key Details\n\n- **Status:** Retired\n- **When:** It was retired as part of DICOM standard supplements, with the retirement formalized in the DICOM standard documentation (PS3.5).\n- **Retained UID:** Although retired, the UID value (1.2.840.10008.1.2.2) is **preserved and remains reserved** so that legacy datasets and implementations that used it can still be correctly interpreted. The UID will not be reused for any other purpose.\n\n## Practical Implications\n\n- **New implementations** should not use this transfer syntax for encoding.\n- **Backward compatibility:** Systems may still need to *decode* Explicit VR Big Endian data because objects encoded with this transfer syntax may still exist in archives and legacy systems.\n- The retirement reflects the general move away from big-endian byte ordering in favor of little-endian encoding, which is used by the more common transfer syntaxes:\n  - **Implicit VR Little Endian** (1.2.840.10008.1.2) \u2014 the default/baseline\n  - **Explicit VR Little Endian** (1.2.840.10008.1.2.1)\n\n## Context\n\nDICOM retains retired features (rather than deleting them entirely) to maintain the ability to interpret older data. This is consistent with DICOM's broader approach to standard evolution, where deprecated elements remain documented for historical and interoperability reasons.\n\n---\n\n*Note: For authoritative and version-specific confirmation, always consult the current [DICOM PS3.5 (Data Structures and Encoding)](https://dicom.nema.org/medical/dicom/current/output/html/part05.html) documentation, as standards are periodically updated.*",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 74,
+    "output_tokens": 628,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "question_id": "hl7-012",
+  "model_name": "qwen3.5-35b-local",
+  "provider": "ollama_native",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T19:01:41.238509+00:00",
+  "text": "In HL7 version 2.5.1, within the **OBR** (Observation/Request) segment, the field containing the Universal Service Identifier is:\n\n*   **Field ID**: `OBR-4`\n*   **Component**: The specific component holding the code itself is usually referenced as **OBR-4.X**, where X represents the sub-component index for the identifier. However, in general terminology and data mapping contexts, it is simply referred to as field **OBR-4**.\n\n### Breakdown of OBR-4 Structure\nThe `OBR-4` (Universal Service ID) segment uses a structured format often composed of:\n1.  **Sub-component X**: The code value itself (e.g., \"80362\" for CPT codes). This is the actual identifier for the test or procedure.\n2.  **Sub-component Y**: The name/description of the service (optional but common, e.g., \"Surgical pathology\").\n3.  **Sub-components Z+**: Identifiers from other coding systems and their associated descriptions.\n\n### Contextual Note\nWhile `OBR-4` is the primary field for the Universal Service ID, in HL7 v2.5.x implementations using specific value types (like CV or CE), it may also appear as a component within **CX** (Extended Composite Identifier with Check Digit) depending on how the implementation guide maps coding systems. However, strictly speaking regarding the standard definition of \"Universal Service Identifier\" for an OBR segment in v2.5.1:\n\n*   **Field**: `OBR-4`\n*   **Description**: Universal Service ID (Coded value containing the code for the ordered test or procedure).\n\n**Answer:** The field is **OBR-4**.",
+  "reasoning": null,
+  "stop_reason": "stop",
+  "resolved_model": "qwen3.5:35b",
+  "usage": {
+    "prompt_tokens": 56,
+    "completion_tokens": 374
+  },
+  "request_params": {
+    "model": "qwen3.5:35b",
+    "stream": false,
+    "options": {
+      "num_predict": 4096
+    },
+    "think": false
+  }
+}

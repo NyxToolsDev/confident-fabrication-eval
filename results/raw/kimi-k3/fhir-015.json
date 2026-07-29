@@ -1,0 +1,28 @@
+{
+  "question_id": "fhir-015",
+  "model_name": "kimi-k3",
+  "provider": "openai_compatible",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:58:17.433598+00:00",
+  "text": "# The `_include` Parameter in FHIR R4 Search\n\n## What it does\n\n`_include` requests that the server return, in the same search Bundle, **additional resources that are referenced by the primary matching resources**. It follows a reference from a search parameter on the matching resource and embeds the target resources in the results.\n\n**Syntax:**\n```\n_include=[ResourceType]:[searchParameter]\n_include=[ResourceType]:[searchParameter]:[targetType]  (optional, to restrict target type)\n```\n\n- The included resources appear as additional entries in the Bundle, typically with `search.mode` set to `\"include\"` (the primary matches have `\"match\"`).\n- The server resolves the reference found in each matching resource (e.g., the `subject` reference on an Observation) and returns the referenced resource inline, saving the client extra lookups.\n- Related parameters: `_revinclude` (finds resources that reference the matching resources, i.e., the reverse direction) and `:iterate`/`:recurse` modifiers for chaining includes.\n\n## Example with Observation\n\nSuppose you want all Observations for a lab code, plus the Patient each Observation is about:\n\n```\nGET [base]/Observation?code=http://loinc.org|718-7&_include=Observation:patient\n```\n\nThis returns a Bundle containing:\n- All `Observation` resources matching the LOINC code 718-7 (Hemoglobin), marked `\"match\"`.\n- The `Patient` resource referenced by each Observation's `subject` element, marked `\"include\"`.\n\nOther common examples:\n\n```\nGET [base]/Observation?_id=123&_include=Observation:performer\n```\n\u2192 returns the Observation plus the Practitioner/Organization who performed it.\n\n```\nGET [base]/Observation?patient=Patient/456&_include=Observation:encounter\n```\n\u2192 returns the patient's Observations plus the Encounter each was recorded during.\n\nThis lets a client retrieve a clinically meaningful \"graph\" of data in a single request instead of making multiple round trips to resolve references.",
+  "reasoning": "FHIR search _include: returns related resources referenced by matching resources. Example: GET Observation?code=...&_include=Observation:patient includes Patient resources.",
+  "stop_reason": "stop",
+  "resolved_model": "kimi-k3",
+  "usage": {
+    "completion_tokens": 461,
+    "prompt_tokens": 122,
+    "total_tokens": 583,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 34,
+      "rejected_prediction_tokens": null
+    },
+    "prompt_tokens_details": null
+  },
+  "request_params": {
+    "model": "kimi-k3",
+    "max_tokens": 4096,
+    "reasoning_effort": "low"
+  }
+}

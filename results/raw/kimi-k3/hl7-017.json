@@ -1,0 +1,28 @@
+{
+  "question_id": "hl7-017",
+  "model_name": "kimi-k3",
+  "provider": "openai_compatible",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:59:47.178877+00:00",
+  "text": "- **OBX-5 (Observation Value)** carries the actual observation value.\n- **OBX-2 (Value Type)** declares the HL7 data type of the value in OBX-5, such as `ST`, `NM`, `CE`, `CWE`, or `DT`.\n\nOBX-2 should be populated whenever OBX-5 contains a value.",
+  "reasoning": "We need answer straightforward. OBX-5 value, OBX-2 value type. Mention conditional/repeating maybe. HL7 2.5.1. Need perhaps observation identifier OBX-3 but not asked. Clarify OBX-2 declares datatype used in OBX-5; OBX-5 actual value, structure depends type.",
+  "stop_reason": "stop",
+  "resolved_model": "kimi-k3",
+  "usage": {
+    "completion_tokens": 164,
+    "prompt_tokens": 133,
+    "total_tokens": 297,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 73,
+      "rejected_prediction_tokens": null
+    },
+    "prompt_tokens_details": null
+  },
+  "request_params": {
+    "model": "kimi-k3",
+    "max_tokens": 4096,
+    "reasoning_effort": "low"
+  }
+}

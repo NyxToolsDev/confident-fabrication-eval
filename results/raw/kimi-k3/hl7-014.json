@@ -1,0 +1,28 @@
+{
+  "question_id": "hl7-014",
+  "model_name": "kimi-k3",
+  "provider": "openai_compatible",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:58:46.755190+00:00",
+  "text": "In **HL7 v2.5.1**, **MSH-25 \u2014 Receiving Network Address** contains the network address of the receiving system/application, such as its host name or IP address. Its data type is **HD (Hierarchic Designator)**.",
+  "reasoning": "We need need answer. Need verify. HL7 v2.5.1 MSH fields. MSH-25 Message Profile Identifier? Recall MSH:\nMSH-21 Message Profile Identifier\n22 Sending Responsible Organization\n23 Receiving Responsible Organization\n24 Sending Network Address\n25 Receiving Network Address. Question field MSH-25 contains receiving network address. Type XON? Let's ensure. In v2.5 perhaps MSH-25 Receiving Network Address, HD. Definition: network address of receiving application. MSH-24 Sending Network Address. Yes.",
+  "stop_reason": "stop",
+  "resolved_model": "kimi-k3",
+  "usage": {
+    "completion_tokens": 186,
+    "prompt_tokens": 115,
+    "total_tokens": 301,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 116,
+      "rejected_prediction_tokens": null
+    },
+    "prompt_tokens_details": null
+  },
+  "request_params": {
+    "model": "kimi-k3",
+    "max_tokens": 4096,
+    "reasoning_effort": "low"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "question_id": "dicom-012",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:55:42.850782+00:00",
+  "text": "# DICOM Transfer Syntax UIDs\n\nHere are the two requested transfer syntax UIDs:\n\n| Transfer Syntax | UID |\n|----------------|-----|\n| **Implicit VR Little Endian** | `1.2.840.10008.1.2` |\n| **Explicit VR Little Endian** | `1.2.840.10008.1.2.1` |\n\n## Additional Context\n\n- **Implicit VR Little Endian** (`1.2.840.10008.1.2`) is the **default** transfer syntax in DICOM. All DICOM implementations are required to support it as a baseline.\n\n- **Explicit VR Little Endian** (`1.2.840.10008.1.2.1`) explicitly includes the Value Representation (VR) in each data element, making the data more self-describing.\n\n## Related Transfer Syntaxes (for reference)\n\nA few other commonly encountered UIDs in the same family:\n\n| Transfer Syntax | UID |\n|----------------|-----|\n| Explicit VR Big Endian (retired) | `1.2.840.10008.1.2.2` |\n| JPEG Baseline (Process 1) | `1.2.840.10008.1.2.4.50` |\n| JPEG Lossless | `1.2.840.10008.1.2.4.70` |\n| JPEG 2000 (Lossless) | `1.2.840.10008.1.2.4.90` |\n| RLE Lossless | `1.2.840.10008.1.2.5` |\n\nThese UIDs are used during DICOM association negotiation to establish how the datasets will be encoded for transmission or storage.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 67,
+    "output_tokens": 526,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

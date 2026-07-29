@@ -1,0 +1,23 @@
+{
+  "question_id": "dicom-012",
+  "model_name": "qwen3.5-35b-local",
+  "provider": "ollama_native",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:56:12.805976+00:00",
+  "text": "In the context of the Digital Imaging and Communications in Medicine (DICOM) standard, every data element is assigned a unique identifier known as a Unique Identifier (UID). The Transfer Syntax UID specifically defines how the Data Element Tag, Length, Value Representation (VR), and Value are encoded within the DICOM file. This encoding determines whether Variable-Length fields use Implicit VR rules or Explicit VR rules, as well as the byte ordering of multi-byte values.\n\nHere are the specific UIDs for the two transfer syntaxes you requested:\n\n1.  **Implicit VR Little Endian**\n    *   **Description**: Data elements do not include an explicit VR field in the tag; instead, the value length is implied by the context or subsequent data. Multi-byte values are stored with the least significant byte first (Little Endian). This was the original transfer syntax defined in DICOM Part 10 and was used as a fallback option for older systems.\n    *   **UID**: `1.2.840.10008.1.2`\n\n2.  **Explicit VR Little Endian**\n    *   **Description**: Data elements include an explicit two-byte VR field immediately following the tag, which makes parsing easier for some software implementations but slightly increases file size compared to Implicit VR. Like its counterpart above, multi-byte values are stored with the least significant byte first (Little Endian). This is generally considered a more robust and widely supported syntax than Explicit VR Big-Endian or any compression methods in standard uncompressed imaging contexts.\n    *   **UID**: `1.2.840.10008.1.2.1`\n\n**Summary of Transfer Syntax UIDs:**\n\n| Transfer Syntax | UID String | Byte Ordering | VR Handling |\n| :--- | :--- | :--- | :--- |\n| Implicit VR Little Endian | `1.2.840.10008.1.2` | Little Endian (LE) | No explicit VR field per tag |\n| Explicit VR Little Endian | `1.2.840.10008.1.2.1` | Little Endian (LE) | Two-byte explicit VR field present |\n\n**Final Answer:**\nThe DICOM Transfer Syntax UID for **Implicit VR Little Endian** is `1.2.840.10008.1.2`, and the UID for **Explicit VR Little Endian** is `1.2.840.10008.1.2.1`.",
+  "reasoning": null,
+  "stop_reason": "stop",
+  "resolved_model": "qwen3.5:35b",
+  "usage": {
+    "prompt_tokens": 45,
+    "completion_tokens": 540
+  },
+  "request_params": {
+    "model": "qwen3.5:35b",
+    "stream": false,
+    "options": {
+      "num_predict": 4096
+    },
+    "think": false
+  }
+}

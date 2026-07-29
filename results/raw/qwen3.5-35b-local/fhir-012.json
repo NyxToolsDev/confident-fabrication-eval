@@ -1,0 +1,23 @@
+{
+  "question_id": "fhir-012",
+  "model_name": "qwen3.5-35b-local",
+  "provider": "ollama_native",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:59:04.124606+00:00",
+  "text": "In FHIR Release 4 (R4), the **Conformance** resource describes the **technical and functional capabilities of an Implementation**. Essentially, it acts as a metadata repository that tells other systems exactly what this specific implementation can do.\n\nWhen a system queries or publishes its Conformance statement (historically known in earlier versions like STU2/STU3; however, note that in R4, the resource name was updated to **`CapabilityStatement`** for consistency with standard terminology), it provides details on:\n*   Which FHIR resources are supported.\n*   What interaction modes are available (e.g., `rest`, `document`).\n*   The specific operations supported by each profiled resource (CRUD, search parameters).\n*   Communication protocols and authentication requirements.\n\n**Correction & Clarification**: While the concept remains consistent across versions, there is a slight terminological distinction in FHIR R4 compared to earlier drafts:\n1.  **R2/R3**: The Conformance capability was defined using two separate resources: `Conformance` (describing capabilities) and related profiles were often bundled differently depending on the implementation guide style.\n2.  **FHIR R4**: The standard explicitly defines this resource as a **`CapabilityStatement`**. While many practitioners still refer to it colloquially as \"the Conformance resource\" because it describes *conformity*, its formal name in the FHIR R4 specification is `CapabilityStatement`. It supersedes the older `Conformance` concept.\n\nTherefore, strictly speaking about FHIR R4:\nThe **`CapabilityStatement`** resource describes an implementation's capabilities (supported resources, operations, search parameters, and security profiles). In earlier drafts or colloquial usage within the community discussing R3 legacy data, this was often called `Conformance`. If you are looking at a specific file named `conformance.json` in R4 context, it is likely using the profile type `CapabilityStatement`.\n\n**Conclusion**:\nIn FHIR R4, the resource that describes an implementation's technical and functional capabilities (what resources, operations, and search parameters it supports) is formally called **`CapabilityStatement`**. It details how well a system conforms to the standard.",
+  "reasoning": null,
+  "stop_reason": "stop",
+  "resolved_model": "qwen3.5:35b",
+  "usage": {
+    "prompt_tokens": 37,
+    "completion_tokens": 461
+  },
+  "request_params": {
+    "model": "qwen3.5:35b",
+    "stream": false,
+    "options": {
+      "num_predict": 4096
+    },
+    "think": false
+  }
+}

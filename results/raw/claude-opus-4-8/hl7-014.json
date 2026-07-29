@@ -1,0 +1,29 @@
+{
+  "question_id": "hl7-014",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:57:33.646601+00:00",
+  "text": "In HL7 v2.5.1, the MSH (Message Header) segment does **not** have a field MSH-25.\n\nThe MSH segment in HL7 v2.5.1 is defined with fields running from **MSH-1 through MSH-21**. The fields are:\n\n- MSH-1: Field Separator\n- MSH-2: Encoding Characters\n- MSH-3: Sending Application\n- MSH-4: Sending Facility\n- MSH-5: Receiving Application\n- MSH-6: Receiving Facility\n- MSH-7: Date/Time of Message\n- MSH-8: Security\n- MSH-9: Message Type\n- MSH-10: Message Control ID\n- MSH-11: Processing ID\n- MSH-12: Version ID\n- MSH-13: Sequence Number\n- MSH-14: Continuation Pointer\n- MSH-15: Accept Acknowledgment Type\n- MSH-16: Application Acknowledgment Type\n- MSH-17: Country Code\n- MSH-18: Character Set\n- MSH-19: Principal Language of Message\n- MSH-20: Alternate Character Set Handling Scheme\n- MSH-21: Message Profile Identifier\n\nSo there is no MSH-25 in the v2.5.1 standard.\n\nIf you're seeing a field mapped to \"MSH-25\" in a particular system, it would be a **local/site-specific (Z-type) extension** rather than a standard HL7 field. In that case, its meaning would depend entirely on the specific implementation. If you can share the context or interface specification where you encountered it, I can help interpret it.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 50,
+    "output_tokens": 525,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

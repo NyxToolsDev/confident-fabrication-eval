@@ -1,0 +1,26 @@
+{
+  "question_id": "fhir-015",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:56:15.731186+00:00",
+  "text": "# FHIR R4 REST _include Parameter\n\n## What It Does\n\nThe `_include` parameter in FHIR R4 REST search **includes referenced resources in the search result bundle** that would normally not be returned. It allows you to:\n\n- Fetch related resources in a single request\n- Reduce the number of API calls needed\n- Improve performance by combining multiple queries\n- Include resources that are referenced by the resources matching your search criteria\n\n## How It Works\n\nThe syntax is:\n```\n_include=[ResourceType]:[search-parameter]:[target-resource-type]\n```\n\nWhere:\n- **ResourceType** = the resource being searched\n- **search-parameter** = the reference field\n- **target-resource-type** = (optional) the specific resource type to include\n\n## Example with Observation\n\n### Basic Example\nRetrieve Observations and include the referenced Patient:\n\n```\nGET /Observation?_include=Observation:subject:Patient\n```\n\nThis returns:\n- All matching Observation resources\n- The Patient resources they reference in the `subject` field\n\n### More Complex Example\nSearch for glucose observations and include both the Patient and the Performer (Practitioner):\n\n```\nGET /Observation?code=glucose&_include=Observation:subject:Patient&_include=Observation:performer:Practitioner\n```\n\n### Result Bundle Structure\nThe returned Bundle would contain:\n```json\n{\n  \"resourceType\": \"Bundle\",\n  \"entry\": [\n    { \"resource\": { \"resourceType\": \"Observation\", \"id\": \"obs1\", ... } },\n    { \"resource\": { \"resourceType\": \"Patient\", \"id\": \"pat1\", ... } },\n    { \"resource\": { \"resourceType\": \"Practitioner\", \"id\": \"prac1\", ... } }\n  ]\n}\n```\n\nThis efficiently combines related data in one response.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 50,
+    "output_tokens": 427,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

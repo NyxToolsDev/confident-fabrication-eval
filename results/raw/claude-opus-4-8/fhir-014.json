@@ -1,0 +1,29 @@
+{
+  "question_id": "fhir-014",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:57:06.607261+00:00",
+  "text": "I need to point out an inaccuracy in this question's premise.\n\nIn FHIR R4, there is **no element called `Observation.resultStatus`**. This element does not exist in the Observation resource.\n\nThe element you're likely thinking of is **`Observation.status`**, which has the following characteristics:\n\n## Observation.status\n\n- **Cardinality:** `1..1` (required, exactly one)\n- **Type:** `code`\n- **Value Set:** `ObservationStatus` \u2014 bound with a **required** binding strength (meaning you must use a code from this value set)\n\n### ObservationStatus Value Set Codes:\n- `registered`\n- `preliminary`\n- `final`\n- `amended`\n- `corrected`\n- `cancelled`\n- `entered-in-error`\n- `unknown`\n\nThe value set URL is: `http://hl7.org/fhir/ValueSet/observation-status`\n\n## A Note\n\nIf you encountered \"resultStatus\" somewhere, it might be:\n- A confusion with the **HL7 v2** `OBR-25` (Result Status) field, which serves a somewhat analogous purpose in v2 messaging\n- A custom extension or a term from a different standard\n\nIf you can share where you saw \"resultStatus,\" I'm happy to help clarify further. Would you like details on any related elements (e.g., `Observation.value[x]`, `dataAbsentReason`, or `interpretation`)?",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 55,
+    "output_tokens": 452,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

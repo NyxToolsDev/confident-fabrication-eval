@@ -1,0 +1,29 @@
+{
+  "question_id": "hl7-013",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:57:29.441553+00:00",
+  "text": "In HL7 v2.5.1, the patient class is carried in **PV1-2 (Patient Class)**.\n\nIts values are defined by **HL7 Table 0004 (Patient Class)**.\n\nTypical values from that table include:\n\n- **E** \u2013 Emergency\n- **I** \u2013 Inpatient\n- **O** \u2013 Outpatient\n- **P** \u2013 Preadmit\n- **R** \u2013 Recurring patient\n- **B** \u2013 Obstetrics\n- **C** \u2013 Commercial account\n- **N** \u2013 Not applicable\n- **U** \u2013 Unknown\n\nPV1-2 is a required field in the PV1 (Patient Visit) segment.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 85,
+    "output_tokens": 203,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

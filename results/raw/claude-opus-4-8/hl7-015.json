@@ -1,0 +1,29 @@
+{
+  "question_id": "hl7-015",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:57:40.526716+00:00",
+  "text": "In HL7 v2.2, the MSH-9 (Message Type) field's structure differs from later versions.\n\nHowever, I need to give you an accurate answer here. In **HL7 v2.2**, the MSH-9 field consisted of only **two components**:\n\n1. **Message Type** (e.g., ADT, ORM, ORU)\n2. **Trigger Event** (e.g., A01, A02)\n\nThe **third component**, which contains the **Message Structure** (also called the abstract message structure ID, e.g., ADT_A01), was **not present in v2.2**. It was **introduced in HL7 v2.3.1** as the third component of MSH-9.\n\nSo to directly answer your question: in **HL7 v2.2**, MSH-9 does **not have a third component**. If you were thinking of the Message Structure component, that was added later (in v2.3.1 and maintained in subsequent versions).\n\nWould you like clarification on how MSH-9 evolved across HL7 versions?",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 57,
+    "output_tokens": 316,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

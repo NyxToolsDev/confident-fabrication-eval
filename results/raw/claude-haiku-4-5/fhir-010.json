@@ -1,0 +1,26 @@
+{
+  "question_id": "fhir-010",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:55:59.318936+00:00",
+  "text": "# FHIR R4 Observation Grouping\n\nIn FHIR R4, the **DiagnosticReport** resource groups individual Observation results into a report.\n\n## Key Element for References\n\nThe element that holds references to those Observations is:\n\n**`DiagnosticReport.result`**\n\nThis element is a collection of references (cardinality: 0..*) that points to individual Observation resources that are part of the diagnostic report.\n\n## Example Use Cases\n\n- **Lab panel**: A DiagnosticReport groups multiple Observations (e.g., CBC components like hemoglobin, WBC count)\n- **Radiology report**: A DiagnosticReport groups Observations documenting findings from imaging studies\n\n## Related Elements\n\nOther relevant DiagnosticReport elements include:\n- `basedOn`: References the ServiceRequest that prompted the report\n- `subject`: Who the report is about\n- `issued`: When the report was issued\n- `conclusion`: The clinical conclusion\n- `conclusionCode`: Coded findings\n\nThe `result` element is specifically designed to maintain the relationship between the summary report and its constituent observations.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 61,
+    "output_tokens": 257,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

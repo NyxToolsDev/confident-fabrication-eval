@@ -1,0 +1,26 @@
+{
+  "question_id": "dicom-013",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:55:43.685062+00:00",
+  "text": "# Explicit VR Big Endian Transfer Syntax Status\n\nThe Explicit VR Big Endian transfer syntax (1.2.840.10008.1.2.2) is **retired** in the current DICOM standard.\n\n## Key Points:\n\n- **Current Status**: Retired/Deprecated\n- **Original Purpose**: Used for encoding DICOM data with explicit Value Representation (VR) in big-endian byte ordering\n- **Replacement**: Explicit VR Little Endian (1.2.840.10008.1.2.1) is the standard alternative\n\n## Why It Was Retired:\n\n1. **Little Endian Standardization**: The DICOM standard shifted to little-endian byte ordering as the primary encoding method\n2. **Interoperability**: Little-endian is more widely supported across modern systems\n3. **Simplified Implementation**: Reduces complexity in DICOM implementations\n\n## Practical Implications:\n\n- **Legacy Support**: Some older systems may still support it for backward compatibility\n- **New Systems**: Modern DICOM implementations typically do not support this transfer syntax\n- **Migration**: Organizations with legacy data using this syntax should migrate to supported transfer syntaxes\n\nFor current DICOM applications, **Explicit VR Little Endian (1.2.840.10008.1.2.1)** or **Implicit VR Little Endian (1.2.840.10008.1.2)** should be used instead.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 59,
+    "output_tokens": 334,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

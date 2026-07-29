@@ -1,0 +1,28 @@
+{
+  "question_id": "dicom-012",
+  "model_name": "kimi-k3",
+  "provider": "openai_compatible",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:55:47.599521+00:00",
+  "text": "- **Implicit VR Little Endian:** `1.2.840.10008.1.2`  \n- **Explicit VR Little Endian:** `1.2.840.10008.1.2.1`",
+  "reasoning": "DICOM transfer syntax UIDs: Implicit VR Little Endian 1.2.840.10008.1.2; Explicit VR Little Endian 1.2.840.10008.1.2.1. Also Explicit VR Big Endian 1.2.840.10008.1.2.2 (retired) maybe mention not asked. Need answer concise. Ensure accuracy. Respond with UIDs and names. No extra. Since user asks healthcare interoperability standards. Final concise.",
+  "stop_reason": "stop",
+  "resolved_model": "kimi-k3",
+  "usage": {
+    "completion_tokens": 167,
+    "prompt_tokens": 117,
+    "total_tokens": 284,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 105,
+      "rejected_prediction_tokens": null
+    },
+    "prompt_tokens_details": null
+  },
+  "request_params": {
+    "model": "kimi-k3",
+    "max_tokens": 4096,
+    "reasoning_effort": "low"
+  }
+}

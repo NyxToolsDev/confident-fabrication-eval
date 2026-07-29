@@ -1,0 +1,26 @@
+{
+  "question_id": "dicom-015",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:55:50.900953+00:00",
+  "text": "# Modality Worklist Information Model \u2014 FIND Service\n\nThe SOP Class UID that identifies the Modality Worklist Information Model \u2014 FIND service is:\n\n**1.2.840.10008.5.1.4.31.1**\n\nThis UID is used in DICOM (Digital Imaging and Communications in Medicine) to enable modality devices (such as CT, MRI, or X-ray systems) to query a worklist server to retrieve scheduled procedure information for patients. The FIND service allows the modality to search for matching worklist entries based on specified query parameters.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 40,
+    "output_tokens": 134,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

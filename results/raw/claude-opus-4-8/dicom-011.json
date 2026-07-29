@@ -1,0 +1,29 @@
+{
+  "question_id": "dicom-011",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:55:37.992357+00:00",
+  "text": "The DICOM tag for Patient's Birth Date is **(0010,0030)**.\n\nHere are some details about this tag:\n\n- **Group:** 0010 (which is the Patient group)\n- **Element:** 0030\n- **VR (Value Representation):** DA (Date)\n- **Format:** The date is stored in the format YYYYMMDD (e.g., 19850715 for July 15, 1985)\n\nThis tag is part of the Patient Module in the DICOM standard and is commonly used to store demographic information about the patient in medical imaging files.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 50,
+    "output_tokens": 177,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "question_id": "fhir-010",
+  "model_name": "qwen3.5-35b-local",
+  "provider": "ollama_native",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T19:08:25.985363+00:00",
+  "text": "In FHIR R4, the resource used to group individual `Observation` resources into a formal report (such as a laboratory panel result set or an initial diagnosis summary) is **DiagnosticReport**.\n\nThe specific element within the DiagnosticResource that holds the references to the associated Observation results is also named **result** (specifically defined as `Diagnosti\u0441Report.result`). This element contains one or more attachments where each attachment includes a reference (`reference`) pointing to the individual `Observation` resource included in that report.\n\nIt is important to distinguish this from other grouping resources: while *Task* can link observations for workflow and *Composition* (in CDA) groups entries, **DiagnosticReport** is the primary profile-level container specifically designed to represent a formal diagnostic or laboratory result set containing references to Observations.",
+  "reasoning": null,
+  "stop_reason": "stop",
+  "resolved_model": "qwen3.5:35b",
+  "usage": {
+    "prompt_tokens": 61,
+    "completion_tokens": 167
+  },
+  "request_params": {
+    "model": "qwen3.5:35b",
+    "stream": false,
+    "options": {
+      "num_predict": 8192
+    },
+    "think": false
+  }
+}

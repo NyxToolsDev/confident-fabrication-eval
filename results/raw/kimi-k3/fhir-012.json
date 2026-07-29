@@ -1,0 +1,28 @@
+{
+  "question_id": "fhir-012",
+  "model_name": "kimi-k3",
+  "provider": "openai_compatible",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:57:45.802763+00:00",
+  "text": "In **FHIR R4, the former Conformance resource is called `CapabilityStatement`**. It describes the capabilities of a FHIR server, client, or implementation, including:\n\n- Supported FHIR version and interactions\n- Supported resources and operations\n- Search parameters\n- Security capabilities\n- Messaging and document-support features\n\nThus, it declares what a system can do or is expected to do within the FHIR specification.",
+  "reasoning": "We need answer. Note in R4 Conformance renamed CapabilityStatement? Historically DSTU2 Conformance, STU3 CapabilityStatement? Question asks Conformance resource in FHIR R4 perhaps trick: no Conformance resource, CapabilityStatement describes capabilities. Need articulate. In R4 conformance perhaps base resource? There is CapabilityStatement. Say if referring historically.",
+  "stop_reason": "stop",
+  "resolved_model": "kimi-k3",
+  "usage": {
+    "completion_tokens": 173,
+    "prompt_tokens": 109,
+    "total_tokens": 282,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 73,
+      "rejected_prediction_tokens": null
+    },
+    "prompt_tokens_details": null
+  },
+  "request_params": {
+    "model": "kimi-k3",
+    "max_tokens": 4096,
+    "reasoning_effort": "low"
+  }
+}

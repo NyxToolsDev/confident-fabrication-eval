@@ -1,0 +1,28 @@
+{
+  "question_id": "hl7-013",
+  "model_name": "kimi-k3",
+  "provider": "openai_compatible",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:58:38.924075+00:00",
+  "text": "In **HL7 v2.5.1**, the patient class is carried in:\n\n- **Field:** `PV1-2` \u2014 **Patient Class**\n- **Value table:** **HL7 Table 0004 \u2014 Patient Class**\n\nCommon values include:\n\n| Code | Meaning |\n|---|---|\n| `I` | Inpatient |\n| `O` | Outpatient |\n| `E` | Emergency |\n| `P` | Preadmit |\n| `R` | Recurring patient |\n| `B` | Obstetrics |\n| `N` | Not applicable |\n\nExample: `PV1|1|I|...` indicates an inpatient encounter.",
+  "reasoning": "We need need answer. PV1-2 Patient Class, table 0004. Could mention coded value examples. Ensure v2.5.1.",
+  "stop_reason": "stop",
+  "resolved_model": "kimi-k3",
+  "usage": {
+    "completion_tokens": 182,
+    "prompt_tokens": 136,
+    "total_tokens": 318,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 32,
+      "rejected_prediction_tokens": null
+    },
+    "prompt_tokens_details": null
+  },
+  "request_params": {
+    "model": "kimi-k3",
+    "max_tokens": 4096,
+    "reasoning_effort": "low"
+  }
+}

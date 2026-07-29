@@ -1,0 +1,26 @@
+{
+  "question_id": "fhir-011",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:56:02.553929+00:00",
+  "text": "# FHIR R4 MedicationOrder Resource\n\nI should clarify an important point: **MedicationOrder was deprecated in FHIR R4**. It was replaced by the **MedicationRequest** resource, which is the current standard for representing medication orders and prescriptions.\n\n## Key Elements of MedicationRequest (FHIR R4 replacement):\n\nThe main elements include:\n\n- **identifier** - Business identifier for the request\n- **status** - Current state (active, on-hold, cancelled, completed, etc.)\n- **intent** - Whether this is a proposal, plan, or order\n- **medication** - Reference to the medication being requested\n- **subject** - Patient who will receive the medication\n- **encounter** - Associated clinical encounter\n- **authoredOn** - Date/time the request was created\n- **requester** - Who initiated the request\n- **dosageInstruction** - How the medication should be taken\n- **dispenseRequest** - Pharmacy dispensing information\n- **substitution** - Whether generic substitution is allowed\n- **priorPrescription** - Link to previous prescriptions\n\n## Why the Change?\n\nMedicationOrder was consolidated into MedicationRequest to better distinguish between:\n- Orders\n- Proposals\n- Recommendations\n- Prescriptions\n\n**If you're working with FHIR R4 implementations, use MedicationRequest rather than the deprecated MedicationOrder resource.**",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 40,
+    "output_tokens": 325,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

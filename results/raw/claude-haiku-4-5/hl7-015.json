@@ -1,0 +1,26 @@
+{
+  "question_id": "hl7-015",
+  "model_name": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:56:29.449393+00:00",
+  "text": "# HL7 v2.2 MSH-9 Message Type Field\n\nIn HL7 version 2.2, the **MSH-9 (Message Type)** field has only **two components**, not three:\n\n1. **Message Code** (e.g., ADT, ORU, ORM)\n2. **Trigger Event** (e.g., A01, R01, O01)\n\n## Example:\n`ADT^A01` represents an ADT (Admission/Discharge/Transfer) message with trigger event A01 (Admit/Visit Notification)\n\n## Later Versions:\nIn **HL7 v2.3 and later**, a third component was added:\n- **Message Structure ID** - This identifies the specific message structure variant that should be used for parsing and validation\n\nSo if you're seeing references to a third component in MSH-9, it would be from a later version of HL7 (v2.3+) rather than v2.2.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-haiku-4-5-20251001",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 47,
+    "output_tokens": 232,
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-haiku-4-5",
+    "max_tokens": 2048
+  }
+}

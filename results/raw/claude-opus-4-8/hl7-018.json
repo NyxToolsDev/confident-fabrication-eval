@@ -1,0 +1,29 @@
+{
+  "question_id": "hl7-018",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:58:00.177230+00:00",
+  "text": "In HL7 version 2.3.1, **MSH-21 does not exist as a defined field**.\n\nThe MSH (Message Header) segment in HL7 v2.3.1 only extends through **MSH-20 (Alternate Character Handling Scheme)**.\n\nThe **MSH-21 field** was introduced later, in **HL7 version 2.4**, where it was defined as **\"Conformance Statement ID.\"** This was subsequently changed/repurposed in **HL7 version 2.5** to **\"Message Profile Identifier,\"** which contains an EI (Entity Identifier) data type used to reference a specific conformance profile or message profile that the message claims to conform to.\n\nSo to summarize:\n- **v2.3.1:** MSH-21 is not defined (MSH ends at field 20)\n- **v2.4:** MSH-21 = Conformance Statement ID\n- **v2.5 and later:** MSH-21 = Message Profile Identifier\n\nIf you're working with a v2.3.1 interface and seeing data in an MSH-21 position, it may be a custom/local (Z-type) extension rather than a standard field.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 50,
+    "output_tokens": 365,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

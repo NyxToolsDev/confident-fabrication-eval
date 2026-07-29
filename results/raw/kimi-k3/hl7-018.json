@@ -1,0 +1,28 @@
+{
+  "question_id": "hl7-018",
+  "model_name": "kimi-k3",
+  "provider": "openai_compatible",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:59:54.442554+00:00",
+  "text": "In HL7 v2.3.1, **MSH-21 is the \u201cMessage Profile Identifier\u201d** field. It identifies the message/conformance profile(s) that the message claims to conform to. The field is an **Entity Identifier (EI)** and may repeat to reference multiple profiles.",
+  "reasoning": "We need need factual. MSH-21 Message Profile Identifier? In v2.3.1 perhaps MSH-21 \"Message Profile Identifier\" (EI). Let's ensure. HL7 v2.3.1 MSH fields: 1 separators, 2 encoding, 3 sending app, ... 15 accept ack, 16 app ack, 17 country, 18 character set, 19 principal language, 20 alternate character set handling scheme, 21 message profile identifier. Yes. Explain identifies conformance profile(s) governing message. Data type EI, repeating? likely 2.3.1 MSH-21 Message Profile Identifier, EI, repeats. Need concise.",
+  "stop_reason": "stop",
+  "resolved_model": "kimi-k3",
+  "usage": {
+    "completion_tokens": 217,
+    "prompt_tokens": 115,
+    "total_tokens": 332,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 142,
+      "rejected_prediction_tokens": null
+    },
+    "prompt_tokens_details": null
+  },
+  "request_params": {
+    "model": "kimi-k3",
+    "max_tokens": 4096,
+    "reasoning_effort": "low"
+  }
+}

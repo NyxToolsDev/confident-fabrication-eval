@@ -1,0 +1,29 @@
+{
+  "question_id": "dicom-016",
+  "model_name": "claude-opus-4-8",
+  "provider": "anthropic",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:56:13.001842+00:00",
+  "text": "# DICOM DIMSE Services: A Clarification\n\nThere's an important correction to make here: **DICOM does not have an \"N-QUERY\" service**. This appears to be a misconception, so let me clarify the actual DIMSE service structure.\n\n## The DIMSE Service Groups\n\nDICOM defines two categories of DIMSE (DICOM Message Service Element) services:\n\n### DIMSE-C (Composite Services)\nThese operate on **composite objects** (like complete images/SOP instances):\n- **C-STORE** \u2013 transfer objects\n- **C-FIND** \u2013 query for objects matching criteria\n- **C-GET** \u2013 retrieve objects\n- **C-MOVE** \u2013 move objects to a destination\n- **C-ECHO** \u2013 verification (\"ping\")\n\n### DIMSE-N (Normalized Services)\nThese operate on **normalized objects** (single real-world entities like a Modality Performed Procedure Step):\n- **N-CREATE** \u2013 create an instance\n- **N-SET** \u2013 modify attributes\n- **N-GET** \u2013 retrieve attributes\n- **N-ACTION** \u2013 perform an action\n- **N-DELETE** \u2013 delete an instance\n- **N-EVENT-REPORT** \u2013 report an event\n\n## Query Functionality: C-FIND vs. N-GET\n\nSince there's no N-QUERY, the closest comparison would likely be **C-FIND** vs. **N-GET**:\n\n| Aspect | C-FIND | N-GET |\n|--------|--------|-------|\n| Object type | Composite | Normalized |\n| Purpose | **Search/query** for matching instances based on keys | **Retrieve specific attributes** of a *known* instance |\n| Input | Query keys (matching criteria) | Specific SOP Instance UID + attribute list |\n| Result | Set of matching entries | Attribute values for one identified object |\n| Typical use | Worklist queries, patient/study search | Getting MPPS or print job status |\n\n**Key distinction:** C-FIND performs a *search* against a database using matching criteria (wildcards, ranges, etc.), whereas N-GET simply *fetches attributes* from a single object you already know the identity of.\n\n---\n\nIf you meant a specific query mechanism (e.g., a proprietary extension or the Modality Worklist query which uses C-FIND), let me know and I can go deeper.",
+  "stop_reason": "end_turn",
+  "resolved_model": "claude-opus-4-8",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 55,
+    "output_tokens": 759,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard"
+  },
+  "request_params": {
+    "model": "claude-opus-4-8",
+    "max_tokens": 2048
+  }
+}

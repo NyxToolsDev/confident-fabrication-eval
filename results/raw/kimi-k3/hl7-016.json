@@ -1,0 +1,28 @@
+{
+  "question_id": "hl7-016",
+  "model_name": "kimi-k3",
+  "provider": "openai_compatible",
+  "verification_status": "draft",
+  "timestamp": "2026-07-29T18:59:27.515865+00:00",
+  "text": "In HL7 v2.5.1, **PID-2 (Patient ID) is retained for backward compatibility only** and should not be used for new interfaces. Patient identifiers should instead be placed in **PID-3 (Patient Identifier List)**.",
+  "reasoning": "We need need exact. PID-2 withdrawn? In v2.5.1 PID-2 Patient ID is retained for backward compatibility? PID-3 Patient Identifier List should be used. Need status wording: \"Withdrawn\" as of v2.3.1? Let's recall HL7 v2.5.1 PID table:\nPID-1 Set ID - PID O 1 SI\nPID-2 Patient ID CX (Maybe \"B\" backward compatibility)\nPID-3 Patient Identifier List R Y CX\nPID-4 Alternate Patient ID - PID W Y CX (withdrawn as of v2.7 perhaps)\nPID-5 Patient Name R Y XPN.\n\nI recall v2.5.1 chapter:\nPID-2 Patient ID (CX) 00106\nDefinition: This field has been retained for backward compatibility only. The arbitrary term of Patient ID has been removed from the name of PID-3, Patient Identifier List. The reader is referred to PID-3 Patient Identifier List.\nUsage Note: ... In the past, this field was used to contain ... withdrawn as of v2.7? Status B.\nQuestion asks \"what is status ... and what should be used instead?\" likely \"withdrawn, use PID-3\". But if exact v2.5.1, status is \"B\" not W. Let's investigate memory of HL7 standards tables.\n\nTable 0394 field status? In v2.5, Status column may include:\nR required\nO optional\nC conditional\nX not used with trigger\nB left in for backward compatibility\nW withdrawn\nPID-2 likely B.\nHL7 v2.8 PID:\nPID-2 Patient ID 00106 B 1 CX\nDefinition: This field has been retained for backward compatibility only. It is recommended to use PID-3 Patient Identifier List for all patient identifiers.\nIn v2.9, perhaps PID-2 Withdrawn? Searching mental snippets: hl7.eu/HL7v2x/v251/std251/ch03.html:\nPID-2 Patient ID (CX) 00106\nComponents...\nDefinition: This field has been retained for backward compatibility only. The arbitrary term of \"Patient ID\" has been removed from the name of PID-3 - Patient Identifier List. The reader is referred to PID-3 - Patient Identifier List.\nMaybe table status \"B\". User wording \"what is the status ... and what should be used instead?\" Answer: It is retained for backward compatibility only (not recommended), use PID-3.",
+  "stop_reason": "stop",
+  "resolved_model": "kimi-k3",
+  "usage": {
+    "completion_tokens": 580,
+    "prompt_tokens": 126,
+    "total_tokens": 706,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 514,
+      "rejected_prediction_tokens": null
+    },
+    "prompt_tokens_details": null
+  },
+  "request_params": {
+    "model": "kimi-k3",
+    "max_tokens": 4096,
+    "reasoning_effort": "low"
+  }
+}
