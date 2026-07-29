@@ -22,21 +22,22 @@ This project measures how often frontier and open-weight models confidently fabr
 
 ## Status
 
-**v0.2 — first verified results below.** All 30 questions in the current bank passed practitioner verification on 2026-07-29. The bank is still growing toward ~200; new questions enter as `"status": "draft"` and are excluded from headline results until verified. Raw responses and graded results are committed for transparency and reproducibility.
+**v0.3 — 50 verified questions.** All 50 questions in the current bank passed practitioner verification on 2026-07-29. The bank is still growing toward ~200; new questions enter as `"status": "draft"` and are excluded from headline results until verified. Raw responses and graded results are committed for transparency and reproducibility.
 
-## Results — 30 verified questions, 4 models (2026-07-29)
+## Results — 50 verified questions, 4 models (2026-07-29)
 
 | model | correct | abstain | hedged wrong | confident fabrication |
 |---|---:|---:|---:|---:|
 | claude-opus-4-8 | 100% | 0% | 0% | 0% |
-| kimi-k3 | 93.3% | 0% | 0% | 6.7% |
-| claude-haiku-4-5 | 86.7% | 0% | 0% | 13.3% |
-| qwen3.5-35b (local) | 50% | 0% | 0% | 50% |
+| kimi-k3 | 90% | 0% | 0% | 10% |
+| claude-haiku-4-5 | 84% | 0% | 0% | 16% |
+| qwen3.5-35b (local) | 46% | 0% | 2% | 52% |
 
-Two observations hold across all 120 graded responses:
+Three observations across the 200 graded responses:
 
-1. **No model ever abstained or hedged.** Every wrong answer, from every model, was asserted with full confidence — the `abstain` and `hedged_wrong` columns are zero across the board. In this domain, at this question difficulty, "wrong" and "confidently wrong" were the same thing.
-2. **Version traps are the hardest question type** (50% fabrication rate) — questions where a field exists in one version of a standard but not in the version asked about.
+1. **No model ever abstained**, and 199 of 200 responses showed no hedging either. Of the 39 wrong answers in the dataset, 38 were asserted with full confidence; the single `hedged_wrong` (qwen, on a version-trap question) is the only time any model signaled uncertainty while being wrong. In this domain, "wrong" and "confidently wrong" were effectively the same thing.
+2. **Trap questions separate the models.** Version traps (a field exists in one version of the standard, but not the version asked about) ran at a 33% fabrication rate, false premises at 27%, versus 13% on straight factual lookups. Several traps caught two frontier-tier models independently with the same fabrication — e.g. inventing contents for MSH-25, or describing semantics for a nonexistent N-QUERY DIMSE service.
+3. **Failure to terminate is its own failure mode.** The local open-weight model repeatedly burned 4k–8k-token completion budgets re-deriving answers without landing — including on basic lookups like the Patient's Birth Date tag — and needed a 16k cap to finish naturally. Kimi K3 at its default reasoning effort showed the same pattern on trap questions (see `docs/anecdotes/`).
 
 A third failure mode surfaced during collection: at its default (`max`) reasoning effort, Kimi K3 burned its entire completion budget on hidden reasoning for five trap questions and returned *empty* visible answers — the reasoning transcripts show it reaching the correct conclusion early and re-litigating it until the budget died. The graded dataset uses `reasoning_effort: "low"`; the burnout runs are preserved in `docs/anecdotes/kimi-k3-max-effort-burnout/`.
 
